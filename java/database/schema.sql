@@ -28,8 +28,8 @@ CREATE TABLE pets (
     name VARCHAR(50) NOT NULL,
     species VARCHAR(50) NOT NULL,
     breed VARCHAR(50) NOT NULL,
-	size VARCHAR(50),
-	gender VARCHAR(50),
+	weight VARCHAR(50) NOT NULL,
+	gender VARCHAR(50) NOT NULL,
 	age VARCHAR(50) NOT NULL,
 	spayed_neutered BOOLEAN NOT NULL,
 	pet_image VARCHAR(50),
@@ -68,6 +68,7 @@ CREATE TABLE volunteers (
     email VARCHAR(50) NOT NULL,
     phone_number VARCHAR(50) NOT NULL,
     zip_code INT NOT NULL,
+    is_approved VARCHAR(50) NOT NULL,
     -- CAN ADD MORE BASED ON APPLICATION FORM
     CONSTRAINT pk_volunteers PRIMARY KEY (volunteer_id),
     CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
