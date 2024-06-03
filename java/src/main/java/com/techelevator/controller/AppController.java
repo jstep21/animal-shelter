@@ -13,11 +13,12 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 public class AppController {
     @Autowired
     private PetDAO petDao;
 
+    @PreAuthorize("permitAll")
     @RequestMapping(path="/pets", method = RequestMethod.GET)
     public List<Pet> getAllPets() {
         return petDao.getAllPets();
