@@ -21,14 +21,14 @@ public class JdbcPetDao implements PetDAO {
     private Pet mapRowToPet(SqlRowSet sqlRowSet) {
         Pet pet = new Pet();
 
-        pet.setPet_id(sqlRowSet.getInt("pet_id"));
+        pet.setPetId(sqlRowSet.getInt("pet_id"));
         pet.setName(sqlRowSet.getString("name"));
         pet.setSpecies(sqlRowSet.getString("species"));
         pet.setBreed(sqlRowSet.getString("breed"));
         pet.setSize(sqlRowSet.getString("size"));
         pet.setGender(sqlRowSet.getString("gender"));
         pet.setAge(sqlRowSet.getString("age"));
-        pet.setSprayed_neutered(sqlRowSet.getBoolean("sprayed_neutered"));
+        pet.setSpayedNeutered(sqlRowSet.getBoolean("spayed_neutered"));
 
         return pet;
     }

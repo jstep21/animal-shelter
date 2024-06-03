@@ -1,21 +1,26 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Pet {
-    private int pet_id;
+    private int petId;
     private String name;
     private String species;
     private String breed;
     private String size;
     private String gender;
     private String age;
-    private Boolean sprayed_neutered;
+    private Boolean spayedNeutered;
+    private List<String> petDescriptions;
+    private List<String> petImageUrls;
 
-    public int getPet_id() {
-        return pet_id;
+
+    public int getPetId() {
+        return petId;
     }
 
-    public void setPet_id(int pet_id) {
-        this.pet_id = pet_id;
+    public void setPetId(int pet_id) {
+        this.petId = pet_id;
     }
 
     public String getName() {
@@ -66,24 +71,43 @@ public class Pet {
         this.age = age;
     }
 
-    public Boolean getSprayed_neutered() {
-        return sprayed_neutered;
+    public Boolean getSpayedNeutered() {
+        return spayedNeutered;
     }
 
-    public void setSprayed_neutered(Boolean spray_neutered) {
-        this.sprayed_neutered = spray_neutered;
+    public void setSpayedNeutered(Boolean spayNeutered) {
+        this.spayedNeutered = spayNeutered;
     }
+
+    public List<String> getPetImageUrls() {
+        return petImageUrls;
+    }
+
+    public void setPetImageUrls(List<String> petImageUrls) {
+        this.petImageUrls = petImageUrls;
+    }
+
+    public List<String> getPetDescriptions() {
+        return petDescriptions;
+    }
+
+    public void setPetDescriptions(List<String> petDescriptions) {
+        this.petDescriptions = petDescriptions;
+    }
+
     @Override
     public String toString() {
         return "Pet{" +
-                "id=" + pet_id +
+                "id=" + petId +
                 ", name='" + name + '\'' +
                 ", species='" + species + '\'' +
                 ", breed=" + breed +
                 ", size=" + size +
                 ", gender=" + gender +
                 ", age=" + age +
-                ", sprayed_neutered=" + sprayed_neutered +
+                ", sprayedNeutered=" + spayedNeutered +
+                ", petImageUrls=" + petImageUrls +
+                ", petDescriptions=" + petDescriptions +
                 '}';
     }
 }
