@@ -14,10 +14,11 @@ Create the database schema and necessary tables.
 ## 2. Database Schema Design
 ### Tables:
 * Users (user_id, username, password_hash, role)
-* Pets (user_id, name, species, breed, weight, gender, age, spayed_neutered, pet_image)
+* Pets (user_id, name, species, breed, weight, gender, age, spayed_neutered, pet_image, [TODO]:status(available, adopted, unavailable, etc.))
 * Description (description_id, description)
-* Volunteers (volunteer_id, user_id, first_name, last_name, email, phone_number, zip_code, is_approved)
-* [TODO] Images (image_id, image_url)
+* Volunteers (volunteer_id, user_id, first_name, last_name, email, phone_number, [TODO]:street, [TODO]:city, [TODO]:state,  zip_code, [TODO]:status(pending, approved, rejected))
+* [TODO]: Admins (admin_id, user_id, first_name, last_name, email, phone_number, street, city, state, zip_code, status(current, archived, terminated, etc.))
+* [TODO] Images (image_id, image_url -OR- image itself (blob/bytea))
 ### Join Tables:
 * Pet_Description
 * [TODO] Pet_Image
@@ -41,9 +42,19 @@ Create the database schema and necessary tables.
 * [DONE] Configure Spring Security with JWT for authentication and authorization.
 * [DONE] Define roles and permissions.
 ## 4. Frontend (Vue.js)
+### App.vue
+* Navigation bar `<div id="nav">` at the top of the screen, currently "`Home |`" in the starter code. [TODO] Use this for our `Home`, `About`, `Contact Us` and `Sign Up` links.
+### Views
+* HomeView [TODO: allow unauthenticated user to access and make this our splash screen]
+* [TODO] VolunteerView to allow approved volunteers to add new pets and update pet listings.
+* [TODO] AdminView to allow admins to see all pending volunteer applications and have the option to approve or decline them.
+* LoginView
+* LogoutView
+* RegisterView
 ### Components:
 * PetList for displaying available pets.
 * PetCard for individual pet details.
+* [TODO]: PetCarousel for displaying a few pets to unauthenticated user
 * VolunteerApplicationForm for submitting applications.
 * LoginForm for user login.
 * AddPetForm for adding new pet listings.
