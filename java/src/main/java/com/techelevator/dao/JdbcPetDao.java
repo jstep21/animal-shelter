@@ -129,6 +129,7 @@ public class JdbcPetDao implements PetDAO {
             System.out.println("Problem connecting to database");
         } catch (DataIntegrityViolationException e) {
             System.out.println("Problem with Data Integrity");
+            System.out.println(e.getMessage());
         }
         return getPet(newPetId);
     };
