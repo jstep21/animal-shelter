@@ -23,7 +23,7 @@ public class JdbcImageDao implements ImageDao {
     @Override
     public List<ImageUrl> getAllImages() {
         List<ImageUrl> imageUrls = new ArrayList<>();
-        String sql = "SELECT image_id, image_url FROM images";
+        String sql = "SELECT image_id, image_url FROM images;";
 
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);

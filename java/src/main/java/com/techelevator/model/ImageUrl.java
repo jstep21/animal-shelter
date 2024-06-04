@@ -1,7 +1,6 @@
 package com.techelevator.model;
 
 import java.util.Objects;
-
 public class ImageUrl {
     private int imageId;
     private String imageUrl;

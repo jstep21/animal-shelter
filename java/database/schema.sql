@@ -1,8 +1,8 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS pet_description;
-DROP TABLE IF EXISTS users, pets, descriptions, volunteers;
-DROP SEQUENCE IF EXISTS seq_pet_id, seq_description_id;
+DROP TABLE IF EXISTS users, pets, descriptions, volunteers, images;
+DROP SEQUENCE IF EXISTS seq_pet_id, seq_description_id, seq_image_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -32,7 +32,6 @@ CREATE TABLE pets (
 	gender VARCHAR(50) NOT NULL,
 	age VARCHAR(50) NOT NULL,
 	spayed_neutered BOOLEAN NOT NULL,
-	pet_image VARCHAR(50),
 	CONSTRAINT pk_pets PRIMARY KEY (pet_id)
 );
 
@@ -43,7 +42,7 @@ CREATE SEQUENCE seq_description_id
 
 CREATE TABLE descriptions (
     description_id int NOT NULL DEFAULT nextval('seq_description_id'),
-    description VARCHAR(50) NOT NULL,
+    description VARCHAR(100) NOT NULL,
     CONSTRAINT pk_descriptions PRIMARY KEY (description_id)
 );
 
@@ -72,6 +71,19 @@ CREATE TABLE volunteers (
     -- CAN ADD MORE BASED ON APPLICATION FORM
     CONSTRAINT pk_volunteers PRIMARY KEY (volunteer_id),
     CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE SEQUENCE seq_image_id
+  INCREMENT BY 1
+  START WITH 4001
+  MAXVALUE 5000;
+
+CREATE TABLE images (
+    image_id INT NOT NULL DEFAULT nextval('seq_image_id'),
+    pet_id INT NOT NULL,
+    image_url VARCHAR(300) NOT NULL,
+    CONSTRAINT pk_images PRIMARY KEY (image_id),
+    CONSTRAINT fk_pet_id FOREIGN KEY (pet_id) REFERENCES pets(pet_id)
 );
 
 COMMIT TRANSACTION;
