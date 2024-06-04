@@ -1,7 +1,7 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS pet_description;
-DROP TABLE IF EXISTS users, pets, description, volunteers;
+DROP TABLE IF EXISTS users, pets, descriptions, volunteers;
 DROP SEQUENCE IF EXISTS seq_pet_id, seq_description_id;
 
 CREATE SEQUENCE seq_user_id
@@ -41,10 +41,10 @@ CREATE SEQUENCE seq_description_id
   START WITH 2001
   MAXVALUE 3000;
 
-CREATE TABLE description (
+CREATE TABLE descriptions (
     description_id int NOT NULL DEFAULT nextval('seq_description_id'),
     description VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_description PRIMARY KEY (description_id)
+    CONSTRAINT pk_descriptions PRIMARY KEY (description_id)
 );
 
 CREATE TABLE pet_description (
@@ -52,7 +52,7 @@ CREATE TABLE pet_description (
     description_id INT,
     CONSTRAINT pk_pet_description PRIMARY KEY (pet_id, description_id),
     CONSTRAINT fk_pet_id FOREIGN KEY (pet_id) REFERENCES pets(pet_id),
-    CONSTRAINT fk_description_id FOREIGN KEY (description_id) REFERENCES description(description_id)
+    CONSTRAINT fk_description_id FOREIGN KEY (description_id) REFERENCES descriptions(description_id)
 );
 
 CREATE SEQUENCE seq_volunteer_id

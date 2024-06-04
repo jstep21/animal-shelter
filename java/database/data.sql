@@ -7,14 +7,14 @@ INSERT INTO users (username, password_hash, role) VALUES ('jake-test', '$2a$10$f
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Queso', 'Cat', 'Maine Coon', '15', 'Female', '5', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Big Chew', 'Dog', 'Great Dane', '160', 'Male', '2', true);
 
-INSERT INTO description(description) VALUES ('Playful');
-INSERT INTO description(description) VALUES ('Affectionate');
-INSERT INTO description(description) VALUES ('Funny');
-INSERT INTO description(description) VALUES ('Intelligent');
-INSERT INTO description(description) VALUES ('Cute');
-INSERT INTO description(description) VALUES ('Independent');
-INSERT INTO description(description) VALUES ('Laidback');
-INSERT INTO description(description) VALUES ('Energetic');
+INSERT INTO descriptions(description) VALUES ('Playful');
+INSERT INTO descriptions(description) VALUES ('Affectionate');
+INSERT INTO descriptions(description) VALUES ('Funny');
+INSERT INTO descriptions(description) VALUES ('Intelligent');
+INSERT INTO descriptions(description) VALUES ('Cute');
+INSERT INTO descriptions(description) VALUES ('Independent');
+INSERT INTO descriptions(description) VALUES ('Laidback');
+INSERT INTO descriptions(description) VALUES ('Energetic');
 
 INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2002);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2004);
