@@ -3,12 +3,13 @@ package com.techelevator.controller;
 import com.techelevator.model.EmailDto;
 import com.techelevator.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
 @CrossOrigin
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 public class EmailController {
     RestTemplate restTemplate = new RestTemplate();
 
@@ -19,6 +20,7 @@ public class EmailController {
         this.emailService = emailService;
     }
 
+    @PreAuthorize("permitAll")
     @RequestMapping(path = "/send-email", method = RequestMethod.POST)
     public String sendEmail(@RequestBody EmailDto email) {
         try {
