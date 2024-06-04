@@ -7,7 +7,7 @@ public class Pet {
     private String name;
     private String species;
     private String breed;
-    private String size;
+    private String weight;
     private String gender;
     private String age;
     private Boolean spayedNeutered;
@@ -47,12 +47,12 @@ public class Pet {
         this.breed = breed;
     }
 
-    public String getSize() {
-        return size;
+    public String getWeight() {
+        return weight;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
     public String getGender() {
@@ -102,7 +102,7 @@ public class Pet {
                 ", name='" + name + '\'' +
                 ", species='" + species + '\'' +
                 ", breed=" + breed +
-                ", size=" + size +
+                ", weight=" + weight +
                 ", gender=" + gender +
                 ", age=" + age +
                 ", sprayedNeutered=" + spayedNeutered +

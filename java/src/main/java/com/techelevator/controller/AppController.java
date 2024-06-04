@@ -4,10 +4,7 @@ import com.techelevator.dao.PetDAO;
 import com.techelevator.model.Pet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +19,16 @@ public class AppController {
     @RequestMapping(path="/pets", method = RequestMethod.GET)
     public List<Pet> getAllPets() {
         return petDao.getAllPets();
+    }
+
+    @PreAuthorize("permitAll")
+    @RequestMapping(path="/pets/{id}", method = RequestMethod.GET)
+    public Pet getPet(@PathVariable int id) {
+        return petDao.getPet(id);
+    }
+
+    @RequestMapping(path="/add-pet", method = RequestMethod.POST)
+    public Pet addPet(@RequestBody Pet pet) {
+        return petDao.addPet(pet);
     }
 }
