@@ -61,8 +61,8 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2008);
 
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, is_approved) VALUES(3, 'Jake', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');
 
-INSERT INTO images (pet_id, image_url) VALUES (1001, 'https://cdn2.thecatapi.com/images/agwTe5TSe.jpg'); -- change to image of Queso
-INSERT INTO images (pet_id, image_url) VALUES (1002, 'https://images.dog.ceo/breeds/dane-great/n02109047_16735.jpg'); -- change to image of Big Chew
+INSERT INTO images (pet_id, image_url) VALUES (1001, 'https://cdn2.thecatapi.com/images/agwTe5TSe.jpg'); -- Queso
+INSERT INTO images (pet_id, image_url) VALUES (1002, 'https://images.dog.ceo/breeds/dane-great/n02109047_16735.jpg'); -- Winston Fetchill
 INSERT INTO images (pet_id, image_url) VALUES (1003, 'https://images.dog.ceo/breeds/pug/n02110958_13469.jpg'); -- Gizmo
 INSERT INTO images (pet_id, image_url) VALUES (1004, 'https://images.dog.ceo/breeds/dane-great/n02109047_6008.jpg'); -- Hercules
 INSERT INTO images (pet_id, image_url) VALUES (1005, 'https://images.dog.ceo/breeds/cattledog-australian/IMG_1211.jpg'); -- Sly
