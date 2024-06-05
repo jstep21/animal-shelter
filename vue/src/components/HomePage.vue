@@ -1,75 +1,120 @@
 <template>
-    <div class="body">
-        <table class="header">
-            <thead>
-            <tr>
-                <th id="header-title-name"> Sheltered Furry Friends</th>
-                <th id="header-home-link"> Home </th>
-                <th id="header-about-link"> About </th>
-                <th id="header-contact-link"> Contact Us</th>
-                <th id="header-signup"> 
-                    <button id="header-signup-button"> Sign Up </button> 
-                </th>
-            </tr>
-            </thead>
-        </table>
+  <div class="body">
+    <table class="header">
+      <thead>
+        <tr>
+          <th id="header-title-name">Sheltered Furry Friends</th>
+          <th id="header-home-link">Home</th>
+          <th id="header-about-link">About</th>
+          <th id="header-contact-link">Contact Us</th>
+          <th id="header-signup">
+            <button id="header-signup-button">Sign Up</button>
+          </th>
+        </tr>
+      </thead>
+    </table>
 
-        <div class="splash-main-text"> 
-            <h1 id="splash-title"> Sheltered Furry Friends </h1>
-            <span id="sub-title"> Volunteer and save a life! </span>
-            <span id="splash-signup"> 
-                <button id="splash-signup-button"> Sign Up  </button>
-            </span>
-        </div>
-
-        <div class="splash-hero-image" > 
-            <img src="../assets/Shelter Dog 2.jpg"/>
-        </div>
-
-        <div class="splash-secondary-text"> 
-            <h2 id="secondary-title"> How To Help </h2>
-            <span id="secondary-sub-title"> Get involved with Sheltered Furry Friends</span>
-        </div>
-
-        <div> </div>
-
+    <div class="splash-main-text">
+      <h1 id="splash-title">Sheltered Furry Friends</h1>
+      <span id="sub-title"> Volunteer and save a life! </span>
+      <span id="splash-signup">
+        <button id="splash-signup-button">Sign Up</button>
+      </span>
     </div>
+
+    <div class="splash-hero-image">
+      <img src="../assets/Shelter Dog 2.jpg" />
+    </div>
+
+    <div class="splash-secondary-text">
+      <h2 id="secondary-title">How To Help</h2>
+      <span id="secondary-sub-title">
+        Get involved with Sheltered Furry Friends</span
+      >
+    </div>
+
+    <br>
+    <br>
+
+    <div class="links-box">
+      <div class="links-card">
+        <div><strong>Find your newest family member!</strong></div>
+        <button id="search-adoptees-button" @click="goToBrowsePets">
+            Search available adoptees
+        </button>
+      </div>
+      <div class="links-card">
+        <div><strong>Volunteer at a shelter!</strong></div>
+        <button id="volunteer-signup-button">Sign up to be a volunteer</button>
+      </div>
+      <div class="links-card">
+        <div><strong>Tell your friends about us!</strong></div>
+        <button id="invite-friend-button">Invite a friend</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-
+    export default {
+        methods: {
+            goToBrowsePets() {
+                this.$router.push({ name: 'browse-pets'});
+            }
+        }
+    }
 </script>
 
-<style>
-
-
+<style scoped>
 .header {
-    width: 100%;
+  width: 100%;
 }
 
 #header-signup-button {
-    border-radius: 25px;
-    padding: 10px;
-    background-color: black;
-    color: white;
+  border-radius: 25px;
+  padding: 10px;
+  background-color: black;
+  color: white;
 }
 
 .splash-main-text {
-    display: flex;
-    flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 }
 
 #splash-signup-button {
-    border-radius: 25px;
-    padding: 10px;
-    background-color: black;
-    color: white;
+  border-radius: 25px;
+  padding: 10px;
+  background-color: black;
+  color: white;
 }
 
 img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
+.links-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-size:x-large;
+}
+.links-box button {
+  border-radius: 15px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: large;
+}
+.links-card {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.links-card > *:not(:last-child) {
+    margin-bottom: 20px;
+}
 </style>
