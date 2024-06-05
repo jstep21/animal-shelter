@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <div class="home-page-heading">Home</div>
-        <div>
+        <div class="table-view">
             <PetTable  class="pets"/>
         </div>
     </div>
@@ -20,11 +20,11 @@ export default {
 </script>
 
 <style scoped>
-/* .home {
-  margin-top: 50px;
-  padding: 20px;
+
+.table-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.pets {
-    
-} */
+
 </style>
