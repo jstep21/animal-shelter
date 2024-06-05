@@ -25,6 +25,7 @@ export default {
     display: inline-block;
     width: 200px;
     height: 200px;
+    background-color: #EEE0C9;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table>
+        <table class="pet-card-grid">
             <tr v-for="(row, rowIndex) in rows" :key="rowIndex">
                 <td v-for="(curPet, cellIndex) in 4" :key="cellIndex">
                     <PetCard :pet="petCell(rowIndex, cellIndex)"/>
@@ -88,5 +88,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>
