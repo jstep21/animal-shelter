@@ -47,7 +47,8 @@ public class JdbcPetDao implements PetDAO {
                 List<String> petDescriptions = getPetDescriptions(pet.getPetId());
                 pet.setPetDescriptions(petDescriptions);
 
-                // Will also need to do the same for images i believe
+                List<String> petImageUrls = getPetImageUrls(pet.getPetId());
+                pet.setPetImageUrls(petImageUrls);
 
                 pets.add(pet);
             }
@@ -72,8 +73,8 @@ public class JdbcPetDao implements PetDAO {
                 List<String> petDescriptions = getPetDescriptions(pet.getPetId());
                 pet.setPetDescriptions(petDescriptions);
 
-                // Will also need to do the same for images i believe
-
+                List<String> petImageUrls = getPetImageUrls(pet.getPetId());
+                pet.setPetImageUrls(petImageUrls);
             }
         } catch (CannotGetJdbcConnectionException e) {
             System.out.println("Problem connecting to database");
@@ -83,8 +84,7 @@ public class JdbcPetDao implements PetDAO {
         return pet;
     }
 
-    // Mainly used to populate the list of descriptions for each pet
-    // (i think we'll need one for images too)
+
     @Override
     public List<String> getPetDescriptions(int petId) {
         List<String> petDescriptions = new ArrayList<>();
@@ -105,9 +105,26 @@ public class JdbcPetDao implements PetDAO {
         return petDescriptions;
     };
 
+    public List<String> getPetImageUrls(int petId) {
+        List<String> petImageUrls = new ArrayList<>();
+        // When we change it to multiple images per pet we'll need a
+        // JOIN with the associative table that connects pets to images
+        String sql = "SELECT image_url FROM images WHERE pet_id = ?;";
+
+        try {
+            SqlRowSet results = template.queryForRowSet(sql, petId);
+            if (results.next()) {
+                petImageUrls.add(results.getString("image_url"));
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting to database");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Problem with Data Integrity");
+        }
+        return petImageUrls;
+    }
 
 
-    // Havent tested
     @Override
     public Pet addPet(Pet petToAdd) {
         String sql = "INSERT INTO pets " +

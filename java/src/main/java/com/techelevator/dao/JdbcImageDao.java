@@ -39,6 +39,8 @@ public class JdbcImageDao implements ImageDao {
         return imageUrls;
     }
 
+
+
     private ImageUrl mapRowToImageUrl(SqlRowSet sqlRowSet) {
         ImageUrl imageUrl = new ImageUrl();
         imageUrl.setImageId(sqlRowSet.getInt("image_id"));

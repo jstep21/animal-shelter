@@ -10,6 +10,7 @@ public interface PetDAO {
     public Pet getPet(int petId);
 
     public List<String> getPetDescriptions(int petId);
+    public List<String> getPetImageUrls(int petId);
 
     public Pet addPet(Pet petToAdd);
 }
