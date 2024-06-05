@@ -1,7 +1,7 @@
 <template>
   <div id="pet-card">
       <div class="card" v-if="pet">
-        <img class="pet-image" src="https://cdn2.thecatapi.com/images/agwTe5TSe.jpg" alt="Queso">
+        <img :src="pet.petImageUrls[0]" alt="Queso" class="pet-image">
         <div class="info-box">
           <ul>
             <li>Name: {{ pet.name }}</li>
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   props: ["pet"],
 };

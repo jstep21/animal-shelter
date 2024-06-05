@@ -11,7 +11,10 @@
 </template>
 
 <script>
+import axios from 'axios';
 import PetCard from './PetCard.vue';
+import petService from '../services/PetService';
+
 
 export default {
 
@@ -21,51 +24,50 @@ export default {
     
     data() {
         return {
-            // pets: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-            pets: [
-                    {
-                        name: 1
-                    },
-                    {
-                        name: 2
-                    },
-                    {
-                        name: 3
-                    },
-                    {
-                        name: 4
-                    },
-                    {
-                        name: 5
-                    },
-                    {
-                        name: 6
-                    },
-                    {
-                        name: 7
-                    },
-                    {
-                        name: 8
-                    },
-                    {
-                        name: 9
-                    },
-                    {
-                        name: 10
-                    },
-                    {
-                        name: 11
-                    },
-                    {
-                        name: 12
-                    },
-                    {
-                        name: 13
-                    },
-                    {
-                        name: 14
-                    },
-            ]
+             pets: [] // Start with an empty array
+            //         {
+            //             name: 1
+            //         },
+            //         {
+            //             name: 2
+            //         },
+            //         {
+            //             name: 3
+            //         },
+            //         {
+            //             name: 4
+            //         },
+            //         {
+            //             name: 5
+            //         },
+            //         {
+            //             name: 6
+            //         },
+            //         {
+            //             name: 7
+            //         },
+            //         {
+            //             name: 8
+            //         },
+            //         {
+            //             name: 9
+            //         },
+            //         {
+            //             name: 10
+            //         },
+            //         {
+            //             name: 11
+            //         },
+            //         {
+            //             name: 12
+            //         },
+            //         {
+            //             name: 13
+            //         },
+            //         {
+            //             name: 14
+            //         },
+            
         }
     },
     computed: {
@@ -82,7 +84,25 @@ export default {
         petCell(row, cell) {
             const index = (row * 4) + cell;
             return index < this.pets.length ? this.pets[index] : undefined;        
+        },
+        fetchPet(petId) {
+            return petService.getPet(petId);
+        },
+        async fetchPets() {
+            try {
+                /*** add pets here by id ***/
+                const petIds = [1001, 1002, 1003, 1004, 1005, 1006,
+                                1007, 1008, 1009, 1010, 1011, 1012];
+                const petPromises = petIds.map(id => this.fetchPet(id));
+                const petResponses = await Promise.all(petPromises);
+                this.pets = petResponses.map(response => response.data);
+            } catch (error) {
+                console.error('Error fetching pet data: ', error);
+            }
         }
+    },
+    mounted() {
+        this.fetchPets();
     }
 }
 </script>
