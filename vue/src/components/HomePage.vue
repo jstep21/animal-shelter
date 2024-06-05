@@ -68,6 +68,8 @@
 <style scoped>
 .header {
   width: 100%;
+  font-size: x-large;
+
 }
 
 #header-signup-button {
@@ -80,6 +82,9 @@
 .splash-main-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+ 
 }
 
 #splash-signup-button {
@@ -87,12 +92,27 @@
   padding: 10px;
   background-color: black;
   color: white;
+  margin-bottom: 50px;
+  margin-top: 10px;
 }
-
+#sub-title {
+  font-size: large;
+}
+#secondary-title {
+  font-size: x-large;
+  margin-top: 50px;
+}
+#secondary-sub-title {
+  color: #595E60;
+  font-size: large;
+}
+#invite-friend-button {
+  margin-left: 75px;
+}
 img {
   width: 100%;
   height: auto;
-}
+  }
 
 .links-box {
   display: flex;
@@ -113,7 +133,7 @@ img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-}
+ }
 .links-card > *:not(:last-child) {
     margin-bottom: 20px;
 }

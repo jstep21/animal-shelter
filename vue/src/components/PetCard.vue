@@ -26,6 +26,9 @@ export default {
   position: relative;
   width: 200px;
   height: 200px;
+  padding: 10px;
+  border:solid #A1DD70 2px;
+  margin: 5px;
   
 }
 .card {
