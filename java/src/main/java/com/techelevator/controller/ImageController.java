@@ -23,7 +23,7 @@ public class ImageController {
 
     @PreAuthorize("permitAll")
     @RequestMapping(path = "/all-images", method = RequestMethod.GET)
-    public String getAllImages(@RequestBody ImageUrl image) {
+    public String getAllImages() {
         try {
             imageService.getAllImages();
             return "All images retrieved successfully";

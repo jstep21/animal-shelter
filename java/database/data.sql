@@ -61,18 +61,17 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2008);
 
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, is_approved) VALUES(3, 'Jake', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');
 
-INSERT INTO images (image_id, pet_id, image_url)
-VALUES (4001, 1001, 'https://images.dog.ceo/breeds/pug/n02110958_13469.jpg'); -- change to image of Queso
-VALUES (4002, 1002, 'https://images.dog.ceo/breeds/pug/n02110958_13469.jpg'); -- change to image of Big Chew
-VALUES (4003, 1003, 'https://images.dog.ceo/breeds/pug/n02110958_13469.jpg'); -- Gizmo
-VALUES (4004, 1004, 'https://images.dog.ceo/breeds/dane-great/n02109047_6008.jpg'); -- Hercules
-VALUES (4005, 1005, 'https://images.dog.ceo/breeds/cattledog-australian/IMG_1211.jpg'); -- Sly
-VALUES (4006, 1006, 'https://images.dog.ceo/breeds/dingo/n02115641_4737.jpg'); -- Koda
-VALUES (4007, 1007, 'https://images.dog.ceo/breeds/deerhound-scottish/n02092002_6003.jpg'); -- Angus
-VALUES (4008, 1008, 'https://images.dog.ceo/breeds/maltese/n02085936_13013.jpg'); -- Lily
-VALUES (4009, 1009, 'https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_2903.jpg'); -- Pippin
-VALUES (4010, 1010, 'https://images.dog.ceo/breeds/wolfhound-irish/n02090721_1235.jpg '); -- Stump
-VALUES (4011, 1011, 'https://images.dog.ceo/breeds/greyhound-italian/n02091032_1121.jpg'); -- Zephyr
-VALUES (4012, 1012, 'https://images.dog.ceo/breeds/chow/n02112137_5240.jpg'); -- Simba
+INSERT INTO images (pet_id, image_url) VALUES (1001, 'https://cdn2.thecatapi.com/images/agwTe5TSe.jpg'); -- change to image of Queso
+INSERT INTO images (pet_id, image_url) VALUES (1002, 'https://images.dog.ceo/breeds/dane-great/n02109047_16735.jpg'); -- change to image of Big Chew
+INSERT INTO images (pet_id, image_url) VALUES (1003, 'https://images.dog.ceo/breeds/pug/n02110958_13469.jpg'); -- Gizmo
+INSERT INTO images (pet_id, image_url) VALUES (1004, 'https://images.dog.ceo/breeds/dane-great/n02109047_6008.jpg'); -- Hercules
+INSERT INTO images (pet_id, image_url) VALUES (1005, 'https://images.dog.ceo/breeds/cattledog-australian/IMG_1211.jpg'); -- Sly
+INSERT INTO images (pet_id, image_url) VALUES (1006, 'https://images.dog.ceo/breeds/dingo/n02115641_4737.jpg'); -- Koda
+INSERT INTO images (pet_id, image_url) VALUES (1007, 'https://images.dog.ceo/breeds/deerhound-scottish/n02092002_6003.jpg'); -- Angus
+INSERT INTO images (pet_id, image_url) VALUES (1008, 'https://images.dog.ceo/breeds/maltese/n02085936_13013.jpg'); -- Lily
+INSERT INTO images (pet_id, image_url) VALUES (1009, 'https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_2903.jpg'); -- Pippin
+INSERT INTO images (pet_id, image_url) VALUES (1010, 'https://images.dog.ceo/breeds/wolfhound-irish/n02090721_1235.jpg '); -- Stump
+INSERT INTO images (pet_id, image_url) VALUES (1011, 'https://images.dog.ceo/breeds/greyhound-italian/n02091032_1121.jpg'); -- Zephyr
+INSERT INTO images (pet_id, image_url) VALUES (1012, 'https://images.dog.ceo/breeds/chow/n02112137_5240.jpg'); -- Simba
 
 COMMIT TRANSACTION;
