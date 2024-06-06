@@ -7,7 +7,12 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import BrowsePetsView from '../views/BrowsePetsView.vue';
-import Carousel from '../components/Carousel.vue';
+import PetDetailsView from '../views/PetDetailsView.vue';
+
+// for testing:
+import Carousel from '../components/Carousel.vue'; //
+// import PetTableTest from '../components/PetTableTest.vue'; //
+// import PetDetails from '../components/PetDetails.vue'; //
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -59,13 +64,29 @@ const routes = [
     }
   },
   {
+    path: "/pets/:petId",
+    name: "pet-details",
+    component: PetDetailsView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
     path: "/test",
     name: "test",
     component: Carousel,
     meta: {
       requiresAuth: false
     }
-  }
+  },
+  // {
+  //   path: "/browse-pets-test",
+  //   name: "browse-pets-test",
+  //   component: PetTableTest,
+  //   meta: {
+  //     requiresAuth: false
+  //   }
+  // }
 ];
 
 // Create the router

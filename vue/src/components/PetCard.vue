@@ -1,5 +1,5 @@
 <template>
-  <div id="pet-card">
+  <div id="pet-card" @click="$emit('click')">
       <div class="card" v-if="pet">
         <img :src="pet.petImageUrls[0]" alt="Queso" class="pet-image">
         <div class="info-box">
@@ -17,7 +17,7 @@
 import axios from 'axios';
 
 export default {
-  props: ["pet"],
+  props: ['pet'],
 };
 </script>
 
