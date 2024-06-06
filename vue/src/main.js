@@ -3,8 +3,8 @@ import CapstoneApp from './App.vue'
 import { createStore } from './store'
 import router from './router'
 import axios from 'axios'
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css'
+// import Vuetify from 'vuetify'
+// import 'vuetify/dist/vuetify.min.css'
 
 
 /* sets the base url for server API communication with axios */
@@ -29,6 +29,6 @@ const store = createStore(currentToken, currentUser);
 
 const app = createApp(CapstoneApp);
 app.use(store);
-app.use(Vuetify);
+// app.use(Vuetify);
 app.use(router);
 app.mount('#app');
