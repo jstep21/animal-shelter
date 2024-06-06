@@ -1,19 +1,5 @@
 <template>
   <div class="body">
-    <table class="header">
-      <thead>
-        <tr>
-          <th id="header-title-name">Sheltered Furry Friends</th>
-          <th id="header-home-link">Home</th>
-          <th id="header-about-link">About</th>
-          <th id="header-contact-link">Contact Us</th>
-          <th id="header-signup">
-            <button id="header-signup-button">Sign In</button>
-          </th>
-        </tr>
-      </thead>
-    </table>
-
     <div class="splash-main-text">
       <h1 id="splash-title">Sheltered Furry Friends</h1>
       <span id="sub-title"> Volunteer and save a life! </span>
@@ -66,24 +52,13 @@
 </script>
 
 <style scoped>
-.header {
-  width: 100%;
-  font-size: x-large;
 
-}
-
-#header-signup-button {
-  border-radius: 25px;
-  padding: 10px;
-  background-color: black;
-  color: white;
-}
 
 .splash-main-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  
  
 }
 
@@ -95,24 +70,36 @@
   margin-bottom: 50px;
   margin-top: 10px;
 }
+.splash-secondary-text {
+    margin-left: 10px;
+}
+
 #sub-title {
   font-size: large;
 }
+
 #secondary-title {
-  font-size: x-large;
+  font-size: xx-large;
   margin-top: 50px;
 }
+
 #secondary-sub-title {
   color: #595E60;
   font-size: large;
 }
+
 #invite-friend-button {
   margin-left: 75px;
 }
+
 img {
-  width: 100%;
-  height: auto;
-  }
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-left: 400px;
+  width: 50%;
+  height: 40%;
+}
 
 .links-box {
   display: flex;
@@ -120,6 +107,7 @@ img {
   align-items: center;
   width: 100%;
   font-size:x-large;
+  
 }
 .links-box button {
   border-radius: 15px;
@@ -133,6 +121,15 @@ img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+  /* border: solid lightgray 3px;
+  padding: 5px; */
+  padding: 10px;
+    border: 1px solid #767e8b;
+    box-shadow:  -1px 1px #767e8b,
+         -2px 2px #767e8b,
+         -3px 3px #767e8b,
+         -4px 4px #767e8b,
+         -5px 5px #767e8b;
  }
 .links-card > *:not(:last-child) {
     margin-bottom: 20px;
