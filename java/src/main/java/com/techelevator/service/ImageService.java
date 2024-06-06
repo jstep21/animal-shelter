@@ -7,6 +7,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -23,6 +24,11 @@ public class ImageService {
 
     public List<ImageUrl> getAllImages(){
         return imageDao.getAllImages();
+    }
+
+
+    public Integer saveImage(MultipartFile file) {
+        return imageDao.saveImage(file);
     }
 
 }

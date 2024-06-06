@@ -4,9 +4,12 @@ import com.techelevator.exception.DaoException;
 import com.techelevator.model.ImageUrl;
 import com.techelevator.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @CrossOrigin
@@ -29,6 +32,22 @@ public class ImageController {
             return "All images retrieved successfully";
         } catch (Exception e) {
             return "Failed to retrieve all images: " + e.getMessage();
+        }
+    }
+
+    @PreAuthorize("permitAll")
+    @RequestMapping(path="/upload", method = RequestMethod.POST)
+    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
+        System.out.println(file);
+        try {
+            imageService.saveImage(file);
+            String message = "File saved successfully";
+            System.out.println(message);
+            return ResponseEntity.ok(message);
+        } catch (Exception e) {
+            String errorMessage = "An error occurred";
+            System.out.println(e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
         }
     }
 }

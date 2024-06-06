@@ -7,7 +7,7 @@
         <button id="splash-signup-button">Sign Up</button>
       </span>
     </div>
-
+    
     <div class="splash-hero-image">
       <img src="../assets/Shelter Dog 2.jpg" />
     </div>
