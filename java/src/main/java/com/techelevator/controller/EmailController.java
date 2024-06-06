@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 @PreAuthorize("isAuthenticated()")
 public class EmailController {
     RestTemplate restTemplate = new RestTemplate();
-
     @Autowired
     private final EmailService emailService;
 
