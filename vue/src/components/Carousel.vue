@@ -1,4 +1,5 @@
 <template>
+  <v-icon icon="mdi-home" />
   <v-container>
         <v-carousel>
         <v-carousel-item

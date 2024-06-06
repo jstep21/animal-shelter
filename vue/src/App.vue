@@ -10,6 +10,5 @@
 </template>
 
 <style>
-  /* @import '~vuetify/src/stylus/main' */
 
 </style>
