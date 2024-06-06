@@ -81,7 +81,9 @@ CREATE SEQUENCE seq_image_id
 CREATE TABLE images (
     image_id INT NOT NULL DEFAULT nextval('seq_image_id'),
     pet_id INT NOT NULL,
-    image_url VARCHAR(300) NOT NULL,
+    image_url VARCHAR(300),
+    file_name VARCHAR(50),
+    image_data BYTEA,
     CONSTRAINT pk_images PRIMARY KEY (image_id),
     CONSTRAINT fk_pet_id FOREIGN KEY (pet_id) REFERENCES pets(pet_id)
 );

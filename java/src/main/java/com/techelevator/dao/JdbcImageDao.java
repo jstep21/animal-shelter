@@ -39,6 +39,12 @@ public class JdbcImageDao implements ImageDao {
         return imageUrls;
     }
 
+    @Override
+    public void updateImages(String fileName, byte[] byteData) {
+        String sql = "UPDATE images SET image_data = ?, file_name = ?;";
+        jdbcTemplate.update(sql, )
+    }
+
     private ImageUrl mapRowToImageUrl(SqlRowSet sqlRowSet) {
         ImageUrl imageUrl = new ImageUrl();
         imageUrl.setImageId(sqlRowSet.getInt("image_id"));
