@@ -7,6 +7,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import BrowsePetsView from '../views/BrowsePetsView.vue';
+import Carousel from '../components/Carousel.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -53,6 +54,14 @@ const routes = [
     path: "/browse-pets",
     name: "browse-pets",
     component: BrowsePetsView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: Carousel,
     meta: {
       requiresAuth: false
     }
