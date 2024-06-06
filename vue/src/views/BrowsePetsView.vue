@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <div class="home-page-heading">Home</div>
+        <div class="home-page-heading"> </div>
         <h1 id="browse-title">Available adoptees</h1>
         <div class="table-view">
             <PetTable  class="pets"/>

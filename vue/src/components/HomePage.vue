@@ -8,7 +8,7 @@
           <th id="header-about-link">About</th>
           <th id="header-contact-link">Contact Us</th>
           <th id="header-signup">
-            <button id="header-signup-button">Sign Up</button>
+            <button id="header-signup-button">Sign In</button>
           </th>
         </tr>
       </thead>
