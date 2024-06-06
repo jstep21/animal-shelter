@@ -80,7 +80,7 @@ CREATE SEQUENCE seq_image_id
 
 CREATE TABLE images (
     image_id INT NOT NULL DEFAULT nextval('seq_image_id'),
-    pet_id INT NOT NULL,
+    pet_id INT,
     image_url VARCHAR(300),
     file_name VARCHAR(50),
     image_data BYTEA,

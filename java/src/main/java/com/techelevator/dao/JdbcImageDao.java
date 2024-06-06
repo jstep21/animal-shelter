@@ -1,5 +1,7 @@
 package com.techelevator.dao;
 
+import com.techelevator.exception.DaoException;
+import com.techelevator.model.ImageByteArray;
 import com.techelevator.model.ImageUrl;
 import com.techelevator.model.Pet;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -7,8 +9,10 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +44,26 @@ public class JdbcImageDao implements ImageDao {
     }
 
     @Override
-    public void updateImages(String fileName, byte[] byteData) {
-        String sql = "UPDATE images SET image_data = ?, file_name = ?;";
-        jdbcTemplate.update(sql, )
+    public Integer saveImage(MultipartFile file) {
+        String sql = "INSERT INTO images" +
+                "(image_data, file_name) " +
+                "VALUES (?, ?) " +
+                "RETURNING image_id;";
+
+        int newImageId = -1;
+        try {
+            newImageId = jdbcTemplate.queryForObject(sql, Integer.class,
+                    file.getBytes(),
+                    file.getOriginalFilename());
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Cannot connect", e);
+        } catch (DataIntegrityViolationException e) {
+            System.out.println(e.getMessage());
+            throw new DaoException("Data integrity violation", e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return newImageId;
     }
 
     private ImageUrl mapRowToImageUrl(SqlRowSet sqlRowSet) {

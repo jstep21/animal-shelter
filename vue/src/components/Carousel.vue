@@ -1,5 +1,5 @@
 <template>
-  <!-- <v-icon icon="mdi-home" /> -->
+  <v-icon icon="mdi-home" />
 
 
   <v-app>
@@ -44,7 +44,7 @@
 
   </v-app>
 
-    <input type='file' id='file' ref='fileInput'/>
+    <input v-on:change="uploadFile" type='file' id='file' ref='fileInput'/>
 </template>
 
 <script>
@@ -60,16 +60,19 @@ export default {
   },
   methods: {
     uploadFile() {
+      console.log(this.file);
       this.file = this.$refs.fileInput.files[0];
 
       let formData = new FormData();
-      formData.append('filename', this.file);
+      formData.append('file', this.file);
 
       const options = {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       }
+
+      console.log(formData);
       
       ImageService.postImage(formData, options).then(
         (response) => {
