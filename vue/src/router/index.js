@@ -8,6 +8,7 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import BrowsePetsView from '../views/BrowsePetsView.vue';
 import PetDetailsView from '../views/PetDetailsView.vue';
+import ApplyView from '../views/ApplyView.vue';
 
 // for testing:
 import Carousel from '../components/Carousel.vue'; //
@@ -69,6 +70,14 @@ const routes = [
     component: PetDetailsView,
     meta: {
       requiresAuth: false
+    }
+  },
+  {
+    path: "/apply",
+    name: "apply",
+    component: ApplyView,
+    meta: {
+      requiresAuth: true
     }
   },
   {
