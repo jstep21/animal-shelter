@@ -3,11 +3,9 @@
     <div class="splash-main-text">
       <h1 id="splash-title">Sheltered Furry Friends</h1>
       <span id="sub-title"> Volunteer and save a life! </span>
-      <!-- <span id="splash-signup"> -->
         <button id="splash-signup-button">
            <router-link class="signup" v-bind:to="{ name: 'register'}"> Sign Up </router-link> 
         </button>
-      <!-- </span> -->
     </div>
     
     <div class="splash-hero-image">
@@ -57,7 +55,6 @@
 
 <style scoped>
 
-
 .splash-main-text {
   display: flex;
   flex-direction: column;
@@ -93,7 +90,7 @@
 }
 
 #secondary-sub-title {
-  color: #595E60;
+  color: #626e72;
   font-size: large;
 }
 
@@ -101,11 +98,13 @@
   margin-left: 75px;
 }
 
-img {
+.splash-hero-image {
   display: flex;
   align-content: center;
   justify-content: center;
-  margin-left: 400px;
+}
+
+img {
   width: 50%;
   height: 40%;
 }
