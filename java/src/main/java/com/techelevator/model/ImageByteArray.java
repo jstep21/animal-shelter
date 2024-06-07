@@ -9,12 +9,12 @@ package com.techelevator.model;
 public class ImageByteArray {
     private int imageId;
     private String imageFilename;
-    private String imageString;
+    private byte[] byteData;
 
-    public ImageByteArray(int imageId, String imageFilename, String imageString) {
+    public ImageByteArray(int imageId, String imageFilename, byte[] byteData) {
         this.imageId = imageId;
         this.imageFilename = imageFilename;
-        this.imageString = imageString;
+        this.byteData = byteData;
     }
 
     public int getImageId() {
@@ -33,11 +33,11 @@ public class ImageByteArray {
         this.imageFilename = imageFilename;
     }
 
-    public String getImageString() {
-        return imageString;
+    public byte[] getByteData() {
+        return byteData;
     }
 
-    public void setImageString(String imageString) {
-        this.imageString = imageString;
+    public void setByteData(byte[] byteData) {
+        this.byteData = byteData;
     }
 }
