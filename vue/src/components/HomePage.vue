@@ -3,9 +3,11 @@
     <div class="splash-main-text">
       <h1 id="splash-title">Sheltered Furry Friends</h1>
       <span id="sub-title"> Volunteer and save a life! </span>
-      <span id="splash-signup">
-        <button id="splash-signup-button">Sign Up</button>
-      </span>
+      <!-- <span id="splash-signup"> -->
+        <button id="splash-signup-button">
+           <router-link class="signup" v-bind:to="{ name: 'register'}"> Sign Up </router-link> 
+        </button>
+      <!-- </span> -->
     </div>
     
     <div class="splash-hero-image">
@@ -31,7 +33,9 @@
       </div>
       <div class="links-card">
         <div><strong>Volunteer at a shelter!</strong></div>
-        <button id="volunteer-signup-button">Sign up to be a volunteer</button>
+        <button id="volunteer-signup-button">
+            <router-link class="signup" v-bind:to="{ name: 'register'}"> Sign up to be a volunteer </router-link>
+        </button>
       </div>
       <div class="links-card">
         <div><strong>Tell your friends about us!</strong></div>
@@ -69,6 +73,11 @@
   color: white;
   margin-bottom: 50px;
   margin-top: 10px;
+}
+
+.signup {
+  color: white;
+  text-decoration: none;
 }
 .splash-secondary-text {
     margin-left: 10px;

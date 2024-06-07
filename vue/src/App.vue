@@ -11,13 +11,14 @@
           <th id="header-sign-in">
             <button id="header-sign-in-button">
               <router-link id="login" v-bind:to="{ name: 'login' }"> Sign In </router-link>
+              <router-link id="logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != '' ">Logout</router-link>
             </button>
           </th>
         </tr>
       </thead>
     </table>
-      <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp; -->
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
     </div>
     <router-view />
   </div>
@@ -27,19 +28,18 @@
 
 .header {
   width: 100%;
-  font-size: x-large;
-
+  font-size: large;
 }
 
 #header-sign-in-button {
   border-radius: 25px;
   padding: 10px;
-  background-color: black;
-  
-  
+  background-color: black;  
 }
 
 #header-title-name {
+  display: flex;
+  justify-content: flex-start;
   color: inherit; 
   text-decoration: none;
 }
