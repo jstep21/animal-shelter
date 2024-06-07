@@ -31,4 +31,7 @@ public class ImageService {
         return imageDao.saveImage(file);
     }
 
+    public String retrieveImageById(int id) {
+        return imageDao.getImageDataStringById(id);
+    }
 }

@@ -10,6 +10,10 @@ export default {
   postImage(formData, options) {
 
     return axios.post('/upload', formData, options);
+  },
+
+  retrieveImage(id) {
+    return axios.get(`/retrieve-image?id=${id}`);
   }
 
 }

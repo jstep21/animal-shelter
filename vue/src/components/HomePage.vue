@@ -8,9 +8,42 @@
         </button>
     </div>
     
-    <div class="splash-hero-image">
+    <!-- <div class="splash-hero-image">
       <img src="../assets/Shelter Dog 2.jpg" />
-    </div>
+    </div> -->
+
+
+      <v-container >
+        <v-responsive
+          class='align-centerfill-height mx-auto'
+          max-width='1000'
+          >
+          <v-carousel show-arrows="hover">
+            <v-carousel-item
+              :src="dogImg"
+              cover
+              class='carousel-item'
+            >
+            </v-carousel-item>
+
+            <v-carousel-item
+              src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
+              cover
+              class='carousel-item'
+
+            ></v-carousel-item>
+
+            <v-carousel-item
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              cover
+              class='carousel-item'
+
+            ></v-carousel-item>
+        </v-carousel>
+        </v-responsive>
+      </v-container>
+
+
 
     <div class="splash-secondary-text">
       <h2 id="secondary-title">How To Help</h2>
@@ -44,7 +77,14 @@
 </template>
 
 <script>
+import img from '@/assets/Shelter Dog 2.jpg'
+
     export default {
+        data() {
+          return {
+            dogImg: img,
+          }
+        },
         methods: {
             goToBrowsePets() {
                 this.$router.push({ name: 'browse-pets'});

@@ -9,4 +9,5 @@ import java.util.List;
 public interface ImageDao {
     public List<ImageUrl> getAllImages();
     public Integer saveImage(MultipartFile file);
+    public String getImageDataStringById(int id);
 }

@@ -50,4 +50,14 @@ public class ImageController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
         }
     }
+
+    @PreAuthorize("permitAll")
+    @RequestMapping(path="/retrieve-image", method = RequestMethod.GET)
+    public String retrieveImageById(@RequestParam int id) {
+        try {
+            return "data:image/png;base64, " + imageService.retrieveImageById(id);
+        } catch (Exception e) {
+            return "Failed to retrieve all images: " + e.getMessage();
+        }
+    }
 }

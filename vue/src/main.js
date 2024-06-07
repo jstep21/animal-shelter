@@ -3,11 +3,11 @@ import CapstoneApp from './App.vue'
 import { createStore } from './store'
 import router from './router'
 import axios from 'axios'// Vuetify
-// import 'vuetify/styles'
-// import { createVuetify } from 'vuetify'
-// import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
-// import * as components from 'vuetify/components'
-// import * as directives from 'vuetify/directives'
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
 
 
@@ -31,20 +31,20 @@ if (currentToken) {
 // Create the Vuex store passing in the stored credentials
 const store = createStore(currentToken, currentUser);
 
-// const vuetify = createVuetify({
-//   components,
-//   directives,
-//   icons: {
-//     defaultSet: 'mdi',
-//     aliases,
-//     sets: {
-//       mdi,
-//     },
-//   },
-// })
+const vuetify = createVuetify({
+  components,
+  directives,
+  icons: {
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi,
+    },
+  },
+})
 
 const app = createApp(CapstoneApp);
 app.use(store);
-// app.use(vuetify);
+app.use(vuetify);
 app.use(router);
 app.mount('#app');

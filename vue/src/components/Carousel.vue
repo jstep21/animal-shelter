@@ -14,7 +14,7 @@
         <v-menu
           v-model='menu' 
           :close-on-content-click='false' 
-          offset-y="50"
+          offset-y="400"
         >
           <template v-slot:activator="{ on, attr }">
             <v-btn
@@ -46,31 +46,33 @@
         max-width='900'
         >
           <v-carousel show-arrows="hover">
-          <v-carousel-item
-            :src="dogImg"
-            cover
-            class='carousel-item'
-          >
-          </v-carousel-item>
+            <v-carousel-item
+              :src="dogImg"
+              cover
+              class='carousel-item'
+            >
+            </v-carousel-item>
 
-          <v-carousel-item
-            src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
-            cover
-            class='carousel-item'
+            <v-carousel-item
+              src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
+              cover
+              class='carousel-item'
 
-          ></v-carousel-item>
+            ></v-carousel-item>
 
-          <v-carousel-item
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-            cover
-            class='carousel-item'
+            <v-carousel-item
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              cover
+              class='carousel-item'
 
-          ></v-carousel-item>
+            ></v-carousel-item>
         </v-carousel>
         </v-responsive>
       </v-container>
 
   </v-app>
+
+    <img :src="imageData">
 
     <input v-on:change="uploadFile" type='file' id='file' ref='fileInput'/>
 </template>
@@ -84,6 +86,8 @@ export default {
     return {
       dogImg: img,
       file: {},
+      imageData: null,
+      error: null,
       menu: false,
       menuItems: [
         { title: 'Adoptable Pets', route: '/browse-pets' },
@@ -94,6 +98,11 @@ export default {
       ]
     }
   },
+
+  created() {
+    this.getImage();
+  },
+
   methods: {
     // Navigate toolbar menu
     navigate(item) {
@@ -120,9 +129,20 @@ export default {
       ).catch(error => {
           console.error('Error: ', error);
       });
+    },
+
+    // Get Individual image stored as byte data form database
+    getImage() {
+      ImageService.retrieveImage(4015).then(response => {
+        console.log(response.data);
+        this.imageData =  response.data;
+      })
+      .catch(error => {
+        this.error = error.message;
+      });
     }
   }
-}
+};
 </script>
 
 <style>

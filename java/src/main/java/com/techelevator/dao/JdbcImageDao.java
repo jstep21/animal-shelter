@@ -5,6 +5,7 @@ import com.techelevator.model.ImageByteArray;
 import com.techelevator.model.ImageUrl;
 import com.techelevator.model.Pet;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -64,6 +65,15 @@ public class JdbcImageDao implements ImageDao {
             throw new RuntimeException(e);
         }
         return newImageId;
+    }
+
+    public String getImageDataStringById(int id) {
+        String sql = "SELECT * FROM images WHERE image_id = ?;";
+        try {
+            return jdbcTemplate.queryForObject(sql, new ImageStringMapper(), id);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     private ImageUrl mapRowToImageUrl(SqlRowSet sqlRowSet) {
