@@ -71,7 +71,7 @@ export default {
 }
 
 label {
-  margin-right: .25remrem;
+  margin-right: .25rem;
 }
 
 #login {
@@ -81,7 +81,7 @@ label {
 h1 {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: .5remrem;
+  margin-bottom: .5rem;
 }
 
 button {
