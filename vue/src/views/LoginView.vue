@@ -81,7 +81,7 @@ label {
 h1 {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: .5rem;
+  margin-bottom: .25rem;
 }
 
 button {
@@ -111,14 +111,16 @@ div {
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   max-width: 17rem;
 }
 
 input {
-  padding: 0.5rem;
-  margin: 0.25rem;
-  border: 1px solid #ccc;
+  padding: .25rem;
+  border-radius: .25rem;
+  margin: .25rem;
+  border: 1px solid rgb(43, 98, 134);
 }
 
 .login-container {
