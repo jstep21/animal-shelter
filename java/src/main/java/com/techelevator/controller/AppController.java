@@ -4,6 +4,7 @@ import com.techelevator.dao.PetDAO;
 import com.techelevator.dao.VolunteerDao;
 import com.techelevator.model.Pet;
 import com.techelevator.model.VolunteerDto;
+import com.techelevator.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,6 +20,8 @@ public class AppController {
     private PetDAO petDao;
     @Autowired
     private VolunteerDao volunteerDao;
+    @Autowired
+    private EmailService emailService;
 
     @PreAuthorize("permitAll")
     @RequestMapping(path="/pets", method = RequestMethod.GET)
@@ -48,6 +51,7 @@ public class AppController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/volunteers", method = RequestMethod.POST)
     public VolunteerDto addVolunteer(@RequestBody VolunteerDto volunteer) {
+        emailService.sendEmail(volunteer);
         return volunteerDao.addVolunteer(volunteer);
     }
 

@@ -72,4 +72,15 @@ public class VolunteerDto {
     public void setApprovalStatus(String approvalStatus) {
         this.approvalStatus = approvalStatus;
     }
+
+    @Override
+    public String toString() {
+        return "--- SHELTERED FURRY FRIENDS ---\n\n" +
+                "First Name:\t" + firstName + "\n" +
+                "Last Name:\t" + lastName + "\n" +
+                "Email Address:\t" + email + "\n" +
+                "Phone Number:\t" + phoneNumber + "\n" +
+                "Zip Code:\t" + zipCode + "\n" +
+                "Volunteer Application Status:\t" + approvalStatus + "\n";
+    }
 }
