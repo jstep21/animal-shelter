@@ -1,14 +1,22 @@
 package com.techelevator.model;
 
 public class VolunteerDto {
+
+    private int volunteerId;
     private int userId;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private String zipCode;
-    private String isApproved;
+    private String approvalStatus;
 
+    public int getVolunteerId() {
+        return volunteerId;
+    }
+    public void setVolunteerId(int volunteerId) {
+        this.volunteerId = volunteerId;
+    }
     public int getUserId() {
         return userId;
     }
@@ -57,11 +65,11 @@ public class VolunteerDto {
         this.zipCode = zipCode;
     }
 
-    public String getIsApproved() {
-        return isApproved;
+    public String getApprovalStatus() {
+        return approvalStatus;
     }
 
-    public void setIsApproved(String isApproved) {
-        this.isApproved = isApproved;
+    public void setApprovalStatus(String approvalStatus) {
+        this.approvalStatus = approvalStatus;
     }
 }

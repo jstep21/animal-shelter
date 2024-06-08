@@ -1,66 +1,26 @@
 <template>
-  <div id="login" class="login-container" :style="{ backgroundImage: `url(${backgroundImage})` }">
-    <form v-on:submit.prevent="login">
-      <h1>Apply View -- Edit me!!</h1>
-      <div role="alert" v-if="invalidCredentials">
-        Invalid username and password!
-      </div>
-      <div role="alert" v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
-      </div>
-      <div class="input-box">
-      <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
-      </div>
-      <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
-      </div>
-      </div>
-      <button type="submit">Sign in</button>
-      <p class="center-text">
-        <router-link class="custom-link" v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link>
-      </p>
-    </form>
+  <div id="apply-view" class="apply-container" :style="{ backgroundImage: `url(${backgroundImage})` }">
+    <div>
+      <Apply />
+    </div>
   </div>
 </template>
 
 <script>
-import authService from "../services/AuthService";
+import volunteerService from "../services/VolunteerService";
 import homePageDogPic from "@/assets/Shelter Dog 2.jpg";
+import Apply from '../components/Apply.vue';
 
 export default {
-  components: {},
+  components: {
+    Apply
+  },
   data() {
     return {
-      user: {
-        username: "",
-        password: ""
-      },
-      invalidCredentials: false,
       backgroundImage: homePageDogPic
     };
   },
   methods: {
-    login() {
-      authService
-        .login(this.user)
-        .then(response => {
-          if (response.status == 200) {
-            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
-          }
-        })
-        .catch(error => {
-          const response = error.response;
-
-          if (response.status === 401) {
-            this.invalidCredentials = true;
-          }
-        });
-    }
   }
 };
 </script>
@@ -123,7 +83,7 @@ input {
   border: 1px solid rgb(43, 98, 134);
 }
 
-.login-container {
+.apply-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,7 +92,7 @@ input {
   background-position: center;
 }
 
-.login-container::before {
+.apply-container::before {
   content: "";
   position: absolute;
   top: 0;

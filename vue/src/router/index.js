@@ -77,7 +77,7 @@ const routes = [
     name: "apply",
     component: ApplyView,
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   },
   {
