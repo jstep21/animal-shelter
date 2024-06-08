@@ -15,6 +15,7 @@
           v-model='menu' 
           :close-on-content-click='false' 
           offset-y="400"
+          
         >
           <template v-slot:activator="{ on, attr }">
             <v-btn
@@ -42,10 +43,10 @@
 
     <v-container class='fill-height'>
       <v-responsive
-        class='align-centerfill-height mx-auto'
+        class='mx-auto'
         max-width='900'
         >
-          <v-carousel show-arrows="hover">
+          <v-carousel show-arrows="hover" >
             <v-carousel-item
               :src="dogImg"
               cover
@@ -89,6 +90,11 @@ export default {
       imageData: null,
       error: null,
       menu: false,
+      carouselItems: [
+        { image: '@/assets/Shelter Dog 2.jpg' },
+        { image: "https://cdn.vuetifyjs.com/images/cards/hotel.jpg"},
+        { image: "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"}
+      ],
       menuItems: [
         { title: 'Adoptable Pets', route: '/browse-pets' },
         { title: 'How To Adopt'},

@@ -16,13 +16,13 @@
       <v-container >
         <v-responsive
           class='align-centerfill-height mx-auto'
-          max-width='1000'
+          max-width='900'
           >
           <v-carousel show-arrows="hover">
             <v-carousel-item
               :src="dogImg"
               cover
-              class='carousel-item'
+              class="carousel-item { 'clickable: isHovering '}"
             >
             </v-carousel-item>
 

@@ -1,8 +1,7 @@
 <template>
   <div id="apply" class="apply-container">
-    <h1>Apply component -- Edit me!!</h1>
-
     <form v-on:submit.prevent="apply">
+      <h1>Apply To Become a Volunteer!</h1>
       <div class="input-box">
         <div class="form-input-group">
           <label for="firstName">First Name</label>
@@ -12,7 +11,28 @@
         <div class="form-input-group">
           <label for="lastName">Last Name</label>
           <input type="text" id="lastName" v-model="volunteer.lastName"
-            required autofocus />
+            required/>
+        </div>
+        <div class="form-input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" v-model="volunteer.email"
+            required/>
+        </div>
+        <div class="form-input-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" v-model="volunteer.phoneNumber"
+            required/>
+        </div>
+        <div class="form-input-group">
+          <label for="zipCode">Zip Code</label>
+          <input type="text" id="zipCode" v-model="volunteer.zipCode"
+            required/>
+        </div>
+        <div class="form-input-group reason_why">
+          <label for="reason_why">Tell us more about why you want to be a volunteer!</label>
+        </div>
+        <div class="form-input-group">
+          <textarea id="reason_why" name="reason_why" rows="4" cols="50"></textarea>
         </div>
       </div>
       <button type="submit">Submit</button>
@@ -40,14 +60,27 @@ export default {
     };
   },
   methods: {
+    // apply method works and posts volunteer to the database
+    // one bug to note: since it doesn't redirect to the home page,
+    // if you keep clicking the apply button it'll try to create a new
+    // user_id but wont actually create one in the database - next time you
+    // load the page and submit an application, the user_id will skip 
+    // however many times you clicked the button
     apply() {
+      const options = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept' : 'application/json'
+        }
+      }
+
       volunteerService
-        .postVolunteer(formData, options)
+        .postVolunteer(this.volunteer, options)
         .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            this.$router.push({ name: "home" }); // For some reason this isn't redirecting me - i tested both ways to write this
           }
         })
         .catch((error) => {
@@ -63,12 +96,17 @@ export default {
 </script>
 
 <style scoped>
+
+.apply-container {
+  height: 100vh;
+}
 .form-input-group {
   margin-bottom: 0.25rem;
 }
 
 label {
   margin-right: 0.25rem;
+  color: rgb(43, 98, 134);
 }
 
 #login {
@@ -79,6 +117,7 @@ h1 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 0.25rem;
+  color: rgb(43, 98, 134);
 }
 
 button {
@@ -164,5 +203,16 @@ label {
 }
 .form-input-group {
   margin-bottom: 1rem;
+}
+
+.reason_why {
+  margin-bottom: 0rem;
+}
+
+textarea {
+  width: 750px;
+  height: 150px;
+  border: 1px solid rgb(43, 98, 134);
+  border-radius: 0.25rem;
 }
 </style>
