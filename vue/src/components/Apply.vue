@@ -73,13 +73,37 @@ export default {
           'Accept' : 'application/json'
         }
       }
+      console.log("in apply() method...");//////
 
       volunteerService
         .postVolunteer(this.volunteer, options)
-        .then((response) => {
-          if (response.status == 200) {
-            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            this.$store.commit("SET_USER", response.data.user);
+        .then((response) => { 
+
+          console.log("POSTed, in .then(), response status is: " + response.status);//////
+
+          // JM - changed this from `if (response.status == 200)` because the actual response I was seeing was 201
+          if (response.status >= 200 && response.status < 300) {
+
+            // JM - response.data.token and response.data.user below are coming up in the console as undefined.
+            // Here's the response.data object I was getting back from the server:
+            // data:
+                // approvalStatus: ""
+                // email: "jeremy.j.mckeever@gmail.com"
+                // firstName: "Joe the Volunteer"
+                // lastName: "Test"
+                // phoneNumber: "111-111-1111"
+                // userId: 22
+                // volunteerId: 3018
+                // zipCode: "11111"
+            // ... so at this point we could store userId but there is no token since adding a volunteer
+            //  was done without authentication.
+
+            // commented these out because they were causing issues -- storing an undefined token in local storage
+            // this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+            // this.$store.commit("SET_USER", response.data.user); 
+            
+            console.log("should redirect now... response: ", response);//////
+
             this.$router.push({ name: "home" }); // For some reason this isn't redirecting me - i tested both ways to write this
           }
         })
@@ -121,7 +145,7 @@ h1 {
 }
 
 button {
-  background-color: rgb(43, 98, 134);
+  background-color: rgb(41, 98, 134);
   color: white;
   padding: 0.25rem;
   border-radius: 0.25rem;
@@ -132,11 +156,21 @@ button {
 }
 
 button:hover {
-  background-color: rgb(41, 93, 128);
+  background-color: rgb(36, 93, 129);
+  color: rgb(255, 244, 142);
+  border-width: 1px;
+  border-color: darkblue;
+  border-style: solid;
+  
 }
 
 button:active {
-  background-color: rgb(41, 93, 128);
+  background-color: rgb(32, 82, 113);
+  color: rgba(255, 244, 142, 0.86);
+  font-weight: 500;
+  border-width: 2px;
+  border-color: rgb(31, 78, 107);
+  border-style: solid;
 }
 
 div {
