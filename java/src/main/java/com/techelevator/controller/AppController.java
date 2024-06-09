@@ -47,11 +47,12 @@ public class AppController {
         return volunteerDao.getAllVolunteers();
     }
 
+    // TODO: Error checking. Shouldn't send emails for duplicate volunteer add.
     @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/volunteers", method = RequestMethod.POST)
     public VolunteerDto addVolunteer(@RequestBody VolunteerDto volunteer) {
-        emailService.sendEmail(volunteer);
+        emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
         return volunteerDao.addVolunteer(volunteer);
     }
 

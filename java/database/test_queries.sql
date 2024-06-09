@@ -38,7 +38,8 @@ DELETE FROM pets WHERE name = 'Joe the Dog';
 ---- GET path="/volunteers" ---- List<VolunteerDto> getAllVolunteers() ---- 
 SELECT * FROM volunteers;
 
-SELECT u.user_id, volunteer_id, first_name, email, role FROM volunteers v
+SELECT u.user_id, volunteer_id, first_name, last_name, email, v.approval_status, role 
+FROM volunteers v
 JOIN users u ON v.user_id = u.user_id;
 
 ---- POST path="/volunteers" ---- VolunteerDto addVolunteer(VolunteerDto volunteerToAdd)  ---- Volunteer IDs are from 3001-4000
@@ -56,7 +57,7 @@ INSERT INTO volunteers (user_id, first_name, last_name, email, phone_number, zip
 DO $$
 DECLARE v_user_id INT;
 BEGIN
-    DELETE FROM volunteers WHERE first_name = 'Joe the Volunteer'RETURNING user_id INTO v_user_id;
+    DELETE FROM volunteers WHERE first_name = 'Joe the Volunteer' RETURNING user_id INTO v_user_id;
     DELETE FROM users WHERE user_id = v_user_id;
 END $$;
 

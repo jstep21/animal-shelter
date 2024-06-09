@@ -23,7 +23,7 @@ public class EmailController {
     @RequestMapping(path = "/send-email", method = RequestMethod.POST)
     public String sendEmail(@RequestBody EmailDto email) {
         try {
-            emailService.sendEmail(email.getTo());
+            emailService.sendEmailsWhenAddingNewVolunteer(email.getTo());
             return "Email sent successfully";
         } catch (Exception e) {
             return "Failed to send email: " + e.getMessage();
