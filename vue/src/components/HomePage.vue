@@ -176,7 +176,7 @@ img {
   align-items: center;
   width: 100%;
   font-size:x-large;
-  
+  margin-bottom: 50px;
 }
 .links-box button {
   border-radius: 15px;

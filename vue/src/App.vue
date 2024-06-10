@@ -21,12 +21,21 @@
     </table>
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
-    </div>
+    </div >
     <router-view />
+    <div class="footer"> 
+      Sheltered Furry Friends
+    </div>
   </div>
 </template>
 
 <style>
+
+/* #capstone-app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: [header] auto [content] 1fr [footer] auto;
+} */
 
 .header {
   width: 100%;
@@ -80,6 +89,18 @@
 #login {
   color: white;
   text-decoration: none;
+}
+
+.footer {
+  margin-bottom: 100px;
+  /* height: 100px; */
+  grid-row: footer;
+  font-size: large;
+  width: 100%;
+}
+
+html,body, #app, #capstone-app {
+  height: 100vh;
 }
 
 </style>

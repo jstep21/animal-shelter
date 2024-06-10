@@ -1,10 +1,11 @@
 <template>
     <div class="home">
         <div class="home-page-heading"> </div>
-        <div id="browse" class="browse-container" :style="{ backgroundImage: `url(${backgroundImage})` }"></div>
-        <h1 id="browse-title">Available adoptees</h1>
-        <div class="table-view">
-            <PetTable class="pets" />
+        <div id="browse" class="browse-container" :style="{ backgroundImage: `url(${backgroundImage})` }">
+            <h1 id="browse-title">Available adoptees</h1>
+            <div class="table-view">
+                <PetTable class="pets" />
+            </div>
         </div>
     </div>
 </template>
@@ -29,6 +30,11 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+.home {
+    height: 100%;
+}
+
 .browse-container {
     display: flex;
     flex-direction: column;
@@ -40,6 +46,7 @@ export default {
     color: rgb(43, 98, 134);
     font-family: 'Lato', sans-serif;
     font-weight: 100;
+    
 }
 
 #browse-title {
@@ -67,7 +74,7 @@ export default {
 }
 
 .pet {
-   border: 2px solid rgb(43, 98, 134);
+    border: 2px solid rgb(43, 98, 134);
     padding: 1rem;
     border-radius: 1rem;
     text-align: center;
@@ -91,7 +98,8 @@ export default {
     right: 0;
     bottom: 0;
     background-image: url('@/assets/Shelter Dog 2.jpg');
-    background-size: cover;
+    /* background-size: cover; */
+    background-size: 100% 100%;
     background-position: center;
     opacity: 0.1;
     z-index: -1;
