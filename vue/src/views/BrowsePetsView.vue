@@ -24,6 +24,9 @@ export default {
             backgroundImage: homePageDogPic,
         };
     },
+    created() {
+    this.$store.commit("SET_BG", true);
+  }
 };
 
 </script>
@@ -90,7 +93,7 @@ export default {
     border-radius: 1rem;
 }
 
-.browse-container::before {
+/* .browse-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -99,9 +102,9 @@ export default {
     bottom: 0;
     background-image: url('@/assets/Shelter Dog 2.jpg');
     /* background-size: cover; */
-    background-size: 100% 100%;
+    /* background-size: 100% 100%;
     background-position: center;
     opacity: 0.1;
     z-index: -1;
-}
+}  */
 </style>

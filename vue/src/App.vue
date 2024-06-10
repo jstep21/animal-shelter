@@ -1,4 +1,9 @@
 <template>
+
+  <div id="bg-container" v-show="showBg">
+    <img src="src/assets/Shelter Dog 2.jpg" />
+  </div>
+
   <div id="capstone-app">
     <div id="nav">
       <table class="header">
@@ -28,6 +33,22 @@
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+
+  computed: {
+    showBg() {
+      return this.$store.state.showBg;
+    }
+  }
+
+}
+
+
+
+</script>
 
 <style>
 
@@ -101,6 +122,28 @@
 
 html,body, #app, #capstone-app {
   height: 100vh;
+}
+
+#bg-container {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+  opacity: .2;
+  z-index: -1;
+}
+
+#bg-container img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+
 }
 
 </style>
