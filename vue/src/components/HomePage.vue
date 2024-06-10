@@ -7,11 +7,6 @@
            <router-link class="signup" v-bind:to="{ name: 'apply'}"> Sign Up </router-link> 
         </button>
     </div>
-    
-    <!-- <div class="splash-hero-image">
-      <img src="../assets/Shelter Dog 2.jpg" />
-    </div> -->
-
 
       <v-container >
         <v-responsive
@@ -27,24 +22,18 @@
             >
             </v-carousel-item>
 
-            <v-carousel-item
-              src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
+            <v-carousel-item 
+              v-for="(pet, index) in carouselPets" :key="index"
+              :src="pet.petImageUrls[0]"
+              @click="goToPetDetails(pet.petId)"
               cover
               class='carousel-item clickable'
 
             ></v-carousel-item>
 
-            <v-carousel-item
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              cover
-              class='carousel-item clickable'
-
-            ></v-carousel-item>
         </v-carousel>
         </v-responsive>
       </v-container>
-
-
 
     <div class="splash-secondary-text">
       <h2 id="secondary-title">How To Help</h2>
@@ -79,22 +68,50 @@
 
 <script>
 import img from '@/assets/Shelter Dog 2.jpg'
+import petService from '../services/PetService.js'
 
-    export default {
-        data() {
-          return {
-            dogImg: img,
-          }
-        },
-        methods: {
-            goToBrowsePets() {
-                this.$router.push({ name: 'browse-pets'});
-            },
-            changeCursor(cursorType) {
-              this.$refs.carousel.$el.style.cursor = cursorType
-            }
-        }
+export default {
+  created() {
+    this.fetchCarouselPets();
+    console.log(this.carouselPets);
+  },
+  data() {
+    return {
+      dogImg: img,
+      carouselPets: [],
     }
+  },
+  methods: {
+    goToBrowsePets() {
+        this.$router.push({ name: 'browse-pets'});
+    },
+
+    goToPetDetails(petId) {
+      this.$router.push({ name: "pet-details", params: { petId } });
+    },
+
+    fetchCarouselPets() {
+      petService
+        .getAllPets()
+        .then((response) => {
+          const firstPet = response.data[0];
+          const secondPet = response.data[8];
+          const thirdPet = response.data[11];
+          
+          this.carouselPets.push(firstPet);
+          this.carouselPets.push(secondPet);
+          this.carouselPets.push(thirdPet);
+          // this.carouselPets = response.data
+          //   .slice(0, 2);
+        })
+        .catch((error) => {
+          console.error("Error fetching pet data: ", error);
+        });
+    },
+
+  }
+}
+
 </script>
 
 <style scoped>

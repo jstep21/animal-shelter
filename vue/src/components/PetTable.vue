@@ -50,6 +50,7 @@ export default {
 
             // limits us to only 12 pets: we can adjust or remove later
             .slice(0, 12);
+          console.log(this.pets);
         })
         .catch((error) => {
           console.error("Error fetching pet data: ", error);

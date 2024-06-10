@@ -73,6 +73,18 @@ INSERT INTO images (pet_id, image_url) VALUES (1011, 'https://images.dog.ceo/bre
 INSERT INTO images (pet_id, image_url) VALUES (1012, 'https://images.dog.ceo/breeds/chow/n02112137_5240.jpg'); -- Simba
 INSERT INTO images (pet_id, image_url) VALUES (1013, 'https://drive.google.com/file/d/1Khct76VtrVYgNzIS7Q_hEs0ity2zNUzy/view?usp=sharing'); -- Cloud
 
+UPDATE images SET pet_id = 1005 WHERE image_id = 4001; -- Sly
+UPDATE images SET pet_id = 1008 WHERE image_id = 4002; -- Lily
+UPDATE images SET pet_id = 1010 WHERE image_id = 4003; -- Stump
+UPDATE images SET pet_id = 1011 WHERE image_id = 4004; -- Zephyr
+UPDATE images SET pet_id = 1007 WHERE image_id = 4005; -- Angus
+UPDATE images SET pet_id = 1009 WHERE image_id = 4006; -- Pippin
+UPDATE images SET pet_id = 1004 WHERE image_id = 4007; -- Hercules
+UPDATE images SET pet_id = 1003 WHERE image_id = 4008; -- Gizmo
+UPDATE images SET pet_id = 1012 WHERE image_id = 4009; -- Simba
+UPDATE images SET pet_id = 1006 WHERE image_id = 4010; -- Koda
+
+
 -- Statements below link descriptions to pets --
 
 -- Queso (Pet ID 1001)
