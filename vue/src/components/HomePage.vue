@@ -22,21 +22,22 @@
             <v-carousel-item
               :src="dogImg"
               cover
-              class="carousel-item { 'clickable: isHovering '}"
+              class='carousel-item clickable'
+              @click="goToBrowsePets()"
             >
             </v-carousel-item>
 
             <v-carousel-item
               src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
               cover
-              class='carousel-item'
+              class='carousel-item clickable'
 
             ></v-carousel-item>
 
             <v-carousel-item
               src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
               cover
-              class='carousel-item'
+              class='carousel-item clickable'
 
             ></v-carousel-item>
         </v-carousel>
@@ -88,6 +89,9 @@ import img from '@/assets/Shelter Dog 2.jpg'
         methods: {
             goToBrowsePets() {
                 this.$router.push({ name: 'browse-pets'});
+            },
+            changeCursor(cursorType) {
+              this.$refs.carousel.$el.style.cursor = cursorType
             }
         }
     }
@@ -181,5 +185,9 @@ img {
  }
 .links-card > *:not(:last-child) {
     margin-bottom: 20px;
+}
+
+.clickable {
+  cursor: pointer;
 }
 </style>

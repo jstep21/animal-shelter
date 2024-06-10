@@ -50,21 +50,21 @@
             <v-carousel-item
               :src="dogImg"
               cover
-              class='carousel-item'
+              class='carousel-item clickable'
             >
             </v-carousel-item>
 
             <v-carousel-item
               src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
               cover
-              class='carousel-item'
+              class='carousel-item clickable'
 
             ></v-carousel-item>
 
             <v-carousel-item
               src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
               cover
-              class='carousel-item'
+              class='carousel-item clickable'
 
             ></v-carousel-item>
         </v-carousel>
@@ -139,7 +139,7 @@ export default {
 
     // Get Individual image stored as byte data form database
     getImage() {
-      ImageService.retrieveImage(4015).then(response => {
+      ImageService.retrieveImage(4006).then(response => {
         console.log(response.data);
         this.imageData =  response.data;
       })
@@ -152,6 +152,8 @@ export default {
 </script>
 
 <style>
-
+.clickable {
+  cursor: pointer;
+}
 
 </style>

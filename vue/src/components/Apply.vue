@@ -60,12 +60,6 @@ export default {
     };
   },
   methods: {
-    // apply method works and posts volunteer to the database
-    // one bug to note: since it doesn't redirect to the home page,
-    // if you keep clicking the apply button it'll try to create a new
-    // user_id but wont actually create one in the database - next time you
-    // load the page and submit an application, the user_id will skip 
-    // however many times you clicked the button
     apply() {
       const options = {
         headers: {
@@ -104,7 +98,7 @@ export default {
             
             console.log("should redirect now... response: ", response);//////
 
-            this.$router.push({ name: "home" }); // For some reason this isn't redirecting me - i tested both ways to write this
+            this.$router.push({ name: "home" });
           }
         })
         .catch((error) => {
@@ -248,5 +242,11 @@ textarea {
   height: 150px;
   border: 1px solid rgb(43, 98, 134);
   border-radius: 0.25rem;
+}
+
+div.form-input-group {
+  display: flex;
+  justify-content: center;
+  align-items: flex;
 }
 </style>
