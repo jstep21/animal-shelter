@@ -77,7 +77,7 @@ INSERT INTO images (pet_id, image_url) VALUES (1006, 'https://images.dog.ceo/bre
 INSERT INTO images (pet_id, image_url) VALUES (1007, 'https://images.dog.ceo/breeds/deerhound-scottish/n02092002_6003.jpg'); -- Angus
 INSERT INTO images (pet_id, image_url) VALUES (1008, 'https://images.dog.ceo/breeds/maltese/n02085936_13013.jpg'); -- Lily
 INSERT INTO images (pet_id, image_url) VALUES (1009, 'https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_2903.jpg'); -- Pippin
-INSERT INTO images (pet_id, image_url) VALUES (1010, 'https://images.dog.ceo/breeds/wolfhound-irish/n02090721_1235.jpg '); -- Stump
+INSERT INTO images (pet_id, image_url) VALUES (1010, 'https://images.dog.ceo/breeds/wolfhound-irish/n02090721_5716.jpg'); -- Stump
 INSERT INTO images (pet_id, image_url) VALUES (1011, 'https://images.dog.ceo/breeds/greyhound-italian/n02091032_1121.jpg'); -- Zephyr
 INSERT INTO images (pet_id, image_url) VALUES (1012, 'https://images.dog.ceo/breeds/chow/n02112137_5240.jpg'); -- Simba
 INSERT INTO images (pet_id, image_url) VALUES (1013, 'https://drive.google.com/file/d/1Khct76VtrVYgNzIS7Q_hEs0ity2zNUzy/view?usp=sharing'); -- Cloud
