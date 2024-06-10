@@ -48,16 +48,7 @@ INSERT INTO descriptions(description) VALUES ('Socialized with both Dogs and Cat
 INSERT INTO descriptions(description) VALUES ('Needs a Loving Home with no other Pets');
 INSERT INTO descriptions(description) VALUES ('Caution: this is a Dingo. Not suitable for a home with babies.');
 
-INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2002);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2004);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2005);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2006);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2007);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2001);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2002);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2003);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2005);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2008);
+-- moved pet-description link INSERT statements to the bottom because there are so many of them --
 
 -- inserted the two default users here just to make the User IDs and Volunteer IDs line up: 1, 2, 3 and 3001, 3002, 3003 etc.
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(1, 'User', 'Test', 'user@gmail.com', '123-456-7890', '98765', 'Approved');
@@ -81,6 +72,101 @@ INSERT INTO images (pet_id, image_url) VALUES (1010, 'https://images.dog.ceo/bre
 INSERT INTO images (pet_id, image_url) VALUES (1011, 'https://images.dog.ceo/breeds/greyhound-italian/n02091032_1121.jpg'); -- Zephyr
 INSERT INTO images (pet_id, image_url) VALUES (1012, 'https://images.dog.ceo/breeds/chow/n02112137_5240.jpg'); -- Simba
 INSERT INTO images (pet_id, image_url) VALUES (1013, 'https://drive.google.com/file/d/1Khct76VtrVYgNzIS7Q_hEs0ity2zNUzy/view?usp=sharing'); -- Cloud
+
+-- Statements below link descriptions to pets --
+
+-- Queso (Pet ID 1001)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2002);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2004);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2005);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2006);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1001, 2007);
+
+-- Winston Fetchill (Pet ID 1002)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2001);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2002);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2003);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2005);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2008);
+
+
+-- Gizmo (Pet ID 1003)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1003, 2003);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1003, 2017);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1003, 2008);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1003, 2012);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1003, 2022);
+
+-- Hercules (Pet ID 1004)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1004, 2004);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1004, 2018);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1004, 2021);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1004, 2011);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1004, 2009);
+
+-- Sly (Pet ID 1005)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2015);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2004);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2016);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2001);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2023);
+
+-- Koda (Pet ID 1006)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2005);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2016);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2015);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2007);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2024);
+
+-- Angus (Pet ID 1007)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1007, 2006);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1007, 2015);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1007, 2014);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1007, 2002);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1007, 2010);
+
+-- Lily (Pet ID 1008)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1008, 2022);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1008, 2008);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1008, 2020);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1008, 2017);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1008, 2011);
+
+-- Pippin (Pet ID 1009)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1009, 2018);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1009, 2003);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1009, 2014);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1009, 2015);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1009, 2016);
+
+-- Stump (Pet ID 1010)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1010, 2010);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1010, 2004);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1010, 2021);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1010, 2013);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1010, 2019);
+
+-- Zephyr (Pet ID 1011)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2012);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2023);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2002);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2009);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2021);
+
+-- Simba (Pet ID 1012)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1012, 2014);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1012, 2002);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1012, 2011);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1012, 2019);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1012, 2001);
+
+-- Cloud (Pet ID 1013)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2010);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2013);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2021);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2006);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2023);
+
 
 
 
