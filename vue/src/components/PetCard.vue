@@ -27,8 +27,8 @@ export default {
   width: 200px;
   height: 200px;
   padding: 10px;
-  border:solid #A1DD70 2px;
-  margin: 5px;
+  border:solid rgb(43, 98, 134) 2px;
+  margin: 10px;
   
 }
 .card {
@@ -46,7 +46,7 @@ export default {
   bottom: 0;
   width: 100%;
   height: 30%;
-  background-color: rgba(0, 0, 0, 0.2); 
+  background-color: rgba(0, 0, 0, 0.5); 
   color: #DDDDDD;
   display: flex;
   justify-content: center;
@@ -54,7 +54,7 @@ export default {
   transition: background-color 0.3s ease, color 0.3s ease; 
 }
 .card:hover .info-box {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
 }
 .info-box ul {
@@ -64,7 +64,7 @@ export default {
   text-align: center;
 }
 .info-box li {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 </style>

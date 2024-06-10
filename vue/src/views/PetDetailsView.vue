@@ -2,8 +2,9 @@
   <div class="home">
     <div class="pet-details-heading"></div>
 
-    <!-- TODO: consider changing "Animal" to species or breed -->
-    <h1 id="pet-details-title">Adopt this Lovely Animal Today!</h1>
+    <!-- TODO: consider changing "Animal" to species or breed / changed to 
+    Furry Friend by MK-->
+    <h1 id="pet-details-title">Adopt this Furry Friend Today!</h1>
 
     <div class="table-view" v-if="pet">
       <PetDetails class="pets" :pet="pet" />
@@ -52,6 +53,16 @@ export default {
   text-align: center;
   font-size: 3em;
   margin-top: 1em;
-  font-family: "Impact, Charcoal, sans-serif";
+  font-family: 'Lato', sans-serif;
+}
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: .5rem;
+  color: rgb(43, 98, 134);
+}
+.home {
+  background-cover: cover;
+  background-color: aliceblue
 }
 </style>

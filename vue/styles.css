@@ -2,3 +2,4 @@ body {
     display: grid;
     grid-template-rows: 1fr, 2fr, 1fr;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
