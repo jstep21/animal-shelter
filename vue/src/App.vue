@@ -40,7 +40,20 @@
     </div>
     <router-view />
     <div class="footer">
-      Sheltered Furry Friends
+
+      <div class="footer-left-side"> 
+        <div id="footer-title"> Sheltered Furry Friends </div>
+        <a class="icon" href="#" id="facebook"><i class="fa fa-facebook"></i></a>  
+        <a class="icon" href="#" id="twitter"><i class="fa fa-twitter"></i></a> 
+        <a class="icon" href="#" id="youtube"><i class="fa fa-youtube"></i></a> 
+        <a class="icon" href="#" id="instagram"><i class="fa fa-instagram"></i></a>         
+      </div>
+
+      <div class="footer-right-side">
+        <div id="terms-of-service"> Terms of Service </div>
+        <div id="privacy-policy"> Privacy Policy </div>
+      </div>
+      
       <v-if v-if="$store.state.token != ''">
         <button id="approve-volunteers-button">
           <router-link id="footer-approve-link" :to="{ name: 'approve' }">
@@ -63,11 +76,6 @@ export default {
 </script>
 
 <style>
-/* #capstone-app {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: [header] auto [content] 1fr [footer] auto;
-} */
 
 .header {
   width: 100%;
@@ -124,14 +132,57 @@ export default {
 }
 
 .footer {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 100px;
-  /* height: 100px; */
-  grid-row: footer;
   font-size: large;
   width: 100%;
-
-  display: flex;
+  justify-content: space-around;
+  border-top: solid 2px;
+  border-color: gray;
 }
+
+.footer-left-side {
+  margin: 25px;
+
+}
+
+#footer-title {
+  margin: 10px;
+}
+
+.icon {
+  margin: 10px;
+}
+
+#facebook {
+  color: blue;
+}
+
+#twitter {
+  color: lightblue;
+}
+
+#youtube {
+  color: red;
+}
+
+#instagram {
+  color: orange;
+}
+
+.footer-right-side {
+  margin: 25px;  
+}
+
+#terms-of-service {
+  margin: 10px;
+}
+
+#privacy-policy {
+  margin: 10px;
+}
+
 .footer > #approve-volunteers-button {
   justify-items: right;
 }
@@ -185,4 +236,6 @@ body,
   min-width: 50%;
   min-height: 50%;
 }
+
+
 </style>
