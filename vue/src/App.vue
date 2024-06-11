@@ -155,6 +155,7 @@ export default {
   display: flex;
   flex-direction: row;
   margin-bottom: 100px;
+  margin-top: 50px;
   font-size: large;
   width: 100%;
   justify-content: space-around;

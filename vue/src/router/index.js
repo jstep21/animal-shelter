@@ -105,15 +105,7 @@ const routes = [
     meta: {
       requiresAuth: false
     }
-  },
-  // {
-  //   path: "/browse-pets-test",
-  //   name: "browse-pets-test",
-  //   component: PetTableTest,
-  //   meta: {
-  //     requiresAuth: false
-  //   }
-  // }
+  }
 ];
 
 // Create the router
