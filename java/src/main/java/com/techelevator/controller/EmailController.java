@@ -29,4 +29,14 @@ public class EmailController {
             return "Failed to send email: " + e.getMessage();
         }
     }
+//    @PreAuthorize("permitAll")
+//    @RequestMapping(path = "/send-email", method = RequestMethod.POST)
+//    public String sendLoginInstructions(@RequestBody EmailDto email) {
+//        try {
+//            emailService.sendLoginInstructions(email.getTo());
+//            return "Email sent successfully";
+//        } catch (Exception e) {
+//            return "Failed to send email: " + e.getMessage();
+//        }
+//    }
 }

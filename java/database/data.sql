@@ -53,7 +53,7 @@ INSERT INTO descriptions(description) VALUES ('Caution: this is a Dingo. Not sui
 -- approval_status can be 'Pending', 'Approved', or 'Declined'
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(1, 'User', 'Test', 'user@gmail.com', '123-456-7890', '98765', 'Approved');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(2, 'Admin', 'Test', 'admin@gmail.com', '123-456-7890', '98765', 'Approved');
-INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(3, 'Jake', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');
+INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(3, 'Jake', 'Test', 'jstephens1215@gmail.com', '123-456-7890', '98765', 'Pending');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(4, 'Jeremy', 'Test', 'jeremymck@gmail.com', '123-456-7890', '33186', 'Pending');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(5, 'Koi', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(6, 'Maria', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');

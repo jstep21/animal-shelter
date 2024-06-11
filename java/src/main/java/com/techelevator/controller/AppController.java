@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 @RestController
@@ -91,8 +92,8 @@ public class AppController {
     @PreAuthorize("permitAll") // for testing -- remove this later
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/volunteers", method = RequestMethod.PUT)
-    public VolunteerDto updateVolunteer(@RequestBody VolunteerDto volunteer) {
-//        emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
+    public VolunteerDto updateVolunteer(@RequestBody VolunteerDto volunteer) throws MessagingException {
+        emailService.sendLoginInstructions(volunteer);
         return volunteerDao.updateVolunteer(volunteer);
     }
 
