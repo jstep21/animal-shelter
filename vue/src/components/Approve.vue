@@ -54,10 +54,6 @@ export default {
         )
       );
     },
-    currentUser() {
-      console.log(this.$store.state.currentUser)
-      return this.$store.state.currentUser;
-    }
   },
 
   methods: {
