@@ -169,5 +169,24 @@ public class JdbcPetDao implements PetDAO {
         }
         return getPet(newPetId);
     };
+
+    @Override
+    public boolean addPetDescriptions(int petId, String description) {
+        int rowAffected = 0;
+        String sql = "INSERT INTO pet_description (pet_id, description_id) " +
+                "SELECT p.pet_id, d.description_id " +
+                "FROM pets AS p " +
+                "JOIN descriptions AS d ON d.description = ? " +
+                "WHERE p.pet_id = ?;";
+        try {
+            rowAffected = template.update(sql, description, petId);
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting to database");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Problem with Data Integrity");
+            System.out.println(e.getMessage());
+        }
+        return rowAffected > 0;
+    }
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Form to add a new Pet to our database</h1>
+    <h1>Add a New Adoptable Pet!</h1>
     
     <br><br>
     <v-sheet class="mx-auto" width="300">
@@ -50,6 +50,7 @@
         <v-combobox
           label="How would you describe this furry friend?"
           :items="petDescriptions"
+          v-model='newPetDescriptions.descriptions'
           multiple
         ></v-combobox>
 
@@ -87,10 +88,14 @@ export default {
         gender: '',
         age: '',
         spayedNeutered: false,
-        petDescriptions: [],
         petImageUrls: []
       },
-      petDescriptions: []
+      petDescriptions: [],
+      newPetDescriptions: {
+        petId: '',
+        descriptions: []
+      }
+
     }
   },
   created() {
@@ -106,6 +111,7 @@ export default {
       try{
         const response = await petService.addPet(this.newPet, headers);
         const newId = response.data.petId
+        await this.addPetDescriptions(newId);
         await this.uploadFile(newId);
       } catch(error) {
           console.error('Error: ', error);
@@ -120,6 +126,7 @@ export default {
     async uploadFile(petId) {
       
       this.file = this.$refs.fileInput.files[0];
+
       let formData = new FormData();
       formData.append('file', this.file);
 
@@ -131,7 +138,7 @@ export default {
       }
       
       try {
-        const response = await imageService.postImage(formData,petId, options);
+        const response = await imageService.postImage(formData, petId, options);
         if (response.status >= 200) {
           this.$router.push({name: 'home'});
         }
@@ -140,6 +147,19 @@ export default {
         console.error('Error: ', error)
       }
 
+    },
+
+    async addPetDescriptions(petId) {
+      const headers = {
+        'Content-Type': 'application/json',
+        'Accept' : 'application/json'
+      }
+      this.newPetDescriptions.petId = petId;
+      try{
+        await petService.addPetDescriptions(this.newPetDescriptions, headers);
+      } catch(error) {
+          console.error('Error: ', error);
+      }
     },
 
     getAllDescriptions() {

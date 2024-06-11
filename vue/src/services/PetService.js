@@ -18,6 +18,10 @@ export default {
 
   addPet(newPet) {
     return axios.post('/add-pet', newPet);
+  },
+
+  addPetDescriptions(newPetDescriptions) {
+    return axios.post('/add-pet-descriptions', newPetDescriptions);
   }
 
 }
