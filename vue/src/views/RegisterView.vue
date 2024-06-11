@@ -75,6 +75,9 @@ export default {
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
   },
+  created() {
+    this.$store.commit("SET_BG", true);
+  }
 };
 </script>
 
@@ -135,7 +138,7 @@ input {
   background-size: cover;
   background-position: center;
 }
-.login-container::before {
+/* .login-container::before {
   content: '';
   position: absolute;
   top: 0;
@@ -147,7 +150,7 @@ input {
   background-position: center;
   opacity: 0.2;
   z-index: -1;
-}
+} */
 .center-text {
   text-align: center;
 }
