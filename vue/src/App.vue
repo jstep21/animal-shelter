@@ -28,6 +28,16 @@
           <th id="header-about-link">About</th>
           <th id="header-contact-link">Contact Us</th>
 
+          <th 
+            id="header-add-pet" 
+            v-if="$store.state.token != '' "
+            >
+            <router-link
+              to="/add-pet"
+              >Add a New Pet
+            </router-link> 
+          </th>
+
           <th id="header-sign-in">
             <button id="header-sign-in-button">
               <router-link 
@@ -126,6 +136,12 @@ export default {
   margin-top: 10px;
   margin-right: 50px;
 }
+
+#header-add-pet {
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
 
 #header-sign-in-button {
   border-radius: 25px;

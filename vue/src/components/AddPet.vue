@@ -71,9 +71,7 @@
 <script>
 import petService from '../services/PetService';
 import imageService from '../services/ImageService';
-//          if using this add multiple to v-file-input
-//          v-on:change='addFile'
-//           v-on:change="uploadFile" 
+
 export default {
   data() {
     return {
@@ -118,11 +116,6 @@ export default {
       }
     },
 
-    // addFile() {
-    //   this.file.push(this.$refs.fileInput.files);
-    //   console.log(this.file);
-    // },
-
     async uploadFile(petId) {
       
       this.file = this.$refs.fileInput.files[0];
@@ -140,11 +133,27 @@ export default {
       try {
         const response = await imageService.postImage(formData, petId, options);
         if (response.status >= 200) {
-          this.$router.push({name: 'home'});
+          alert('Pet added successfully!');
+          const userChoice = confirm('Would you like to add another pet?');
+          if (userChoice) {
+            this.newPet.name = '';
+            this.newPet.species = '';
+            this.newPet.breed = '';
+            this.newPet.weight = '';
+            this.newPet.gender = '';
+            this.newPet.age = '';
+            this.newPet.spayedNeutered = false;
+            this.newPetDescriptions.petId = '';
+            this.newPetDescriptions.descriptions = [];
+            this.$refs.fileInput.reset();  // for some reason it's not resetting the file input
+          } else {
+            this.$router.push({name: 'home'});
+          }
         }
       }
       catch (error) {
-        console.error('Error: ', error)
+        console.error('Error adding pet: ', error)
+        alert('Failed to add pet. Please try again')
       }
 
     },

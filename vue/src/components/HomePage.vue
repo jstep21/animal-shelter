@@ -4,7 +4,7 @@
       <h1 id="splash-title">Sheltered Furry Friends</h1>
       <span id="sub-title"> Volunteer and save a life! </span>
         <button id="splash-signup-button">
-           <router-link class="signup" v-bind:to="{ name: 'apply'}"> Sign Up </router-link> 
+           <router-link class="signup" v-bind:to="{ name: 'apply'}"> Sign Up to be a Volunteer! </router-link> 
         </button>
     </div>
 

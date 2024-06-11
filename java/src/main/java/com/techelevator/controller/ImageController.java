@@ -35,7 +35,6 @@ public class ImageController {
         }
     }
 
-    @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/upload", method = RequestMethod.POST)
     public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file, @RequestParam int petId) {

@@ -46,14 +46,12 @@ public class AppController {
         return petDao.getDescriptions();
     }
 
-    @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/add-pet", method = RequestMethod.POST)
     public Pet addPet(@RequestBody Pet pet) {
         return petDao.addPet(pet);
     }
 
-    @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/add-pet-descriptions", method = RequestMethod.POST)
     public ResponseEntity<String> addPetDescriptions(@RequestBody PetDescriptionDto petDescriptions) {
