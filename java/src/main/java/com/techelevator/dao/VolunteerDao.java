@@ -8,4 +8,6 @@ public interface VolunteerDao {
     public VolunteerDto getVolunteer(int volunteerId);
     public List<VolunteerDto> getAllVolunteers();
     public VolunteerDto addVolunteer(VolunteerDto volunteerToAdd);
-}
+    public VolunteerDto updateVolunteer(VolunteerDto volunteerToUpdate);
+
+    }

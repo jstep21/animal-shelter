@@ -83,6 +83,8 @@ export default {
       console.log("in adjudicate() method..."); //////
       console.log("decision: ", decision); //////
 
+      this.volunteer.approvalStatus = decision;
+
       volunteerService
         .updateVolunteer(this.volunteer, options)
         .then((response) => {

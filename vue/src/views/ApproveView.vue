@@ -7,6 +7,7 @@
     <div id="approve-header">
       <h1>Volunteers Pending Review</h1>
       <h2>Approve or decline pending volunteer applications using the buttons below.</h2>
+      
       <Approve />
     </div>
   </div>

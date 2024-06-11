@@ -80,13 +80,13 @@
 
     </div>
     <div class="admin-and-volunteer-section">
-      <v-if v-if="$store.state.token != ''">
+      <div v-if="$store.state.token != ''">
         <button id="review-volunteers-button">
           <router-link id="footer-approve-link" :to="{ name: 'approve' }">
             Review Volunteer Applications
           </router-link>
         </button>
-      </v-if>
+      </div>
     </div>
   </div>
 </template>

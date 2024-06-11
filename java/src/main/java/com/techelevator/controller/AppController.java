@@ -86,4 +86,12 @@ public class AppController {
         return volunteerDao.addVolunteer(volunteer);
     }
 
+    @PreAuthorize("permitAll") // for testing -- remove this later
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path="/volunteers", method = RequestMethod.PUT)
+    public VolunteerDto updateVolunteer(@RequestBody VolunteerDto volunteer) {
+//        emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
+        return volunteerDao.updateVolunteer(volunteer);
+    }
+
 }

@@ -97,6 +97,32 @@ public class JdbcVolunteerDao implements VolunteerDao {
         return getVolunteer(newVolunteerId);
     }
 
+
+
+    @Override
+    public VolunteerDto updateVolunteer(VolunteerDto volunteerToUpdate) {
+
+        VolunteerDto newVolunteerDto = new VolunteerDto();
+
+        String sql = "UPDATE volunteers SET approval_status = ? " +
+                "WHERE volunteer_id = ?;";
+
+        try {
+            newVolunteerDto = jdbcTemplate.queryForObject(sql, VolunteerDto.class,
+                    volunteerToUpdate.getApprovalStatus(),
+                    volunteerToUpdate.getVolunteerId()
+                );
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting to database");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Problem with Data Integrity");
+            System.out.println(e.getMessage());
+        }
+        return newVolunteerDto;
+    }
+
+
+
     private VolunteerDto mapRowToVolunteer(SqlRowSet sqlRowSet) {
         VolunteerDto volunteer = new VolunteerDto();
 
