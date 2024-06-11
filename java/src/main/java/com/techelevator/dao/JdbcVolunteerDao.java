@@ -102,13 +102,12 @@ public class JdbcVolunteerDao implements VolunteerDao {
     @Override
     public VolunteerDto updateVolunteer(VolunteerDto volunteerToUpdate) {
 
-        VolunteerDto newVolunteerDto = new VolunteerDto();
-
         String sql = "UPDATE volunteers SET approval_status = ? " +
                 "WHERE volunteer_id = ?;";
 
+        int updatedCount = -1;
         try {
-            newVolunteerDto = jdbcTemplate.queryForObject(sql, VolunteerDto.class,
+            updatedCount = jdbcTemplate.update(sql,
                     volunteerToUpdate.getApprovalStatus(),
                     volunteerToUpdate.getVolunteerId()
                 );
@@ -118,7 +117,12 @@ public class JdbcVolunteerDao implements VolunteerDao {
             System.out.println("Problem with Data Integrity");
             System.out.println(e.getMessage());
         }
-        return newVolunteerDto;
+        if (updatedCount > 0) {
+            return getVolunteer(volunteerToUpdate.getVolunteerId());
+        } else {
+            System.out.println("Nothing updated. Check if volunteer ID exists.");
+            return null;
+        }
     }
 
 

@@ -29,12 +29,12 @@
           <td>{{ volunteer.zipCode }}</td>
           <td>{{ volunteer.approvalStatus }}</td>
           <td>
-            <button class="approve-button" @click="approve">
+            <button class="approve-button" @click="approve(volunteer)">
               Approve
             </button>
           </td>
           <td>
-            <button class="decline-button" @click="decline">
+            <button class="decline-button" @click="decline(volunteer)">
               Decline
             </button>
           </td>
@@ -67,13 +67,15 @@ export default {
           console.error("Error fetching volunteers: ", error);
         });
     },
-    approve() {
-      this.adjudicate("Approved");
+    approve(volunteer) {
+      console.log("in approve() method..."); //////
+      this.adjudicate(volunteer, "Approved");
     },
-    decline() {
-      this.adjudicate("Declined");
+    decline(volunteer) {
+      console.log("in decline() method..."); //////
+      this.adjudicate(volunteer, "Declined");
     },
-    adjudicate(decision) {
+    adjudicate(volunteer, decision) {
       const options = {
         headers: {
           "Content-Type": "application/json",
@@ -83,10 +85,10 @@ export default {
       console.log("in adjudicate() method..."); //////
       console.log("decision: ", decision); //////
 
-      this.volunteer.approvalStatus = decision;
+      volunteer.approvalStatus = decision;
 
       volunteerService
-        .updateVolunteer(this.volunteer, options)
+        .updateVolunteer(volunteer, options)
         .then((response) => {
           console.log(
             "PUT completed, in .then(), response status is: " + response.status

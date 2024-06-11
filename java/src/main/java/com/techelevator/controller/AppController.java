@@ -87,7 +87,7 @@ public class AppController {
     }
 
     @PreAuthorize("permitAll") // for testing -- remove this later
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/volunteers", method = RequestMethod.PUT)
     public VolunteerDto updateVolunteer(@RequestBody VolunteerDto volunteer) {
 //        emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
