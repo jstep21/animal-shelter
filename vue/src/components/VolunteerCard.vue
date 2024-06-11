@@ -1,7 +1,7 @@
 <template> 
     <div class="volunteer-card">
         <div id="volunteer-info">
-            <ul>
+            <ul v-for="volunteer in volunteers" v-bind:key="volunteer.volunteerId">
                 <li> Name: {{volunteer.firstName}} {{ volunteer.lastName }}</li>
                 <li> Email: {{ volunteer.email }}</li>
                 <li> Phone Number: {{ volunteer.phoneNumber }}</li>
@@ -19,14 +19,14 @@ export default {
 
   data() {
         return {
-            volunteer: []
+            volunteers: []
         };
     },
     methods: {
         showAllVolunteers() {
             VolunteerService.getAllVolunteers().then( (response) => {
-                this.volunteer.push(response.data);
-                console.log(this.volunteer)
+                this.volunteers = response.data;
+                console.log(this.volunteers)
             })
             .catch((error) => {
                 console.error("Error retrieving volunteer data", error)
