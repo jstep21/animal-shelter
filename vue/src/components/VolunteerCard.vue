@@ -1,6 +1,6 @@
 <template> 
     <div class="volunteer-card">
-        <div id="volunteer-info" v-if="volunteer">
+        <div id="volunteer-info">
             <ul>
                 <li> Name: {{volunteer.firstName}} {{ volunteer.lastName }}</li>
                 <li> Email: {{ volunteer.email }}</li>
@@ -13,9 +13,29 @@
 
 
 <script> 
+import VolunteerService from '../services/VolunteerService';
 
 export default {
-  props: ["volunteer"],
+
+  data() {
+        return {
+            volunteer: []
+        };
+    },
+    methods: {
+        showAllVolunteers() {
+            VolunteerService.getAllVolunteers().then( (response) => {
+                this.volunteer.push(response.data);
+                console.log(this.volunteer)
+            })
+            .catch((error) => {
+                console.error("Error retrieving volunteer data", error)
+            })
+        }
+    },
+    created() {
+        this.showAllVolunteers();
+    }
 };
 </script>
 

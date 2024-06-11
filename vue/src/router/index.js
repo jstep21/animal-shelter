@@ -11,6 +11,7 @@ import PetDetailsView from '../views/PetDetailsView.vue';
 import ApplyView from '../views/ApplyView.vue';
 import AddPetView from '../views/AddPetView.vue';
 import ApproveView from '../views/ApproveView.vue';
+import VolunteerListView from '../views/VolunteerListView.vue';
 
 // for testing:
 import Carousel from '../components/Carousel.vue'; //
@@ -102,6 +103,14 @@ const routes = [
     path: "/test",
     name: "test",
     component: Carousel,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: "/volunteer-list",
+    name: "volunteer-list",
+    component: VolunteerListView,
     meta: {
       requiresAuth: false
     }
