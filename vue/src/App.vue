@@ -97,6 +97,7 @@ export default {
     showBg() {
       return this.$store.state.showBg;
     },
+
   },
 };
 </script>

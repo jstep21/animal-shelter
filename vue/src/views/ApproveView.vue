@@ -49,6 +49,7 @@ h1 {
   margin-bottom: 0.25rem;
 }
 
+
 button {
   background-color: rgb(43, 98, 134);
   color: white;
@@ -118,6 +119,7 @@ input {
   margin: 100px auto;
 }
 #approve-header > h2 {
+  text-align: center;
   font-style: italic;
   margin-bottom: 100px;
   color: #444444;
