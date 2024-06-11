@@ -45,7 +45,7 @@ public class JdbcImageDao implements ImageDao {
     }
 
     @Override
-    public Integer saveImage(MultipartFile file) {
+    public Integer saveImage(MultipartFile file, int petId) {
         String sql = "INSERT INTO images" +
                 "(image_data, file_name) " +
                 "VALUES (?, ?) " +

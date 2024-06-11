@@ -105,6 +105,25 @@ public class JdbcPetDao implements PetDAO {
         return petDescriptions;
     };
 
+    @Override
+    public List<String> getDescriptions() {
+        List<String> descriptions = new ArrayList<>();
+        String sql = "SELECT description FROM descriptions ";
+
+        try {
+            SqlRowSet results = template.queryForRowSet(sql);
+            while (results.next()) {
+                descriptions.add(results.getString("description"));
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting to database");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Problem with Data Integrity");
+        }
+        return descriptions;
+    };
+
+
     public List<String> getPetImageUrls(int petId) {
         List<String> petImageUrls = new ArrayList<>();
         // When we change it to multiple images per pet we'll need a

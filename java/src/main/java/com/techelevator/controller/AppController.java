@@ -35,6 +35,13 @@ public class AppController {
         return petDao.getPet(id);
     }
 
+    @PreAuthorize("permitAll")
+    @RequestMapping(path="/descriptions", method = RequestMethod.GET)
+    public List<String> getDescriptions() {
+        return petDao.getDescriptions();
+    }
+
+    @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/add-pet", method = RequestMethod.POST)
     public Pet addPet(@RequestBody Pet pet) {

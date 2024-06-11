@@ -36,11 +36,12 @@ public class ImageController {
     }
 
     @PreAuthorize("permitAll")
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/upload", method = RequestMethod.POST)
-    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file, @RequestParam int petId) {
         System.out.println(file);
         try {
-            imageService.saveImage(file);
+            imageService.saveImage(file, petId);
             String message = "File saved successfully";
             System.out.println(message);
             return ResponseEntity.ok(message);

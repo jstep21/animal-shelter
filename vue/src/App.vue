@@ -16,8 +16,9 @@
           <th id="header-contact-link">Contact Us</th>
           <th id="header-sign-in">
             <button id="header-sign-in-button">
-              <router-link id="login" v-bind:to="{ name: 'login' }"> Sign In </router-link>
+              
               <router-link id="logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != '' ">Logout</router-link>
+              <router-link id="login" v-bind:to="{ name: 'login' }" v-else> Sign In </router-link>
             </button>          
           </th>
           </span>
@@ -111,6 +112,12 @@ export default {
   color: white;
   text-decoration: none;
 }
+
+#logout {
+  color: white;
+  text-decoration: none;
+}
+
 
 .footer {
   margin-bottom: 100px;

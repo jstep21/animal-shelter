@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ImageDao {
     public List<ImageUrl> getAllImages();
-    public Integer saveImage(MultipartFile file);
+    public Integer saveImage(MultipartFile file, int petId);
     public String getImageDataStringById(int id);
 }

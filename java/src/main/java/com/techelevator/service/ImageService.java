@@ -27,8 +27,8 @@ public class ImageService {
     }
 
 
-    public Integer saveImage(MultipartFile file) {
-        return imageDao.saveImage(file);
+    public Integer saveImage(MultipartFile file, int petId) {
+        return imageDao.saveImage(file, petId);
     }
 
     public String retrieveImageById(int id) {

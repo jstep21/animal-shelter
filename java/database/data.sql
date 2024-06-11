@@ -34,7 +34,6 @@ INSERT INTO descriptions(description) VALUES ('Energetic');
 INSERT INTO descriptions(description) VALUES ('People-friendly');
 INSERT INTO descriptions(description) VALUES ('Protective');
 INSERT INTO descriptions(description) VALUES ('Quirky');
-INSERT INTO descriptions(description) VALUES ('Wild');
 INSERT INTO descriptions(description) VALUES ('Well-trained');
 INSERT INTO descriptions(description) VALUES ('Timid');
 INSERT INTO descriptions(description) VALUES ('Mischievous');

@@ -71,12 +71,18 @@
         </v-responsive>
       </v-container>
 
+
   </v-app>
 
     <img :src="imageData">
 
     <input v-on:change="uploadFile" type='file' id='file' ref='fileInput'/>
+
+
+
 </template>
+
+
 
 <script>
 import img from '@/assets/Shelter Dog 2.jpg'
@@ -155,5 +161,6 @@ export default {
 .clickable {
   cursor: pointer;
 }
+
 
 </style>

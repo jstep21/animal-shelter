@@ -7,13 +7,12 @@ export default {
     return axios.get(`${API_BASE_URL}/all-images`)
   },
 
-  postImage(formData, options) {
+  postImage(formData, petId, options) {
 
-    return axios.post('/upload', formData, options);
+    return axios.post(`/upload?petId=${petId}`, formData, options);
   },
 
   retrieveImage(id) {
     return axios.get(`/retrieve-image?id=${id}`);
   }
-
 }

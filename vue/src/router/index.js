@@ -9,6 +9,7 @@ import RegisterView from '../views/RegisterView.vue';
 import BrowsePetsView from '../views/BrowsePetsView.vue';
 import PetDetailsView from '../views/PetDetailsView.vue';
 import ApplyView from '../views/ApplyView.vue';
+import AddPetView from '../views/AddPetView.vue';
 
 // for testing:
 import Carousel from '../components/Carousel.vue'; //
@@ -80,6 +81,15 @@ const routes = [
       requiresAuth: false
     }
   },
+  {
+    path: "/add-pet",
+    name: "add-pet",
+    component: AddPetView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+
   {
     path: "/test",
     name: "test",
