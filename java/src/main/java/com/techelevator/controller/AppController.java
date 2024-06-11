@@ -78,6 +78,8 @@ public class AppController {
     }
 
     // TODO: Error checking. Shouldn't send emails for duplicate volunteer add.
+    // TODO: Don't allow duplicate email addresses. These are used as usernames
+    //    so duplicates cause a data integrity error.
     @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/volunteers", method = RequestMethod.POST)

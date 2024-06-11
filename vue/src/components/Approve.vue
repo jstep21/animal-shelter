@@ -1,42 +1,46 @@
 <template>
-  <div id="apply" class="apply-container">
-    <form v-on:submit.prevent="apply">
-      <h1>hi this is the Approve component</h1>
-      <div class="input-box">
-        <div class="form-input-group">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" v-model="volunteer.firstName"
-            required autofocus />
-        </div>
-        <div class="form-input-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" v-model="volunteer.lastName"
-            required/>
-        </div>
-        <div class="form-input-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" v-model="volunteer.email"
-            required/>
-        </div>
-        <div class="form-input-group">
-          <label for="phoneNumber">Phone Number</label>
-          <input type="tel" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" v-model="volunteer.phoneNumber"
-            required/>
-        </div>
-        <div class="form-input-group">
-          <label for="zipCode">Zip Code</label>
-          <input type="text" id="zipCode" v-model="volunteer.zipCode"
-            required/>
-        </div>
-        <div class="form-input-group reason_why">
-          <label for="reason_why">Tell us more about why you want to be a volunteer!</label>
-        </div>
-        <div class="form-input-group">
-          <textarea id="reason_why" name="reason_why" rows="4" cols="50"></textarea>
-        </div>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+  <div id="approve-component" class="approve-container">
+    <table id="pending-volunteers-table">
+      <thead>
+        <tr>
+          <th>Volunteer ID</th>
+          <th>User ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Zip Code</th>
+          <th>Approval Status</th>
+          <th hidden>button-approve</th>
+          <th hidden>button-decline</th>
+        </tr>
+      </thead>
+
+      <!-- v-if="volunteer.approvalStatus === 'Pending'"> -->
+
+      <tbody>
+        <tr v-for="volunteer in volunteers" :key="volunteer.volunteerId"> 
+          <td>{{ volunteer.volunteerId }}</td>
+          <td>{{ volunteer.userId }}</td>
+          <td>{{ volunteer.firstName }}</td>
+          <td>{{ volunteer.lastName }}</td>
+          <td>{{ volunteer.email }}</td>
+          <td>{{ volunteer.phoneNumber }}</td>
+          <td>{{ volunteer.zipCode }}</td>
+          <td>{{ volunteer.approvalStatus }}</td>
+          <td>
+            <button class="approve-button" @click="approve">
+              Approve
+            </button>
+          </td>
+          <td>
+            <button class="decline-button" @click="decline">
+              Decline
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -48,55 +52,49 @@ export default {
   components: {},
   data() {
     return {
-      volunteer: {
-        userId: -1,
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        zipCode: "",
-        approvalStatus: ""
-      },
+      volunteers: []
     };
   },
   methods: {
-    apply() {
+    fetchVolunteers() {
+      volunteerService
+        .getAllVolunteers()
+        .then((response) => {
+          this.volunteers = response.data
+          console.log(this.volunteers);
+        })
+        .catch((error) => {
+          console.error("Error fetching volunteers: ", error);
+        });
+    },
+    approve() {
+      this.adjudicate("Approved");
+    },
+    decline() {
+      this.adjudicate("Declined");
+    },
+    adjudicate(decision) {
       const options = {
         headers: {
-          'Content-Type': 'application/json',
-          'Accept' : 'application/json'
-        }
-      }
-      console.log("in apply() method...");//////
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      console.log("in adjudicate() method..."); //////
+      console.log("decision: ", decision); //////
 
       volunteerService
-        .postVolunteer(this.volunteer, options)
-        .then((response) => { 
+        .updateVolunteer(this.volunteer, options)
+        .then((response) => {
+          console.log(
+            "PUT completed, in .then(), response status is: " + response.status
+          ); //////
 
-          console.log("POSTed, in .then(), response status is: " + response.status);//////
-
-          // JM - changed this from `if (response.status == 200)` because the actual response I was seeing was 201
           if (response.status >= 200 && response.status < 300) {
-
-            // JM - response.data.token and response.data.user below are coming up in the console as undefined.
-            // Here's the response.data object I was getting back from the server:
-            // data:
-                // approvalStatus: ""
-                // email: "jeremy.j.mckeever@gmail.com"
-                // firstName: "Joe the Volunteer"
-                // lastName: "Test"
-                // phoneNumber: "111-111-1111"
-                // userId: 22
-                // volunteerId: 3018
-                // zipCode: "11111"
-            // ... so at this point we could store userId but there is no token since adding a volunteer
-            //  was done without authentication.
-
-            // commented these out because they were causing issues -- storing an undefined token in local storage
             // this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            // this.$store.commit("SET_USER", response.data.user); 
-            
-            console.log("should redirect now... response: ", response);//////
+            // this.$store.commit("SET_USER", response.data.user);
+
+            console.log("should redirect to home now... response: ", response); //////
 
             this.$router.push({ name: "home" });
           }
@@ -110,13 +108,15 @@ export default {
         });
     },
   },
+  created() {
+    this.fetchVolunteers();
+  }
 };
 </script>
 
 <style scoped>
-
-.apply-container {
-  height: 100vh;
+.approve-container {
+  height: 10vh;
 }
 .form-input-group {
   margin-bottom: 0.25rem;
@@ -155,7 +155,6 @@ button:hover {
   border-width: 1px;
   border-color: darkblue;
   border-style: solid;
-  
 }
 
 button:active {
@@ -172,12 +171,34 @@ div {
   padding: 10px;
 }
 
-form {
+#pending-volunteers-table {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   max-width: 17rem;
+  color: rgb(43, 98, 134);
+  font-size:large;
+}
+#pending-volunteers-table > thead {
+  color: rgb(43, 98, 134);;
+  margin: 10px;
+  padding: 10px;
+  width: 80vw;
+}
+#pending-volunteers-table > thead > tr {
+  display: flex;
+  justify-content: space-between;
+}
+#pending-volunteers-table > tbody {
+  color: rgb(43, 98, 134);;
+  margin: 10px;
+  padding: 10px;
+  width: 80vw;
+}
+#pending-volunteers-table > tbody > tr {
+  display: flex;
+  justify-content: space-between;
 }
 
 input {

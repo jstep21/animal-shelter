@@ -67,7 +67,7 @@ CREATE TABLE volunteers (
     email VARCHAR(50) NOT NULL,
     phone_number VARCHAR(50) NOT NULL,
     zip_code VARCHAR(10) NOT NULL,
-    approval_status VARCHAR(50) NOT NULL,
+    approval_status VARCHAR(50) NOT NULL, -- ['Pending', 'Approved', 'Declined']
     -- CAN ADD MORE BASED ON APPLICATION FORM
     CONSTRAINT pk_volunteers PRIMARY KEY (volunteer_id),
     CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)

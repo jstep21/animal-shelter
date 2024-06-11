@@ -10,6 +10,11 @@ export default {
   postVolunteer(volunteer, options) {
     const API_BASE_URL = import.meta.env.VITE_REMOTE_API
     return axios.post('/volunteers', volunteer, options);
+  },
+
+  updateVolunteer(volunteer, options) {
+    const API_BASE_URL = import.meta.env.VITE_REMOTE_API
+    return axios.put('/volunteers', volunteer, options);
   }
 
 }
