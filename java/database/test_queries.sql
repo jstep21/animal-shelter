@@ -54,8 +54,17 @@ INSERT INTO volunteers (user_id, first_name, last_name, email, phone_number, zip
 	RETURNING volunteer_id;
 
 ---- PUT path="/volunteers" ---- VolunteerDto updateVolunteer(VolunteerDto volunteerToUpdate)  ---- Volunteer IDs are from 3001-4000
-INSERT INTO volunteers (volunteer_id, user_id, first_name, last_name, email, phone_number, zip_code, approval_status)
-    VALUES (3004, 4, 'Jeremy', 'Test', 'jeremymck@gmail.com', '123-456-7890', '33186', 'Approved');
+UPDATE volunteers SET approval_status = 'Approved'
+WHERE volunteer_id = 3004;
+
+UPDATE volunteers SET approval_status = 'Pending'
+WHERE volunteer_id = 3004;
+
+
+
+-- VALUES (3004, 4, 'Jeremy', 'Test', 'jeremymck@gmail.com', '123-456-7890', '33186', 'Approved');
+--SET volunteer_id, user_id, first_name, last_name, email, phone_number, zip_code, approval_status
+
 
 ---- DELETE from volunteers and also make sure to delete the linked user
 DO $$

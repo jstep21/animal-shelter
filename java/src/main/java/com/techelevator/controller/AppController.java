@@ -92,7 +92,7 @@ public class AppController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/volunteers", method = RequestMethod.PUT)
     public VolunteerDto updateVolunteer(@RequestBody VolunteerDto volunteer) {
-//        emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
+        emailService.sendEmailToApprovedOrDeclinedVolunteer(volunteer);
         return volunteerDao.updateVolunteer(volunteer);
     }
 

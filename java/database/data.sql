@@ -7,6 +7,7 @@ INSERT INTO users (username, password_hash, role) VALUES ('jake-test', '$2a$10$f
 INSERT INTO users (username, password_hash, role) VALUES ('jeremy-test', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER'); -- password is: password
 INSERT INTO users (username, password_hash, role) VALUES ('koi-test', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER'); -- password is: password
 INSERT INTO users (username, password_hash, role) VALUES ('maria-test', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER'); -- password is: password
+INSERT INTO users (username, password_hash, role) VALUES ('jeremy-test-admin', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_ADMIN'); -- password is: password
 
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Queso', 'Cat', 'Maine Coon', '15', 'Female', '5', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Winston Fetchill', 'Dog', 'Great Dane', '160', 'Male', '2', true);
@@ -57,7 +58,7 @@ INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(4, 'Jeremy', 'Test', 'jeremymck@gmail.com', '123-456-7890', '33186', 'Pending');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(5, 'Koi', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(6, 'Maria', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');
-
+INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(7, 'Jeremy-Admin', 'Test-Admin', 'jeremy.j.mckeever@gmail.com', '123-456-7890', '33186', 'Approved');
 
 INSERT INTO images (pet_id, image_url) VALUES (1001, 'https://cdn2.thecatapi.com/images/agwTe5TSe.jpg'); -- Queso
 INSERT INTO images (pet_id, image_url) VALUES (1002, 'https://images.dog.ceo/breeds/dane-great/n02109047_16735.jpg'); -- Winston Fetchill

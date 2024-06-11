@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
+    private final String HOMEPAGE_BASE_URL = "http://127.0.0.1:5173/";
     private final String APP_EMAIL = "shelteredfurryfriends@gmail.com";
     private final String ADMIN_EMAIL = "shelteredfurrymanager@gmail.com";
     private final String APPROVE_PROMPT_SUBJECT = "Volunteer Application for Review";
@@ -23,6 +24,29 @@ public class EmailService {
             "Your application is under review for approval, and we'll " +
             "let you know soon!\n\n" +
             "Applicant Details Below\n\n";
+
+    private final String APPROVED_SUBJECT = "Volunteer Application Approved!";
+    private final String APPROVED_TEXT = "Thanks for your interest in volunteering at " +
+            "Sheltered Furry Friends!\n\n" +
+            "Congratulations!! Your application to volunteer at the shelter has been approved! " +
+            "\n\n" +
+            "Next Steps:\n\n";
+
+    private final String DECLINED_SUBJECT = "Volunteer Application Declined";
+    private final String DECLINED_TEXT = "Thanks for your interest in volunteering at " +
+            "Sheltered Furry Friends.\n\n" +
+            "Unfortunately your application to volunteer at the shelter has been declined due to " +
+            "not meeting one or more of our acceptance criteria. Please stop by the shelter or " +
+            "give us a call for more info." +
+            "\n\n";
+
+    private final String LOGIN_INSTRUCTIONS = "- Head to our home page at " + HOMEPAGE_BASE_URL + ".\n" +
+            "- Click the Sign In button at the top right\n" +
+            "- Sign in with your email address as username and the word \"password\" (all lower case) " +
+            "as your password\n" +
+            "- Follow the on-screen instructions to change your password\n\n" +
+            "You now have access to all of the Volunteer functions on the site. Thanks again " +
+            "for your dedication to animal welfare, and look out for an orientation email soon!\n\n";
 
     /**
      * Sends 2 emails every time a new volunteer application is submitted
@@ -52,8 +76,30 @@ public class EmailService {
         message.setFrom(APP_EMAIL);
         message.setTo(volunteer.getEmail());
         message.setSubject(UNDER_REVIEW_SUBJECT);
-        message.setText(UNDER_REVIEW_TEXT + volunteer.toString());
+        message.setText(DECLINED_TEXT + volunteer.toString());
         mailSender.send(message);
+    }
+
+    public void sendEmailToApprovedOrDeclinedVolunteer(VolunteerDto volunteer) {
+        SimpleMailMessage message = new SimpleMailMessage();
+
+        message.setFrom(APP_EMAIL);
+        message.setTo(volunteer.getEmail());
+
+        if (volunteer.getApprovalStatus().equals("Approved")) {
+            message.setSubject(APPROVED_SUBJECT);
+            message.setText(APPROVED_TEXT + LOGIN_INSTRUCTIONS + volunteer.toString());
+            System.out.println("Sending approved email to " + volunteer.getEmail());
+            mailSender.send(message);
+        } else if (volunteer.getApprovalStatus().equals("Declined")) {
+            message.setSubject(DECLINED_SUBJECT);
+            message.setText(DECLINED_TEXT + volunteer.toString());
+            System.out.println("Sending declined email to " + volunteer.getEmail());
+            mailSender.send(message);
+        } else {
+            System.out.println("Error: Unexpected Volunteer approval status received; " +
+                    "email not sent. Status: " + volunteer.getApprovalStatus());
+        }
     }
 
     // For testing:
