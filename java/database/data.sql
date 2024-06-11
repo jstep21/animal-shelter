@@ -127,7 +127,7 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2005);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2016);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2015);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2007);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2024);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2023);
 
 -- Angus (Pet ID 1007)
 INSERT INTO pet_description(pet_id, description_id) VALUES (1007, 2006);
