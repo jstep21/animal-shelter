@@ -13,7 +13,7 @@
           class='align-centerfill-height mx-auto'
           max-width='900'
           >
-          <v-carousel show-arrows="hover">
+          <v-carousel show-arrows="hover" cycle="true" interval="10000">
             <v-carousel-item
               :src="dogImg"
               cover
@@ -46,24 +46,29 @@
     <br>
 
     <div class="links-box">
+
       <div class="links-card">
         <div><strong>Find your newest family member!</strong></div>
         <button id="search-adoptees-button" @click="goToBrowsePets">
             Search available adoptees
         </button>
       </div>
+
       <div class="links-card">
         <div><strong>Volunteer at a shelter!</strong></div>
         <button id="volunteer-signup-button">
-            <router-link class="signup" v-bind:to="{ name: 'apply'}"> Sign up to be a volunteer </router-link>
+            <router-link v-bind:to="{ name: 'apply'}"> Sign up to be a volunteer </router-link>
         </button>
       </div>
+
       <div class="links-card">
         <div><strong>Tell your friends about us!</strong></div>
-        <button id="invite-friend-button">Invite a friend</button>
+        <div><button id="invite-friend-button">Invite a friend</button></div>
       </div>
     </div>
+
   </div>
+
 </template>
 
 <script>
@@ -156,7 +161,7 @@ export default {
 }
 
 #invite-friend-button {
-  margin-left: 75px;
+  /* margin-left: 75px; */
 }
 
 .splash-hero-image {
@@ -174,27 +179,20 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  font-size:x-large;
+  width: 100vw;
+  font-size: x-large;
   margin-bottom: 50px;
-}
-.links-box button {
-  border-radius: 15px;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  font-size: large;
 }
 .links-card {
   display:flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-around;
   /* border: solid lightgray 3px;
   padding: 5px; */
   padding: 10px;
-    border: 1px solid #767e8b;
-    box-shadow:  -1px 1px #767e8b,
+  border: 1px solid #767e8b;
+  box-shadow:  -1px 1px #767e8b,
          -2px 2px #767e8b,
          -3px 3px #767e8b,
          -4px 4px #767e8b,
@@ -203,8 +201,42 @@ img {
 .links-card > *:not(:last-child) {
     margin-bottom: 20px;
 }
-
+.links-box button {
+  border-radius: 15px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: large;
+}
 .clickable {
   cursor: pointer;
 }
+a, a:visited {
+  text-decoration: none;
+  color:inherit;
+}
+
+@media (max-width: 950px) {
+  .links-box {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
+    justify-items: flex-start;
+    font-size:x-large;
+    margin: 0px 0px 50px 50px;
+  }
+}
+@media (max-width: 800px) {
+  .links-box {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    width: 100vw;
+    justify-items: flex-start;
+    font-size:x-large;
+    margin: 0px 0px 50px 50px;
+  }
+}
+
 </style>
