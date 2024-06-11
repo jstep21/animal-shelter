@@ -1,7 +1,8 @@
 <template>
   <div id="apply-view" class="apply-container" :style="{ backgroundImage: `url(${backgroundImage})` }">
     <div>
-      <Apply />
+<h1>      hi this is ApproveView   </h1>
+      <Approve />
     </div>
   </div>
 </template>
@@ -9,11 +10,11 @@
 <script>
 import volunteerService from "../services/VolunteerService";
 import homePageDogPic from "@/assets/Shelter Dog 2.jpg";
-import Apply from '../components/Apply.vue';
+import Approve from '../components/Approve.vue';
 
 export default {
   components: {
-    Apply
+    Approve
   },
   data() {
     return {
@@ -21,9 +22,6 @@ export default {
     };
   },
   methods: {
-  },
-  created() {
-    this.$store.commit("SET_BG", true);
   }
 };
 </script>
@@ -95,7 +93,7 @@ input {
   background-position: center;
 }
 
-/* .apply-container::before {
+.apply-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -107,7 +105,7 @@ input {
   background-position: center;
   opacity: 0.2;
   z-index: -1;
-} */
+}
 
 .center-text {
   text-align: center;
