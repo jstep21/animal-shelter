@@ -112,7 +112,7 @@ const routes = [
     name: "volunteer-list",
     component: VolunteerListView,
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     }
   }
 ];
