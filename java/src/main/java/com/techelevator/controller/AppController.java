@@ -1,13 +1,13 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.PetDAO;
+import com.techelevator.dao.UserDao;
 import com.techelevator.dao.VolunteerDao;
-import com.techelevator.model.Pet;
-import com.techelevator.model.PetDescriptionDto;
-import com.techelevator.model.VolunteerDto;
+import com.techelevator.model.*;
 import com.techelevator.service.EmailService;
 import com.techelevator.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -23,6 +23,8 @@ public class AppController {
     private PetDAO petDao;
     @Autowired
     private PetService petService;
+    @Autowired
+    private UserDao userDao;
     @Autowired
     private VolunteerDao volunteerDao;
     @Autowired
@@ -87,11 +89,27 @@ public class AppController {
     }
 
     @PreAuthorize("permitAll") // for testing -- remove this later
-    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/volunteers", method = RequestMethod.PUT)
     public VolunteerDto updateVolunteer(@RequestBody VolunteerDto volunteer) {
 //        emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
         return volunteerDao.updateVolunteer(volunteer);
     }
 
+    @PreAuthorize("permitAll")
+    @RequestMapping(path="/update-password", method = RequestMethod.PUT)
+    public ResponseEntity<String> updatePassword(@RequestBody RegisterUserDto user) {
+        try {
+            boolean response = userDao.updatePassword(user);
+            if (response) {
+                return ResponseEntity.status(HttpStatus.OK).body("Password Successfully Updated");
+            }
+            else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating user database");
+            }
+        } catch (Exception e) {
+            String errorMessage = "An error occurred with the server";
+            System.out.println(e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
+        }
+    }
 }
