@@ -50,6 +50,7 @@ INSERT INTO descriptions(description) VALUES ('Caution: this is a Dingo. Not sui
 -- moved pet-description link INSERT statements to the bottom because there are so many of them --
 
 -- inserted the two default users here just to make the User IDs and Volunteer IDs line up: 1, 2, 3 and 3001, 3002, 3003 etc.
+-- approval_status can be 'Pending', 'Approved', or 'Declined'
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(1, 'User', 'Test', 'user@gmail.com', '123-456-7890', '98765', 'Approved');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(2, 'Admin', 'Test', 'admin@gmail.com', '123-456-7890', '98765', 'Approved');
 INSERT INTO volunteers(user_id, first_name, last_name, email, phone_number, zip_code, approval_status) VALUES(3, 'Jake', 'Test', 'email@gmail.com', '123-456-7890', '98765', 'Pending');

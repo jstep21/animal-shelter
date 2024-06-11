@@ -77,9 +77,11 @@
         <div id="terms-of-service"> Terms of Service </div>
         <div id="privacy-policy"> Privacy Policy </div>
       </div>
-      
+
+    </div>
+    <div class="admin-and-volunteer-section">
       <v-if v-if="$store.state.token != ''">
-        <button id="approve-volunteers-button">
+        <button id="review-volunteers-button">
           <router-link id="footer-approve-link" :to="{ name: 'approve' }">
             Review Volunteer Applications
           </router-link>
@@ -220,21 +222,31 @@ export default {
   margin: 10px;
 }
 
-.footer > #approve-volunteers-button {
+.admin-and-volunteer-section {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
+  font-size: large;
+  width: 100%;
+  justify-content: flex-end;
+  border-top: solid 2px;
+  border-color: gray;
+}
+.admin-and-volunteer-section > #review-volunteers-button {
   justify-items: right;
 }
-#approve-volunteers-button {
+#review-volunteers-button {
   border-radius: 10px;
   color: black;
   padding: 5px 10px 5px 10px;
   background-color: lightgray;
   margin-left: auto;
   margin-right: 50px;
-  margin-top: auto;
+  margin-top: 50px;
   margin-bottom: 50px;
   text-decoration: none;
 }
-#approve-volunteers-button:hover {
+#review-volunteers-button:hover {
   border-style: solid;
   border-width: 2px;
   border-color: darkgray;
