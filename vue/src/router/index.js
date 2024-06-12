@@ -13,6 +13,7 @@ import AddPetView from '../views/AddPetView.vue';
 import ApproveView from '../views/ApproveView.vue';
 import VolunteerListView from '../views/VolunteerListView.vue';
 import UpdatePasswordView from '../views/UpdatePasswordView.vue';
+import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 
 // for testing:
 import Carousel from '../components/Carousel.vue'; //
@@ -122,6 +123,14 @@ const routes = [
     component: UpdatePasswordView,
     meta: {
       requiresAuth: true
+    }
+  },
+  {
+    path: "/privacy-policy",
+    name: "privacy-policy",
+    component: PrivacyPolicyView,
+    meta: {
+      requiresAuth: false
     }
   }
 ];
