@@ -109,6 +109,10 @@ export default {
   },
   created() {
     this.isUserAdmin();
+    this.$router.beforeEach((to, from, next) => {
+      this.isUserAdmin();
+      next();
+    });
   },
   methods: {
     isUserAdmin() {
@@ -119,8 +123,9 @@ export default {
         }
       )
     }
-  }
+  },
 };
+
 </script>
 
 <style>
