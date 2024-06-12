@@ -22,6 +22,23 @@ INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VA
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Zephyr', 'Dog', 'Italian Greyhound', '15', 'Female', '3', false);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Simba', 'Dog', 'Chow', '60', 'Male', '4', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Cloud', 'Rabbit', 'Angora', '30', 'Male', '4', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Button', 'Cat', 'Domestic Shorthair', '10', 'Female', '3', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Brutus', 'Dog', 'Boxer Mix', '80', 'Male', '4', false);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Columbus', 'Dog', 'Mixed Breed', '60', 'Male', '3', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Eevee', 'Dog', 'Irish Terrier Mix', '45', 'Female', '5', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Henry', 'Cat', 'Turkish Van', '12', 'Male', '4', false);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Jack', 'Dog', 'Mixed Breed', '55', 'Male', '3', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Jax', 'Dog', 'Maltese Poodle Mix', '20', 'Male', '2', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Kiwi', 'Cat', 'Domestic Shorthair', '8', 'Female', '2', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Mow Mow', 'Cat', 'Maine Coon Mix', '15', 'Male', '6', false);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Penelope', 'Dog', 'French Bulldog', '28', 'Female', '3', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Swirl', 'Cat', 'Domestic Shorthair', '9', 'Female', '4', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Toga', 'Cat', 'Domestic Shorthair', '11', 'Male', '5', false);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Oslo', 'Cat', 'Ragdoll', '8', 'Male', '1', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Ember', 'Cat', 'Bengal', '7', 'Female', '1', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Spike', 'Cat', 'Orange Harlequin', '17', 'Male', '9', true);
+
+
 
 
 INSERT INTO descriptions(description) VALUES ('Playful');
@@ -180,7 +197,110 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2021);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2006);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2023);
 
+-- Button (Pet ID 1014)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1014, 2018); -- Button
+INSERT INTO pet_description(pet_id, description_id) VALUES (1014, 2002); -- Button
+INSERT INTO pet_description(pet_id, description_id) VALUES (1014, 2004); -- Button
+INSERT INTO pet_description(pet_id, description_id) VALUES (1014, 2006); -- Button
+INSERT INTO pet_description(pet_id, description_id) VALUES (1014, 2017); -- Button
 
+-- Brutus (Pet ID 1015)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1015, 2020); -- Brutus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1015, 2001); -- Brutus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1015, 2003); -- Brutus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1015, 2005); -- Brutus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1015, 2014); -- Brutus
+
+-- Columbus (Pet ID 1016)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1016, 2021); -- Columbus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1016, 2007); -- Columbus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1016, 2009); -- Columbus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1016, 2011); -- Columbus
+INSERT INTO pet_description(pet_id, description_id) VALUES (1016, 2016); -- Columbus
+
+-- Eevee (Pet ID 1017)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1017, 2019); -- Eevee
+INSERT INTO pet_description(pet_id, description_id) VALUES (1017, 2008); -- Eevee
+INSERT INTO pet_description(pet_id, description_id) VALUES (1017, 2010); -- Eevee
+INSERT INTO pet_description(pet_id, description_id) VALUES (1017, 2012); -- Eevee
+INSERT INTO pet_description(pet_id, description_id) VALUES (1017, 2015); -- Eevee
+
+-- Henry (Pet ID 1018)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1018, 2022); -- Henry
+INSERT INTO pet_description(pet_id, description_id) VALUES (1018, 2001); -- Henry
+INSERT INTO pet_description(pet_id, description_id) VALUES (1018, 2004); -- Henry
+INSERT INTO pet_description(pet_id, description_id) VALUES (1018, 2006); -- Henry
+INSERT INTO pet_description(pet_id, description_id) VALUES (1018, 2017); -- Henry
+
+-- Jack (Pet ID 1019)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1019, 2018); -- Jack
+INSERT INTO pet_description(pet_id, description_id) VALUES (1019, 2002); -- Jack
+INSERT INTO pet_description(pet_id, description_id) VALUES (1019, 2004); -- Jack
+INSERT INTO pet_description(pet_id, description_id) VALUES (1019, 2006); -- Jack
+INSERT INTO pet_description(pet_id, description_id) VALUES (1019, 2017); -- Jack
+
+-- Jax (Pet ID 1020)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1020, 2020); -- Jax
+INSERT INTO pet_description(pet_id, description_id) VALUES (1020, 2001); -- Jax
+INSERT INTO pet_description(pet_id, description_id) VALUES (1020, 2003); -- Jax
+INSERT INTO pet_description(pet_id, description_id) VALUES (1020, 2005); -- Jax
+INSERT INTO pet_description(pet_id, description_id) VALUES (1020, 2014); -- Jax
+
+-- Kiwi (Pet ID 1021)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1021, 2021); -- Kiwi
+INSERT INTO pet_description(pet_id, description_id) VALUES (1021, 2007); -- Kiwi
+INSERT INTO pet_description(pet_id, description_id) VALUES (1021, 2009); -- Kiwi
+INSERT INTO pet_description(pet_id, description_id) VALUES (1021, 2011); -- Kiwi
+INSERT INTO pet_description(pet_id, description_id) VALUES (1021, 2016); -- Kiwi
+
+-- Mow Mow (Pet ID 1022)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1022, 2019); -- Mow Mow
+INSERT INTO pet_description(pet_id, description_id) VALUES (1022, 2008); -- Mow Mow
+INSERT INTO pet_description(pet_id, description_id) VALUES (1022, 2010); -- Mow Mow
+INSERT INTO pet_description(pet_id, description_id) VALUES (1022, 2012); -- Mow Mow
+INSERT INTO pet_description(pet_id, description_id) VALUES (1022, 2015); -- Mow Mow
+
+-- Penelope (Pet ID 1023)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1023, 2022); -- Penelope
+INSERT INTO pet_description(pet_id, description_id) VALUES (1023, 2001); -- Penelope
+INSERT INTO pet_description(pet_id, description_id) VALUES (1023, 2004); -- Penelope
+INSERT INTO pet_description(pet_id, description_id) VALUES (1023, 2006); -- Penelope
+INSERT INTO pet_description(pet_id, description_id) VALUES (1023, 2017); -- Penelope
+
+-- Swirl (Pet ID 1024)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1024, 2022); -- Swirl
+INSERT INTO pet_description(pet_id, description_id) VALUES (1024, 2001); -- Swirl
+INSERT INTO pet_description(pet_id, description_id) VALUES (1024, 2003); -- Swirl
+INSERT INTO pet_description(pet_id, description_id) VALUES (1024, 2005); -- Swirl
+INSERT INTO pet_description(pet_id, description_id) VALUES (1024, 2014); -- Swirl
+
+-- Toga (Pet ID 1025)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1025, 2020); -- Toga
+INSERT INTO pet_description(pet_id, description_id) VALUES (1025, 2001); -- Toga
+INSERT INTO pet_description(pet_id, description_id) VALUES (1025, 2007); -- Toga
+INSERT INTO pet_description(pet_id, description_id) VALUES (1025, 2009); -- Toga
+INSERT INTO pet_description(pet_id, description_id) VALUES (1025, 2015); -- Toga
+
+-- Oslo (Pet ID 1026)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1026, 2018); -- Oslo
+INSERT INTO pet_description(pet_id, description_id) VALUES (1026, 2001); -- Oslo
+INSERT INTO pet_description(pet_id, description_id) VALUES (1026, 2005); -- Oslo
+INSERT INTO pet_description(pet_id, description_id) VALUES (1026, 2011); -- Oslo
+INSERT INTO pet_description(pet_id, description_id) VALUES (1026, 2017); -- Oslo
+
+-- Ember (Pet ID 1027)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1027, 2021); -- Ember
+INSERT INTO pet_description(pet_id, description_id) VALUES (1027, 2002); -- Ember
+INSERT INTO pet_description(pet_id, description_id) VALUES (1027, 2008); -- Ember
+INSERT INTO pet_description(pet_id, description_id) VALUES (1027, 2014); -- Ember
+INSERT INTO pet_description(pet_id, description_id) VALUES (1027, 2017); -- Ember
+
+-- Spike (Pet ID 1028)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2018); -- Spike
+INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2002); -- Spike
+INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2007); -- Spike
+INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2011); -- Spike
+INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2013); -- Spike
 
 
 COMMIT TRANSACTION;

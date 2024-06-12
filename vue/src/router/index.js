@@ -12,6 +12,7 @@ import ApplyView from '../views/ApplyView.vue';
 import AddPetView from '../views/AddPetView.vue';
 import ApproveView from '../views/ApproveView.vue';
 import VolunteerListView from '../views/VolunteerListView.vue';
+import UpdatePasswordView from '../views/UpdatePasswordView.vue';
 
 // for testing:
 import Carousel from '../components/Carousel.vue'; //
@@ -111,6 +112,14 @@ const routes = [
     path: "/volunteer-list",
     name: "volunteer-list",
     component: VolunteerListView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/update-password",
+    name: "update-password",
+    component: UpdatePasswordView,
     meta: {
       requiresAuth: true
     }
