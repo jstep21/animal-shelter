@@ -1,4 +1,6 @@
 import axios from 'axios';
+import UpdatePasswordViewVue from '../views/UpdatePasswordView.vue';
+import UpdatePasswordVue from '../components/UpdatePassword.vue';
 
 export default {
 
@@ -15,6 +17,9 @@ export default {
   updateVolunteer(volunteer, options) {
     const API_BASE_URL = import.meta.env.VITE_REMOTE_API
     return axios.put('/volunteers', volunteer, options);
+  },
+  updatePassword(newPassword) {
+    const API_BASE_URL = import.meta.env.VITE_REMOTE_API
+    return axios.post(`${API_BASE_URL}/update-password`, { password: newPassword });
   }
-
-}
+};
