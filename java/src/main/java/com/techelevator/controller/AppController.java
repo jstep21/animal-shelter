@@ -4,6 +4,7 @@ import com.techelevator.dao.PetDAO;
 import com.techelevator.dao.UserDao;
 import com.techelevator.dao.VolunteerDao;
 import com.techelevator.model.*;
+import com.techelevator.service.AuthService;
 import com.techelevator.service.EmailService;
 import com.techelevator.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,13 @@ public class AppController {
     private VolunteerDao volunteerDao;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private AuthService authService;
+
+    @RequestMapping(path="/is-user-admin", method = RequestMethod.GET)
+    public boolean getCurerntUser() {
+        return authService.isAdmin();
+    }
 
     @PreAuthorize("permitAll")
     @RequestMapping(path="/pets", method = RequestMethod.GET)

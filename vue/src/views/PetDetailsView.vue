@@ -52,7 +52,7 @@ export default {
 #pet-details-title {
   text-align: center;
   font-size: 3em;
-  margin-top: 1em;
+  margin-top: 10px;
   font-family: 'Lato', sans-serif;
 }
 h1 {

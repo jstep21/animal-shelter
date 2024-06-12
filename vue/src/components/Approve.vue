@@ -54,6 +54,20 @@ export default {
         )
       );
     },
+
+    // Was trying to use this for the headers in the table instead of the keys from item.
+    headers() {
+      return [
+        { text: 'Volunteer Id', value: 'volunteerId' },
+        { text: 'User Id', value: 'userId' },
+        { text: 'First Name', value: 'firstName' },
+        { text: 'Last Name', value: 'lastName' },
+        { text: 'Email Address', value: 'email' },
+        { text: 'Phone Number', value: 'phoneNumber' },
+        { text: 'Zip Code', value: 'zipCode' },
+        { text: 'Approval Status', value: 'approvalStatus' },
+      ]
+    }
   },
 
   methods: {
@@ -119,6 +133,7 @@ export default {
   },
   created() {
     this.fetchVolunteers();
+    this.$store.commit("SET_BG", true);
   }
 };
 </script>

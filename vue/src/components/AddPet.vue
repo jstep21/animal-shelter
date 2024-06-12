@@ -39,7 +39,6 @@
           v-model="newPet.age"
           :rules="rules"
           label="Age"
-          label-color="rgb(43, 98, 134)"
         ></v-text-field>
 
         <v-checkbox 
@@ -202,6 +201,10 @@ h1 {
 
 .v-file-input .v-label {
   color: rgb(43, 98, 134);
+}
+
+.v-sheet {
+  padding: 10px 10px 10px 10px;
 }
 
 </style>

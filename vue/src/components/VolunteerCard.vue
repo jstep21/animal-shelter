@@ -1,16 +1,19 @@
-<template> 
-    <div class="volunteer-card">
-        <div id="volunteer-info">
-            <ul v-for="volunteer in volunteers" v-bind:key="volunteer.volunteerId">
-                <li> Name: {{volunteer.firstName}} {{ volunteer.lastName }}</li>
-                <li> Email: {{ volunteer.email }}</li>
-                <li> Phone Number: {{ volunteer.phoneNumber }}</li>
-                <li> Zip code: {{ volunteer.zipCode }}</li>
-            </ul>
-        </div>
-    </div>
+<template>
+    <v-container class="d-flex align-center justify-center fill-height">
+        <v-list>
+            <v-list-item-group >
+                <v-list-item v-for="(volunteer, index) in volunteers" :key="index">
+                    <v-list-item-content>
+                        <v-list-item-title>{{ volunteer.firstName }}{{ volunteer.lastName }}</v-list-item-title>
+                        <v-list-item-subtitle>Email: {{ volunteer.email }}</v-list-item-subtitle>
+                        <v-list-item-subtitle>Phone: {{ volunteer.phoneNumber }}</v-list-item-subtitle>
+                        <v-list-item-subtitle>Zip Code: {{ volunteer.zipCode }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list-item-group>
+        </v-list>
+    </v-container>
 </template>
-
 
 <script> 
 import VolunteerService from '../services/VolunteerService';

@@ -2,7 +2,6 @@
   <div
     id="approve-view"
     class="approve-container" 
-    :style="{ backgroundImage: `url(${backgroundImage})` }"
   >
     <div id="approve-header">
       <h1>Volunteers Pending Review</h1>
@@ -23,7 +22,7 @@ export default {
   },
   data() {
     return {
-      backgroundImage: homePageDogPic,
+      // backgroundImage: homePageDogPic,
     };
   },
   methods: {},
@@ -105,7 +104,6 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("@/assets/Shelter Dog 2.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.2;
@@ -125,26 +123,4 @@ input {
   color: #444444;
 }
 
-.center-text {
-  text-align: center;
-}
-
-.custom-link {
-  color: rgb(7, 28, 41);
-}
-
-.custom-link:hover {
-  text-decoration: underline;
-}
-.input-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-label {
-  font-size: 1.25rem;
-}
-.form-input-group {
-  margin-bottom: 1rem;
-}
 </style>

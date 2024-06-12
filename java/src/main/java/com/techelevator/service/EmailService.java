@@ -149,21 +149,3 @@ public class EmailService {
 
 }
 
-
-
-//    private JavaMailSender javaMailSender;
-//
-//    public EmailService(JavaMailSender javaMailSender) {
-//        this.javaMailSender = javaMailSender;
-//    }
-//
-//    public void sendHtmlEmailWithLink(String to, String subject, String link) throws Exception {
-//        MimeMessage message = javaMailSender.createMimeMessage();
-//        MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-//
-//        helper.setTo(to);
-//        helper.setSubject(subject);
-//        String htmlContent = "<p>Your application has been approved! You can now change your password and sign in with the following link: <a href='" + link + "'>" + link + "</a></p><p>Thank you for joining our passionate team of volunteers, we hope to hear from you soon!</p>";
-//        helper.setText(htmlContent, true); // Set HTML content
-//        javaMailSender.send(message);
-//    }

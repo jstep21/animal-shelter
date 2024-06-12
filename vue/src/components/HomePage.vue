@@ -160,9 +160,9 @@ export default {
   font-size: large;
 }
 
-#invite-friend-button {
-  /* margin-left: 75px; */
-}
+/* #invite-friend-button {
+   margin-left: 75px; 
+} */
 
 .splash-hero-image {
   display: flex;

@@ -229,9 +229,6 @@ input {
 label {
   font-size: 1.25rem;
 }
-.form-input-group {
-  margin-bottom: 1rem;
-}
 
 .reason_why {
   margin-bottom: 0rem;
@@ -244,9 +241,18 @@ textarea {
   border-radius: 0.25rem;
 }
 
-div.form-input-group {
+.form-input-group {
   display: flex;
-  justify-content: center;
-  align-items: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
+
+.form-input-group label {
+  flex: 1;
+  text-align: right;
+  padding-right: 10px;
+}
+
 </style>

@@ -62,7 +62,16 @@
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
     </div>
+
+  
     <router-view />
+      <div v-if="isAdmin" class="admin-and-volunteer-section">
+        <v-btn id="review-volunteers-button">
+          <router-link id="footer-approve-link" :to="{ name: 'approve' }">
+            Review Volunteer Applications
+          </router-link>
+        </v-btn>
+      </div>
     <div class="footer">
 
       <div class="footer-left-side"> 
@@ -79,19 +88,13 @@
       </div>
 
     </div>
-    <div class="admin-and-volunteer-section">
-      <div v-if="$store.state.token != ''">
-        <button id="review-volunteers-button">
-          <router-link id="footer-approve-link" :to="{ name: 'approve' }">
-            Review Volunteer Applications
-          </router-link>
-        </button>
-      </div>
-    </div>
+
   </div>
 </template>
 
 <script>
+import AuthService from './services/AuthService.js';
+
 export default {
   computed: {
     showBg() {
@@ -99,6 +102,24 @@ export default {
     },
 
   },
+  data() {
+    return {
+      isAdmin: false
+    }
+  },
+  created() {
+    this.isUserAdmin();
+  },
+  methods: {
+    isUserAdmin() {
+      AuthService.isUserAdmin().then(
+        (response) => {
+          console.log(response.data);
+          this.isAdmin = response.data;
+        }
+      )
+    }
+  }
 };
 </script>
 
@@ -226,12 +247,10 @@ export default {
 .admin-and-volunteer-section {
   display: flex;
   flex-direction: row;
-  margin-bottom: 100px;
   font-size: large;
   width: 100%;
   justify-content: flex-end;
-  border-top: solid 2px;
-  border-color: gray;
+  max-height: 50px;
 }
 .admin-and-volunteer-section > #review-volunteers-button {
   justify-items: right;
@@ -249,7 +268,7 @@ export default {
 }
 #review-volunteers-button:hover {
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   border-color: darkgray;
   box-shadow: 3px 3px darkgray;
 }
