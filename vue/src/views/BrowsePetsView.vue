@@ -49,14 +49,11 @@ export default {
     color: rgb(43, 98, 134);
     font-family: 'Lato', sans-serif;
     font-weight: 100;
-    
 }
 
 #browse-title {
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
     color: rgb(43, 98, 134);
 }
 

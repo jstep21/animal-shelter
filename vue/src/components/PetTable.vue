@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="scrollable-container">
+      <div>
+        <v-text-field v-model="search" label="Search" clearable @input="applyFilter"></v-text-field>
+      </div>
       <table class="pet-card-grid">
         <tr v-for="(row, rowIndex) in rows" :key="rowIndex">
           <td v-for="(curPet, cellIndex) in row" :key="cellIndex">
@@ -29,10 +32,23 @@ export default {
   data() {
     return {
       pets: [],
+      search: '',
       // imageData: [],
     };
   },
   computed: {
+    filteredPets() {
+      if (this.search === '') {
+        return this.pets;
+      }
+      console.log(this.search);
+      const searchWords = this.search.toLowerCase();
+      return this.pets.filter(
+        pet => Object.values(pet).some(
+          value => String(value).toLowerCase().includes(searchWords)
+        )
+      );
+    },
     rows() {
 
       // let rowCount = parseInt(this.pets.length / 4);
@@ -43,8 +59,9 @@ export default {
       // return rowCount;
 
       const rows = [];
-      for (let i=0; i<this.pets.length; i+=4) {
-        rows.push(this.pets.slice(i, i + 4));
+      for (let i=0; i<this.filteredPets.length; i+=4) {
+        rows.push(this.filteredPets.slice(i, i + 4));
+        console.log(rows);
       }
       return rows;
     },
@@ -75,6 +92,9 @@ export default {
     goToPetDetails(petId) {
       this.$router.push({ name: "pet-details", params: { petId } });
     },
+    applyFilter() {
+
+    }
   },
   created() {
     this.fetchPets();
@@ -84,7 +104,7 @@ export default {
 
 <style>
 .scrollable-container {
-  max-height: 70vh;
+  max-height: 80vh;
   overflow-y: auto;
   margin: 0 auto;
 }
