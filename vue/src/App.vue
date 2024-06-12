@@ -88,7 +88,6 @@
       </div>
 
     </div>
-
   </div>
 </template>
 
@@ -252,10 +251,12 @@ export default {
 .admin-and-volunteer-section {
   display: flex;
   flex-direction: row;
+  margin-top: 100px;
   font-size: large;
   width: 100%;
   justify-content: flex-end;
-  max-height: 50px;
+  /* border-top: solid 2px; */
+  border-color: gray;
 }
 .admin-and-volunteer-section > #review-volunteers-button {
   justify-items: right;
@@ -266,9 +267,9 @@ export default {
   padding: 5px 10px 5px 10px;
   background-color: lightgray;
   margin-left: auto;
-  margin-right: 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-decoration: none;
 }
 #review-volunteers-button:hover {

@@ -10,34 +10,22 @@
 
 <script>
 import VolunteerCard from '../components/VolunteerCard.vue';
-import VolunteerService from '../services/VolunteerService';
 
 export default {
     components: {
         VolunteerCard   
     },
-
-    // data() {
-    //     return {
-    //         volunteer: []
-    //     };
-    // },
-    // methods: {
-    //     showAllVolunteers() {
-    //         VolunteerService.getAllVolunteers.then( (response) => {
-    //             this.volunteer = response.data;
-    //         })
-    //         .catch((error) => {
-    //             console.error("Error retrieving volunteer data", error)
-    //         })
-    //     }
-    // },
-    // created() {
-    //     this.showAllVolunteers();
-    // }
+    created() {
+    this.$store.commit("SET_BG", true);
+  }
 }
 
 </script>
 
-<style>
+<style scoped>
+h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 </style>

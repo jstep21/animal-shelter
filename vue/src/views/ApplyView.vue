@@ -29,6 +29,10 @@ export default {
 </script>
 
 <style scoped>
+
+#apply-view {
+  margin-top: 50px;
+}
 .form-input-group {
   margin-bottom: .25rem;
 }
