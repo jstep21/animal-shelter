@@ -3,10 +3,11 @@
     <div class="scrollable-container">
       <table class="pet-card-grid">
         <tr v-for="(row, rowIndex) in rows" :key="rowIndex">
-          <td v-for="(curPet, cellIndex) in 4" :key="cellIndex">
+          <td v-for="(curPet, cellIndex) in row" :key="cellIndex">
             <PetCard
-              :pet="petCell(rowIndex, cellIndex)"
-              @click="goToPetDetails(petCell(rowIndex, cellIndex).petId)"
+              v-if="curPet"
+              :pet="curPet"
+              @click="goToPetDetails(curPet.petId)"
             />
           </td>
         </tr>
@@ -33,29 +34,37 @@ export default {
   },
   computed: {
     rows() {
-      let rowCount = parseInt(this.pets.length / 4);
-      const leftOver = this.pets.length % 4;
-      if (leftOver > 0) {
-        rowCount++;
+
+      // let rowCount = parseInt(this.pets.length / 4);
+      // const leftOver = this.pets.length % 4;
+      // if (leftOver > 0) {
+      //   rowCount++;
+      // }
+      // return rowCount;
+
+      const rows = [];
+      for (let i=0; i<this.pets.length; i+=4) {
+        rows.push(this.pets.slice(i, i + 4));
       }
-      return rowCount;
+      return rows;
     },
   },
   methods: {
-    petCell(row, cell) {
-      const index = row * 4 + cell;
-      return index < this.pets.length ? this.pets[index] : undefined;
-    },
+
+    // Second v-for was looping through 4 so row was always expected to be 4
+    // v-bind to child component (PetCard) was originally this petCell method
+    // but was returning undefined if the row was not filled with 4 pets
+
+    // petCell(row, cell) {
+    //   const index = row * 4 + cell;
+    //   return index < this.pets.length ? this.pets[index] : undefined;
+    // },
+
     fetchPets() {
       petService
         .getAllPets()
         .then((response) => {
-          this.pets = response.data
-
-            // limits our max pets to display
-            // must be a multiple of 4 with max of pets.length until we fix the related bug :)
-            .slice(0, 32);
-
+          this.pets = response.data;
           console.log(this.pets);
         })
         .catch((error) => {
@@ -75,7 +84,7 @@ export default {
 
 <style>
 .scrollable-container {
-  max-height: 60vh;
+  max-height: 70vh;
   overflow-y: auto;
   margin: 0 auto;
 }
