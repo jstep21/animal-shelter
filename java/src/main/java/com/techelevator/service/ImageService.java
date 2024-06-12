@@ -31,7 +31,8 @@ public class ImageService {
         return imageDao.saveImage(file, petId);
     }
 
-    public String retrieveImageById(int id) {
+    // make list of images and loop through
+    public List<String> retrieveImagesById(int id) {
         return imageDao.getImageDataStringById(id);
     }
 }

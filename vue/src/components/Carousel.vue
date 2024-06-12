@@ -74,7 +74,9 @@
 
   </v-app>
 
-    <img :src="imageData">
+  <div v-for="(image, index) in imageData" :key="index">
+    <img :src="image">
+  </div>
 
     <input v-on:change="uploadFile" type='file' id='file' ref='fileInput'/>
 
@@ -87,13 +89,14 @@
 <script>
 import img from '@/assets/Shelter Dog 2.jpg'
 import ImageService from '../services/ImageService.js'
+//              v-for="(pet, index) in carouselPets" :key="index"
 
 export default {
   data() {
     return {
       dogImg: img,
       file: {},
-      imageData: null,
+      imageData: [],
       error: null,
       menu: false,
       carouselItems: [
@@ -145,12 +148,20 @@ export default {
 
     // Get Individual image stored as byte data form database
     getImage() {
-      ImageService.retrieveImage(4006).then(response => {
+      const headers = {
+        headers: {
+          'Content-Type': 'image/jpg;base64',
+          'Accept' : 'application/json'
+        }
+      }
+
+      ImageService.retrieveImages(1027, headers).then(response => {
         console.log(response.data);
-        this.imageData =  response.data;
+        this.imageData = response.data;
       })
       .catch(error => {
         this.error = error.message;
+        console.log(this.error);
       });
     }
   }

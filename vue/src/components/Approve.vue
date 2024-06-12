@@ -112,7 +112,7 @@ export default {
           if (response.status >= 200 && response.status < 300) {
             // this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             // this.$store.commit("SET_USER", response.data.user); 
-            alert("Successfully updated status for: " + volunteer.firstName + " " + volunteer)  // Alerts user of successful update
+            alert("Successfully updated status for: " + volunteer.firstName + " " + volunteer.lastName)  // Alerts user of successful update
             console.log("should redirect to home now... response: ", response); //////
 
             this.$router.push({ name: "home" });  // Are you sure we want to push them Home? 

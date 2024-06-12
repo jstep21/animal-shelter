@@ -15,7 +15,8 @@
 
 <script>
 import PetCard from "./PetCard.vue";
-import petService from "../services/PetService";
+import petService from '../services/PetService.js';
+import ImageService from '../services/ImageService.js';
 
 export default {
   components: {
@@ -25,6 +26,7 @@ export default {
   data() {
     return {
       pets: [],
+      // imageData: [],
     };
   },
   computed: {
@@ -56,6 +58,7 @@ export default {
           console.error("Error fetching pet data: ", error);
         });
     },
+
     goToPetDetails(petId) {
       this.$router.push({ name: "pet-details", params: { petId } });
     },

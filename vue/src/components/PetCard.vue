@@ -1,7 +1,7 @@
 <template>
   <div id="pet-card" @click="$emit('click')">
       <div class="card" v-if="pet">
-        <img :src="pet.petImageUrls[0]" alt="Queso" class="pet-image">
+        <img :src="imageData[0]" alt="Pet image" class="pet-image">
         <div class="info-box">
           <ul>
             <li>Name: {{ pet.name }}</li>
@@ -15,9 +15,39 @@
 
 <script>
 import axios from 'axios';
+import ImageService from '../services/ImageService.js';
 
 export default {
   props: ['pet'],
+  data() {
+    return {
+      imageData: []
+    }
+  },
+
+  created() {
+    this.fetchPetImages(this.pet.petId)
+  },
+
+  methods: {
+    fetchPetImages(petId) {
+      const headers = {
+        headers: {
+          'Content-Type': 'image/jpg;base64',
+          'Accept' : 'application/json'
+        }
+      }
+
+      ImageService.retrieveImages(petId, headers).then(
+        (response) => {
+          this.imageData = response.data;
+        }
+      )
+      .catch (error => {
+        console.error("Error fetching pet data: ", error);
+      })
+    },
+  }
 };
 </script>
 

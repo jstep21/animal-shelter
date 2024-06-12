@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
@@ -52,12 +55,13 @@ public class ImageController {
     }
 
     @PreAuthorize("permitAll")
-    @RequestMapping(path="/retrieve-image", method = RequestMethod.GET)
-    public String retrieveImageById(@RequestParam int id) {
+    @RequestMapping(path="/retrieve-images", method = RequestMethod.GET)
+    public List<String> retrieveImagesById(@RequestParam int petId) {
         try {
-            return "data:image/jpg;base64, " + imageService.retrieveImageById(id);
+            return  imageService.retrieveImagesById(petId);
         } catch (Exception e) {
-            return "Failed to retrieve image: " + e.getMessage();
+            System.out.println("Exception occurred: " + e.getMessage());
+            return null;
         }
     }
 }

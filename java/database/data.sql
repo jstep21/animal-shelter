@@ -101,6 +101,88 @@ UPDATE images SET pet_id = 1004 WHERE image_id = 4007; -- Hercules
 UPDATE images SET pet_id = 1003 WHERE image_id = 4008; -- Gizmo
 UPDATE images SET pet_id = 1012 WHERE image_id = 4009; -- Simba
 UPDATE images SET pet_id = 1006 WHERE image_id = 4010; -- Koda
+--UPDATE images SET pet_id = ? WHERE image_id = 4011; -- Bones We need to add him to database
+--UPDATE images SET pet_id = ? WHERE image_id = 4012; -- Bones
+--UPDATE images SET pet_id = ? WHERE image_id = 4013; -- Bones
+--UPDATE images SET pet_id = ? WHERE image_id = 4014; -- Bones
+--UPDATE images SET pet_id = ? WHERE image_id = 4015; -- Bones
+--UPDATE images SET pet_id = ? WHERE image_id = 4016; -- Bones
+UPDATE images SET pet_id = 1015 WHERE image_id = 4017; -- Brutus
+UPDATE images SET pet_id = 1015 WHERE image_id = 4018; -- Brutus
+UPDATE images SET pet_id = 1015 WHERE image_id = 4019; -- Brutus
+UPDATE images SET pet_id = 1014 WHERE image_id = 4020; -- Button
+UPDATE images SET pet_id = 1014 WHERE image_id = 4021; -- Button
+UPDATE images SET pet_id = 1014 WHERE image_id = 4022; -- Button
+UPDATE images SET pet_id = 1013 WHERE image_id = 4023; -- Cloud
+UPDATE images SET pet_id = 1016 WHERE image_id = 4024; -- Columbus
+UPDATE images SET pet_id = 1016 WHERE image_id = 4025; -- Columbus
+UPDATE images SET pet_id = 1016 WHERE image_id = 4026; -- Columbus
+UPDATE images SET pet_id = 1017 WHERE image_id = 4027; -- Eevee
+UPDATE images SET pet_id = 1017 WHERE image_id = 4028; -- Eevee
+UPDATE images SET pet_id = 1017 WHERE image_id = 4029; -- Eevee
+UPDATE images SET pet_id = 1027 WHERE image_id = 4030; -- Ember
+UPDATE images SET pet_id = 1027 WHERE image_id = 4031; -- Ember
+UPDATE images SET pet_id = 1027 WHERE image_id = 4032; -- Ember
+UPDATE images SET pet_id = 1027 WHERE image_id = 4033; -- Ember
+UPDATE images SET pet_id = 1018 WHERE image_id = 4034; -- Henry
+UPDATE images SET pet_id = 1018 WHERE image_id = 4035; -- Henry
+UPDATE images SET pet_id = 1018 WHERE image_id = 4036; -- Henry
+UPDATE images SET pet_id = 1019 WHERE image_id = 4037; -- Jack
+UPDATE images SET pet_id = 1019 WHERE image_id = 4038; -- Jack
+UPDATE images SET pet_id = 1019 WHERE image_id = 4039; -- Jack
+UPDATE images SET pet_id = 1020 WHERE image_id = 4040; -- Jax
+UPDATE images SET pet_id = 1020 WHERE image_id = 4041; -- Jax
+UPDATE images SET pet_id = 1020 WHERE image_id = 4042; -- Jax
+UPDATE images SET pet_id = 1021 WHERE image_id = 4043; -- Kiwi
+UPDATE images SET pet_id = 1021 WHERE image_id = 4044; -- Kiwi
+UPDATE images SET pet_id = 1021 WHERE image_id = 4045; -- Kiwi
+--UPDATE images SET pet_id = ? WHERE image_id = 4046; -- Masamune
+--UPDATE images SET pet_id = ? WHERE image_id = 4047; -- Masamune
+--UPDATE images SET pet_id = ? WHERE image_id = 4048; -- Masamune
+--UPDATE images SET pet_id = ? WHERE image_id = 4049; -- Masamune
+--UPDATE images SET pet_id = ? WHERE image_id = 4050; -- Masamune
+--UPDATE images SET pet_id = ? WHERE image_id = 4051; -- Masamune
+UPDATE images SET pet_id = 1022 WHERE image_id = 4052; -- Mow Mow
+UPDATE images SET pet_id = 1022 WHERE image_id = 4053; -- Mow Mow
+UPDATE images SET pet_id = 1022 WHERE image_id = 4054; -- Mow Mow
+UPDATE images SET pet_id = 1026 WHERE image_id = 4055; -- Oslo
+UPDATE images SET pet_id = 1026 WHERE image_id = 4056; -- Oslo
+UPDATE images SET pet_id = 1026 WHERE image_id = 4057; -- Oslo
+UPDATE images SET pet_id = 1023 WHERE image_id = 4058; -- Penelope
+UPDATE images SET pet_id = 1023 WHERE image_id = 4059; -- Penelope
+UPDATE images SET pet_id = 1023 WHERE image_id = 4060; -- Penelope
+--UPDATE images SET pet_id = ? WHERE image_id = 4061; -- Poochini
+--UPDATE images SET pet_id = ? WHERE image_id = 4062; -- Poochini
+--UPDATE images SET pet_id = ? WHERE image_id = 4063; -- Poochini
+--UPDATE images SET pet_id = ? WHERE image_id = 4064; -- Poochini
+--UPDATE images SET pet_id = ? WHERE image_id = 4065; -- Poochini
+--UPDATE images SET pet_id = ? WHERE image_id = 4066; -- Poochini
+UPDATE images SET pet_id = 1001 WHERE image_id = 4067; -- Queso
+UPDATE images SET pet_id = 1001 WHERE image_id = 4068; -- Queso
+UPDATE images SET pet_id = 1001 WHERE image_id = 4069; -- Queso
+UPDATE images SET pet_id = 1028 WHERE image_id = 4070; -- Spike
+UPDATE images SET pet_id = 1028 WHERE image_id = 4071; -- Spike
+UPDATE images SET pet_id = 1028 WHERE image_id = 4072; -- Spike
+--UPDATE images SET pet_id = ? WHERE image_id = 4073; -- Stump
+--UPDATE images SET pet_id = ? WHERE image_id = 4074; -- Stump
+--UPDATE images SET pet_id = ? WHERE image_id = 4075; -- Stump
+UPDATE images SET pet_id = 1024 WHERE image_id = 4076; -- Swirl
+UPDATE images SET pet_id = 1024 WHERE image_id = 4077; -- Swirl
+UPDATE images SET pet_id = 1024 WHERE image_id = 4078; -- Swirl
+--UPDATE images SET pet_id = ? WHERE image_id = 4079; -- Tempe
+--UPDATE images SET pet_id = ? WHERE image_id = 4080; -- Tempe
+--UPDATE images SET pet_id = ? WHERE image_id = 4081; -- Tempe
+--UPDATE images SET pet_id = ? WHERE image_id = 4082; -- Tempe
+--UPDATE images SET pet_id = ? WHERE image_id = 4083; -- Tempe
+--UPDATE images SET pet_id = ? WHERE image_id = 4084; -- Tempe
+UPDATE images SET pet_id = 1025 WHERE image_id = 4085; -- Toga
+UPDATE images SET pet_id = 1025 WHERE image_id = 4086; -- Toga
+UPDATE images SET pet_id = 1025 WHERE image_id = 4087; -- Toga
+UPDATE images SET pet_id = 1002 WHERE image_id = 4088; -- Winston Fetchill
+UPDATE images SET pet_id = 1011 WHERE image_id = 4089; -- Zephyr
+
+
+
 
 
 -- Statements below link descriptions to pets --

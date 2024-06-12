@@ -4,6 +4,7 @@ import com.techelevator.exception.DaoException;
 import com.techelevator.model.ImageByteArray;
 import com.techelevator.model.ImageUrl;
 import com.techelevator.model.Pet;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.sql.DataSource;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,13 +69,40 @@ public class JdbcImageDao implements ImageDao {
         return newImageId;
     }
 
-    public String getImageDataStringById(int id) {
-        String sql = "SELECT * FROM images WHERE image_id = ?;";
+    public List<String> getImageDataStringById(int id) {
+        List<String> images = new ArrayList<>();
+        List<Integer> image_ids = new ArrayList<>();
+        String sqlForImageIds = "SELECT image_id FROM images WHERE pet_id = ?;";
+
         try {
-            return jdbcTemplate.queryForObject(sql, new ImageStringMapper(), id);
-        } catch (EmptyResultDataAccessException e) {
-            return null;
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sqlForImageIds, id);
+            while (results.next()) {
+                int imageId = results.getInt("image_id");
+                if (!results.wasNull()) {
+                    image_ids.add(imageId);
+                }
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            System.out.println("Problem connecting");
+        } catch (DataIntegrityViolationException e) {
+            System.out.println("Data problems");
         }
+        for (Integer image_id : image_ids) {
+            String sql = "SELECT * FROM images WHERE image_id = ?;";
+            try {
+                String imageData = jdbcTemplate.queryForObject(sql, new ImageStringMapper(), image_id);
+                if (imageData != null) {
+                    images.add("data:image/jpg;base64, " + imageData);
+                }
+            } catch (EmptyResultDataAccessException e) {
+                System.out.println(e.getMessage());
+            } catch (DataAccessException e) {
+                System.out.println(e.getMessage());
+            } catch (NullPointerException e) {
+//                System.out.println(e.getMessage());
+            }
+        }
+        return images;
     }
 
     private ImageUrl mapRowToImageUrl(SqlRowSet sqlRowSet) {
@@ -82,5 +111,12 @@ public class JdbcImageDao implements ImageDao {
         imageUrl.setImageUrl(sqlRowSet.getString("image_url"));
         return imageUrl;
     }
+//    private ImageByteArray mapRowToImageByteArray(SqlRowSet sqlRowSet) {
+//        ImageByteArray imageByteArray = new ImageByteArray();
+//        imageByteArray.setImageId(sqlRowSet.getInt("image_id"));
+//        imageByteArray.setImageFilename(sqlRowSet.getString("file_name"));
+//        imageByteArray.setByteData(sqlRowSet.getByte("image_data"));
+//        return imageByteArray;
+//    }
 }
 

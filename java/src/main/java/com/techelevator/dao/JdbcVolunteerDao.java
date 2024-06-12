@@ -57,7 +57,7 @@ public class JdbcVolunteerDao implements VolunteerDao {
     }
 
     @Override
-    public VolunteerDto addVolunteer(VolunteerDto volunteerToAdd) {
+    public boolean addVolunteer(VolunteerDto volunteerToAdd) {
 
         // Set new volunteer's initial username to be their provided email address,
         // and temp password to "password" which they will change when they login for the first time.
@@ -94,7 +94,7 @@ public class JdbcVolunteerDao implements VolunteerDao {
             System.out.println("Problem with Data Integrity");
             System.out.println(e.getMessage());
         }
-        return getVolunteer(newVolunteerId);
+        return newVolunteerId > 0;
     }
 
 

@@ -12,7 +12,7 @@ export default {
     return axios.post(`/upload?petId=${petId}`, formData, options);
   },
 
-  retrieveImage(id) {
-    return axios.get(`/retrieve-image?id=${id}`);
+  retrieveImages(id, headers) {
+    return axios.get(`/retrieve-images?petId=${id}`, headers);
   }
 }

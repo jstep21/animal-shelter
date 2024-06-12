@@ -11,6 +11,9 @@ public class ImageByteArray {
     private String imageFilename;
     private byte[] byteData;
 
+    public ImageByteArray() {
+    }
+
     public ImageByteArray(int imageId, String imageFilename, byte[] byteData) {
         this.imageId = imageId;
         this.imageFilename = imageFilename;

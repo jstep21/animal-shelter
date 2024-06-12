@@ -92,9 +92,21 @@ public class AppController {
     @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path="/volunteers", method = RequestMethod.POST)
-    public VolunteerDto addVolunteer(@RequestBody VolunteerDto volunteer) {
-        emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
-        return volunteerDao.addVolunteer(volunteer);
+    public ResponseEntity<String> addVolunteer(@RequestBody VolunteerDto volunteer) {
+        try {
+            emailService.sendEmailsWhenAddingNewVolunteer(volunteer);
+            boolean response = volunteerDao.addVolunteer(volunteer);
+            if (response) {
+                return ResponseEntity.status(HttpStatus.OK).body("Volunteer Application Sent Successfully!");
+            }
+            else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Email already in database");
+            }
+        } catch (Exception e) {
+            String errorMessage = "An error occurred with the server";
+            System.out.println(e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
+        }
     }
 
     @PreAuthorize("permitAll") // for testing -- remove this later

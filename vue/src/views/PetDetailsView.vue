@@ -22,7 +22,8 @@ export default {
   },
   data() {
     return {
-        pet: null
+        pet: null,
+        imageData: []
     };
   },
   methods: {

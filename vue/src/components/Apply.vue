@@ -13,7 +13,7 @@
           <input type="email" id="email" v-model="volunteer.email"
             required/>
           <label for="phoneNumber">Phone Number</label>
-          <input type="tel" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" v-model="volunteer.phoneNumber"
+          <input type="text" id="phoneNumber" v-model="volunteer.phoneNumber"
             required/>
           <label for="zipCode">Zip Code</label>
           <input type="text" id="zipCode" v-model="volunteer.zipCode"
@@ -21,7 +21,9 @@
           <label for="reason_why">Tell us more about why you want to be a volunteer!</label>
           <textarea id="reason_why" name="reason_why" rows="4" cols="50"></textarea>
       </div>
-      <button type="submit">Submit</button>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
     </form>
   </div>
 </template>
@@ -41,7 +43,7 @@ export default {
         email: "",
         phoneNumber: "",
         zipCode: "",
-        approvalStatus: ""
+        approvalStatus: "Pending"
       },
     };
   },
@@ -61,14 +63,16 @@ export default {
 
            // console.log("POSTed, in .then(), response status is: " + response.status);//////
            if (response.status >= 200 && response.status < 300) {
+            alert("Application sent succesfully!")
             // console.log("should redirect now... response: ", response);//////
             this.$router.push({ name: "home" });
           }
         })
         .catch((error) => {
           const response = error.response;
-          if (response.status === 401) {
-            this.invalidCredentials = true;
+          if (response.status >= 400) {
+            alert("There's a volunteer already associated with this email address"); // this is trigger when someone enters in 
+            this.invalidCredentials = true;                                          // an email that's already in the database
           }
         });
     },
