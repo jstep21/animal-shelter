@@ -49,15 +49,16 @@ public class JdbcImageDao implements ImageDao {
     @Override
     public Integer saveImage(MultipartFile file, int petId) {
         String sql = "INSERT INTO images" +
-                "(image_data, file_name) " +
-                "VALUES (?, ?) " +
+                "(image_data, file_name, pet_id) " +
+                "VALUES (?, ?, ?) " +
                 "RETURNING image_id;";
 
         int newImageId = -1;
         try {
             newImageId = jdbcTemplate.queryForObject(sql, Integer.class,
                     file.getBytes(),
-                    file.getOriginalFilename());
+                    file.getOriginalFilename(),
+                    petId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Cannot connect", e);
         } catch (DataIntegrityViolationException e) {

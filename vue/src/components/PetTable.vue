@@ -1,15 +1,17 @@
 <template>
   <div>
-    <table class="pet-card-grid">
-      <tr v-for="(row, rowIndex) in rows" :key="rowIndex">
-        <td v-for="(curPet, cellIndex) in 4" :key="cellIndex">
-          <PetCard
-            :pet="petCell(rowIndex, cellIndex)"
-            @click="goToPetDetails(petCell(rowIndex, cellIndex).petId)"
-          />
-        </td>
-      </tr>
-    </table>
+    <div class="scrollable-container">
+      <table class="pet-card-grid">
+        <tr v-for="(row, rowIndex) in rows" :key="rowIndex">
+          <td v-for="(curPet, cellIndex) in 4" :key="cellIndex">
+            <PetCard
+              :pet="petCell(rowIndex, cellIndex)"
+              @click="goToPetDetails(petCell(rowIndex, cellIndex).petId)"
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -50,8 +52,8 @@ export default {
         .then((response) => {
           this.pets = response.data
 
-            // limits us to only 12 pets: we can adjust or remove later
-            .slice(0, 12);
+            // limits our max pets to display
+            .slice(0,12);
           console.log(this.pets);
         })
         .catch((error) => {
@@ -70,4 +72,16 @@ export default {
 </script>
 
 <style>
+.scrollable-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  margin: 0 auto;
+}
+.pet-card-grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+.pet-card-grid td {
+  padding: 0px;
+}
 </style>

@@ -121,6 +121,13 @@ export default {
           this.isAdmin = response.data;
         }
       )
+      .catch ((error) => {
+        if (error.response && error.response.status === 401) {
+          this.isAdmin = false;
+        } else {
+          console.log("Error occurred: ", error)
+        }
+      })
     }
   },
 };

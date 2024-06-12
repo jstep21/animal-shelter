@@ -95,6 +95,7 @@ export default {
   text-align: center;
 }
 .info-box li {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 12px;
 }
 
