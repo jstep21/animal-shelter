@@ -201,7 +201,6 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2003);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2005);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1002, 2008);
 
-
 -- Gizmo (Pet ID 1003)
 INSERT INTO pet_description(pet_id, description_id) VALUES (1003, 2003);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1003, 2017);

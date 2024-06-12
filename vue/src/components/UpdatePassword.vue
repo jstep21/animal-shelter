@@ -3,6 +3,15 @@
       <h1>Update Password</h1>
       <form @submit.prevent="updatePassword">
         <div class="form-group">
+          <label for="username">Email/Username</label>
+          <input
+            type="username"
+            id="username"
+            v-model="user.username"
+            required      
+          />
+        </div>
+        <div class="form-group">
           <label for="new-password">New Password</label>
           <input
             type="password"
@@ -34,7 +43,11 @@ export default {
     return {
       newPassword: '',
       confirmPassword: '',
-      errorMessage: ''
+      errorMessage: '',
+      user: {
+        username: '',
+        password: '',
+      }
     };
   },
   methods: {
@@ -43,12 +56,20 @@ export default {
         this.errorMessage = 'Passwords do not match';
         return;
       }
+      const headers = {
+          'Content-Type': 'application/json',
+          'Accept' : 'application/json'
+      }
+      this.user.password = this.newPassword;  
+
       try {
-        VolunteerService.updatePassword(this.newPassword).then(() => {
-          this.$router.push({ name: 'profile' });
+        VolunteerService.updatePassword(this.user, headers).then(() => {
+          alert("Password updated successfully!\nYour email will be your new username")
+          this.$router.push({ name: 'home' });
         });
       } catch (error) {
         this.errorMessage = error.response.data.message;
+        alert(this.errorMessage)
       }
     },
   },

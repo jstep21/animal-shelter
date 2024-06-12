@@ -3,6 +3,9 @@
     <v-text-field v-model="search" label="Search" clearable @input="applyFilter"></v-text-field>
   </div>
   <div>
+    <v-responsive>
+
+
     <v-data-table
       :items="filteredVolunteers"
       item-key="volunteerId"
@@ -25,6 +28,7 @@
         </tr>
       </template>
     </v-data-table>
+  </v-responsive>
   </div>
 </template>
 

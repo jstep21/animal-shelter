@@ -18,8 +18,8 @@ export default {
     const API_BASE_URL = import.meta.env.VITE_REMOTE_API
     return axios.put('/volunteers', volunteer, options);
   },
-  updatePassword(newPassword) {
+  updatePassword(user, headers) {
     const API_BASE_URL = import.meta.env.VITE_REMOTE_API
-    return axios.post(`${API_BASE_URL}/update-password`, { password: newPassword });
+    return axios.put(`${API_BASE_URL}/update-password`, user, headers);
   }
 };

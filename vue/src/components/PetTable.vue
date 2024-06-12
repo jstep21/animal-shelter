@@ -53,7 +53,7 @@ export default {
           this.pets = response.data
 
             // limits our max pets to display
-            .slice(0,12);
+            .slice(0,17);
           console.log(this.pets);
         })
         .catch((error) => {

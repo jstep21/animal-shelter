@@ -122,6 +122,7 @@ public class AppController {
     }
 
     @PreAuthorize("permitAll")
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/update-password", method = RequestMethod.PUT)
     public ResponseEntity<String> updatePassword(@RequestBody RegisterUserDto user) {
         try {
