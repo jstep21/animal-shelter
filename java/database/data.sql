@@ -139,7 +139,7 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2015);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2004);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2016);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2001);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2023);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1005, 2011);
 
 -- Koda (Pet ID 1006)
 INSERT INTO pet_description(pet_id, description_id) VALUES (1006, 2005);
@@ -178,7 +178,7 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1010, 2019);
 
 -- Zephyr (Pet ID 1011)
 INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2012);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2023);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2011);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2002);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2009);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1011, 2021);
@@ -195,7 +195,7 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2010);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2013);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2021);
 INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2006);
-INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2023);
+INSERT INTO pet_description(pet_id, description_id) VALUES (1013, 2011);
 
 -- Button (Pet ID 1014)
 INSERT INTO pet_description(pet_id, description_id) VALUES (1014, 2018); -- Button
