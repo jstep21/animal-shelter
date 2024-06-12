@@ -1,7 +1,15 @@
 <template>
     <div class="pet-details-card">
-      <div id="pet-details-image">
-        <img :src="pet.petImageUrls[0]" alt="Pet Image" class="pet-image" />
+      <div id="pet-details-image" ref='petDetailsImage'>
+        <v-carousel v-model='activeIndex' show-arrows='hover'>
+          <v-carousel-item 
+            v-for="(image, index) in imageData" :key="index" 
+            :style="{ height: containerHeight + 'px' }"
+            :src="image"
+          >
+            <!-- <img :src="image" alt="Pet Image" class="pet-image" @load='adjustContainerHeight' /> -->
+          </v-carousel-item>
+        </v-carousel>
       </div>
       <div id="pet-details">
         <div class="pet-details-info-box" v-if="pet">
@@ -31,9 +39,56 @@
 
 <script>
 import petService from "../services/PetService";
+import ImageService from '../services/ImageService.js';
 
 export default {
   props: ["pet"],
+  data() {
+    return {
+      imageData: [],
+      containerHeight: 0,
+      activeIndex: 0
+    }
+  },
+
+  created() {
+    this.fetchPetImages(this.pet.petId)
+  },
+
+  mounted() {
+    this.adjustContainerHeight();
+    window.addEventListener('resize', this.adjustContainerHeight);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.adjustContainerHeight)
+  },
+
+  methods: {
+    fetchPetImages(petId) {
+      const headers = {
+        headers: {
+          'Content-Type': 'image/jpg;base64',
+          'Accept' : 'application/json'
+        }
+      }
+
+      ImageService.retrieveImages(petId, headers).then(
+        (response) => {
+          this.imageData = response.data;
+        }
+      )
+      .catch (error => {
+        console.error("Error fetching pet data: ", error);
+      })
+    },
+    adjustContainerHeight() {
+      const firstImage = this.$refs.petDetailsImage.querySelector('.pet-image');
+      if (firstImage) {
+        const aspectRatio = firstImage.naturalWidth / firstImage.naturalHeight;
+        this.containerHeight = this.$refs.petDetailsImage.offsetWidth / aspectRatio;
+      }
+    }
+  }
 };
 </script>
 
@@ -54,13 +109,25 @@ export default {
 }
 
 #pet-details-image {
-  position: relative;
-  width: auto;
-  height: auto;
   padding: .25rem;
   border-radius: 0.25rem;
   margin: .25rem;
   border: 1px solid white;
+}
+
+.v-carousel-item {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.v-carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
 }
 
 .pet-details-info-box {
