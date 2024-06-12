@@ -53,7 +53,9 @@ export default {
           this.pets = response.data
 
             // limits our max pets to display
-            .slice(0,17);
+            // must be a multiple of 4 with max of pets.length until we fix the related bug :)
+            .slice(0, 32);
+
           console.log(this.pets);
         })
         .catch((error) => {
@@ -73,7 +75,7 @@ export default {
 
 <style>
 .scrollable-container {
-  max-height: 80vh;
+  max-height: 60vh;
   overflow-y: auto;
   margin: 0 auto;
 }
