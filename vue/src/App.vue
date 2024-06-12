@@ -84,7 +84,7 @@
 
       <div class="footer-right-side">
         <div id="terms-of-service"> Terms of Service </div>
-        <div id="privacy-policy"> Privacy Policy </div>
+        <div id="privacy-policy"><router-link id="privacy" v-bind:to="{name: 'privacy-policy'}"> Privacy Policy </router-link></div>
       </div>
 
     </div>

@@ -1,7 +1,50 @@
 <template>
   <div class="apply-container">
     <h1 class="apply-header">Apply To Become a Volunteer!</h1>
-    <form class="apply-form" v-on:submit.prevent="apply">
+    
+    <v-sheet class="mx-auto" width="300">
+      <v-form @submit.prevent='apply'>
+        <v-text-field
+          v-model="volunteer.firstName"
+          :rules="rules"
+          label="First Name"
+        ></v-text-field>
+
+        <v-text-field
+          v-model="volunteer.lastName"
+          :rules="rules"
+          label="Last Name"
+        ></v-text-field>
+
+        <v-text-field
+          v-model="volunteer.email"
+          :rules="rules"
+          label="Email"
+        ></v-text-field>
+
+        <v-text-field
+          v-model="volunteer.phoneNumber"
+          :rules="rules"
+          label="Phone"
+        ></v-text-field>
+
+        <v-text-field
+          v-model="volunteer.zipCode"
+          :rules="rules"
+          label="Zip Code"
+        ></v-text-field>
+        
+        <!-- :items="petDescriptions"
+          v-model='newPetDescriptions.descriptions' -->
+        <v-combobox
+          label="Why do you want to volunteer?"
+        ></v-combobox>
+
+        <v-btn color="rgb(43, 98, 134)" class="mt-2" type="submit" block>Submit</v-btn>
+      </v-form>
+    </v-sheet>
+
+    <!-- <form class="apply-form" v-on:submit.prevent="apply">
       <div class="apply-data-box">
           <label for="firstName">First Name</label>
           <input type="text" id="firstName" v-model="volunteer.firstName"
@@ -18,13 +61,13 @@
           <label for="zipCode">Zip Code</label>
           <input type="text" id="zipCode" v-model="volunteer.zipCode"
             required/>
-          <label for="reason_why">Tell us more about why you want to be a volunteer!</label>
+          <label for="reason_why">Tell us about why you want to be a volunteer!</label>
           <textarea id="reason_why" name="reason_why" rows="4" cols="50"></textarea>
       </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+
+      <button type="submit">Submit</button>
+    </form> -->
+
   </div>
 </template>
 
@@ -57,14 +100,18 @@ export default {
       }
       // console.log("in apply() method...");//////
 
+      // this.volunteer.approvalStatus = 'Pending';
+
+      // console.log("VOLUNTEER: " + this.volunteer);
       volunteerService
         .postVolunteer(this.volunteer, options)
         .then((response) => { 
 
-           // console.log("POSTed, in .then(), response status is: " + response.status);//////
+           console.log("POSTed, in .then(), response status is: " + response.status);//////
            if (response.status >= 200 && response.status < 300) {
             alert("Application sent succesfully!")
             // console.log("should redirect now... response: ", response);//////
+            alert("You successfully applied to become a volunteer!");  
             this.$router.push({ name: "home" });
           }
         })
@@ -264,5 +311,21 @@ button:active {
   text-align: right;
   padding-right: 10px;
 } */
+
+.v-text-field .v-label {
+  color: rgb(43, 98, 134);
+}
+
+.v-checkbox .v-label {
+  color: rgb(43, 98, 134);
+}
+
+.v-file-input .v-label {
+  color: rgb(43, 98, 134);
+}
+
+.v-sheet {
+  padding: 10px 10px 10px 10px;
+}
 
 </style>

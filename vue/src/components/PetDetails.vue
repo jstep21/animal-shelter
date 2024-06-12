@@ -20,7 +20,13 @@
           </ul>
         </div>
       </div>
+      <div id="update-button">
+      <button id="update" v-if="$store.state.token != ''">
+            <router-link id="update-pet" v-bind:to="{name: 'update-pet'}"> Update Pet Info </router-link>
+      </button>
     </div>
+    </div>
+
 </template>
 
 <script>
@@ -127,6 +133,10 @@ li {
   color: rgb(43, 98, 134);
   font-family: 'Lato', sans-serif;
   font-weight: 700;
+}
+
+#update-button{
+font-weight: bold;
 }
 
 </style>
