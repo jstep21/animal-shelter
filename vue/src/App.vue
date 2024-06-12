@@ -64,7 +64,7 @@
     </div>
 
   
-    <router-view />
+    <router-view  class="main-section"/>
       <div v-if="isAdmin" class="admin-and-volunteer-section">
         <v-btn id="review-volunteers-button">
           <router-link id="footer-approve-link" :to="{ name: 'approve' }">
@@ -135,6 +135,15 @@ export default {
 </script>
 
 <style>
+
+.main-section {
+  margin-top: 70px;
+}
+
+#nav {
+  position: fixed;
+  top: 0;
+}
 
 .header {
   width: 100%;
