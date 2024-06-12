@@ -9,7 +9,7 @@ INSERT INTO users (username, password_hash, role) VALUES ('koi-test', '$2a$08$Uk
 INSERT INTO users (username, password_hash, role) VALUES ('maria-test', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER'); -- password is: password
 INSERT INTO users (username, password_hash, role) VALUES ('jeremy-test-admin', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_ADMIN'); -- password is: password
 
-INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Queso', 'Cat', 'Maine Coon', '15', 'Female', '5', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Queso', 'Cat', 'Maine Coon', '15', 'Female', '5', true); -- Pet ID: 1001
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Winston Fetchill', 'Dog', 'Great Dane', '160', 'Male', '2', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Gizmo', 'Dog', 'Pug', '16', 'Male', '5', false);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Hercules', 'Dog', 'Great Dane', '135', 'Female', '6', true);
@@ -18,7 +18,7 @@ INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VA
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Angus', 'Dog', 'Scottish Deerhound', '95', 'Male', '8', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Lily', 'Dog', 'Maltese', '5', 'Female', '7', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Pippin', 'Dog', 'Yorkshire Terrier', '6', 'Male', '2', false);
-INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Stump', 'Dog', 'Irish Wolfhound', '140', 'Male', '4', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Stump', 'Dog', 'Irish Wolfhound', '140', 'Male', '4', true); -- Pet ID: 1010
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Zephyr', 'Dog', 'Italian Greyhound', '15', 'Female', '3', false);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Simba', 'Dog', 'Chow', '60', 'Male', '4', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Cloud', 'Rabbit', 'Angora', '30', 'Male', '4', true);
@@ -28,7 +28,7 @@ INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VA
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Eevee', 'Dog', 'Irish Terrier Mix', '45', 'Female', '5', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Henry', 'Cat', 'Turkish Van', '12', 'Male', '4', false);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Jack', 'Dog', 'Mixed Breed', '55', 'Male', '3', true);
-INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Jax', 'Dog', 'Maltese Poodle Mix', '20', 'Male', '2', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Jax', 'Dog', 'Maltese Poodle Mix', '20', 'Male', '2', true); -- Pet ID: 1020
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Kiwi', 'Cat', 'Domestic Shorthair', '8', 'Female', '2', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Mow Mow', 'Cat', 'Maine Coon Mix', '15', 'Male', '6', false);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Penelope', 'Dog', 'French Bulldog', '28', 'Female', '3', true);
@@ -37,7 +37,11 @@ INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VA
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Oslo', 'Cat', 'Ragdoll', '8', 'Male', '1', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Ember', 'Cat', 'Bengal', '7', 'Female', '1', true);
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Spike', 'Cat', 'Orange Harlequin', '17', 'Male', '9', true);
-
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Bones', 'Dog', 'Saluki', '45', 'Female', '10', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Masamune', 'Dog', 'Akita', '52', 'Male', '6', true); -- Pet ID: 1030
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Poochini', 'Dog', 'Italian Greyhound', '24', 'Male', '5', false);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Tempe', 'Dog', 'Saluki', '68', 'Female', '8', true);
+INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Stump', 'Dog', 'Irish Wolfhound', '95', 'Male', '13', true); -- Pet ID: 1033
 
 
 
@@ -101,12 +105,12 @@ UPDATE images SET pet_id = 1004 WHERE image_id = 4007; -- Hercules
 UPDATE images SET pet_id = 1003 WHERE image_id = 4008; -- Gizmo
 UPDATE images SET pet_id = 1012 WHERE image_id = 4009; -- Simba
 UPDATE images SET pet_id = 1006 WHERE image_id = 4010; -- Koda
---UPDATE images SET pet_id = ? WHERE image_id = 4011; -- Bones We need to add him to database
---UPDATE images SET pet_id = ? WHERE image_id = 4012; -- Bones
---UPDATE images SET pet_id = ? WHERE image_id = 4013; -- Bones
---UPDATE images SET pet_id = ? WHERE image_id = 4014; -- Bones
---UPDATE images SET pet_id = ? WHERE image_id = 4015; -- Bones
---UPDATE images SET pet_id = ? WHERE image_id = 4016; -- Bones
+UPDATE images SET pet_id = 1029 WHERE image_id = 4011; -- Bones
+UPDATE images SET pet_id = 1029 WHERE image_id = 4012; -- Bones
+UPDATE images SET pet_id = 1029 WHERE image_id = 4013; -- Bones
+UPDATE images SET pet_id = 1029 WHERE image_id = 4014; -- Bones
+UPDATE images SET pet_id = 1029 WHERE image_id = 4015; -- Bones
+UPDATE images SET pet_id = 1029 WHERE image_id = 4016; -- Bones
 UPDATE images SET pet_id = 1015 WHERE image_id = 4017; -- Brutus
 UPDATE images SET pet_id = 1015 WHERE image_id = 4018; -- Brutus
 UPDATE images SET pet_id = 1015 WHERE image_id = 4019; -- Brutus
@@ -136,12 +140,12 @@ UPDATE images SET pet_id = 1020 WHERE image_id = 4042; -- Jax
 UPDATE images SET pet_id = 1021 WHERE image_id = 4043; -- Kiwi
 UPDATE images SET pet_id = 1021 WHERE image_id = 4044; -- Kiwi
 UPDATE images SET pet_id = 1021 WHERE image_id = 4045; -- Kiwi
---UPDATE images SET pet_id = ? WHERE image_id = 4046; -- Masamune
---UPDATE images SET pet_id = ? WHERE image_id = 4047; -- Masamune
---UPDATE images SET pet_id = ? WHERE image_id = 4048; -- Masamune
---UPDATE images SET pet_id = ? WHERE image_id = 4049; -- Masamune
---UPDATE images SET pet_id = ? WHERE image_id = 4050; -- Masamune
---UPDATE images SET pet_id = ? WHERE image_id = 4051; -- Masamune
+UPDATE images SET pet_id = 1030 WHERE image_id = 4046; -- Masamune
+UPDATE images SET pet_id = 1030 WHERE image_id = 4047; -- Masamune
+UPDATE images SET pet_id = 1030 WHERE image_id = 4048; -- Masamune
+UPDATE images SET pet_id = 1030 WHERE image_id = 4049; -- Masamune
+UPDATE images SET pet_id = 1030 WHERE image_id = 4050; -- Masamune
+UPDATE images SET pet_id = 1030 WHERE image_id = 4051; -- Masamune
 UPDATE images SET pet_id = 1022 WHERE image_id = 4052; -- Mow Mow
 UPDATE images SET pet_id = 1022 WHERE image_id = 4053; -- Mow Mow
 UPDATE images SET pet_id = 1022 WHERE image_id = 4054; -- Mow Mow
@@ -151,30 +155,30 @@ UPDATE images SET pet_id = 1026 WHERE image_id = 4057; -- Oslo
 UPDATE images SET pet_id = 1023 WHERE image_id = 4058; -- Penelope
 UPDATE images SET pet_id = 1023 WHERE image_id = 4059; -- Penelope
 UPDATE images SET pet_id = 1023 WHERE image_id = 4060; -- Penelope
---UPDATE images SET pet_id = ? WHERE image_id = 4061; -- Poochini
---UPDATE images SET pet_id = ? WHERE image_id = 4062; -- Poochini
---UPDATE images SET pet_id = ? WHERE image_id = 4063; -- Poochini
---UPDATE images SET pet_id = ? WHERE image_id = 4064; -- Poochini
---UPDATE images SET pet_id = ? WHERE image_id = 4065; -- Poochini
---UPDATE images SET pet_id = ? WHERE image_id = 4066; -- Poochini
+UPDATE images SET pet_id = 1031 WHERE image_id = 4061; -- Poochini
+UPDATE images SET pet_id = 1031 WHERE image_id = 4062; -- Poochini
+UPDATE images SET pet_id = 1031 WHERE image_id = 4063; -- Poochini
+UPDATE images SET pet_id = 1031 WHERE image_id = 4064; -- Poochini
+UPDATE images SET pet_id = 1031 WHERE image_id = 4065; -- Poochini
+UPDATE images SET pet_id = 1031 WHERE image_id = 4066; -- Poochini
 UPDATE images SET pet_id = 1001 WHERE image_id = 4067; -- Queso
 UPDATE images SET pet_id = 1001 WHERE image_id = 4068; -- Queso
 UPDATE images SET pet_id = 1001 WHERE image_id = 4069; -- Queso
 UPDATE images SET pet_id = 1028 WHERE image_id = 4070; -- Spike
 UPDATE images SET pet_id = 1028 WHERE image_id = 4071; -- Spike
 UPDATE images SET pet_id = 1028 WHERE image_id = 4072; -- Spike
---UPDATE images SET pet_id = ? WHERE image_id = 4073; -- Stump
---UPDATE images SET pet_id = ? WHERE image_id = 4074; -- Stump
---UPDATE images SET pet_id = ? WHERE image_id = 4075; -- Stump
+UPDATE images SET pet_id = 1033 WHERE image_id = 4073; -- Stump
+UPDATE images SET pet_id = 1033 WHERE image_id = 4074; -- Stump
+UPDATE images SET pet_id = 1033 WHERE image_id = 4075; -- Stump
 UPDATE images SET pet_id = 1024 WHERE image_id = 4076; -- Swirl
 UPDATE images SET pet_id = 1024 WHERE image_id = 4077; -- Swirl
 UPDATE images SET pet_id = 1024 WHERE image_id = 4078; -- Swirl
---UPDATE images SET pet_id = ? WHERE image_id = 4079; -- Tempe
---UPDATE images SET pet_id = ? WHERE image_id = 4080; -- Tempe
---UPDATE images SET pet_id = ? WHERE image_id = 4081; -- Tempe
---UPDATE images SET pet_id = ? WHERE image_id = 4082; -- Tempe
---UPDATE images SET pet_id = ? WHERE image_id = 4083; -- Tempe
---UPDATE images SET pet_id = ? WHERE image_id = 4084; -- Tempe
+UPDATE images SET pet_id = 1032 WHERE image_id = 4079; -- Tempe
+UPDATE images SET pet_id = 1032 WHERE image_id = 4080; -- Tempe
+UPDATE images SET pet_id = 1032 WHERE image_id = 4081; -- Tempe
+UPDATE images SET pet_id = 1032 WHERE image_id = 4082; -- Tempe
+UPDATE images SET pet_id = 1032 WHERE image_id = 4083; -- Tempe
+UPDATE images SET pet_id = 1032 WHERE image_id = 4084; -- Tempe
 UPDATE images SET pet_id = 1025 WHERE image_id = 4085; -- Toga
 UPDATE images SET pet_id = 1025 WHERE image_id = 4086; -- Toga
 UPDATE images SET pet_id = 1025 WHERE image_id = 4087; -- Toga
@@ -384,5 +388,39 @@ INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2007); -- Spik
 INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2011); -- Spike
 INSERT INTO pet_description(pet_id, description_id) VALUES (1028, 2013); -- Spike
 
+-- Bones (Pet ID 1029)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1029, 2018); -- Bones
+INSERT INTO pet_description(pet_id, description_id) VALUES (1029, 2001); -- Bones
+INSERT INTO pet_description(pet_id, description_id) VALUES (1029, 2003); -- Bones
+INSERT INTO pet_description(pet_id, description_id) VALUES (1029, 2007); -- Bones
+INSERT INTO pet_description(pet_id, description_id) VALUES (1029, 2014); -- Bones
+
+-- Masamune (Pet ID 1030)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1030, 2019); -- Masamune
+INSERT INTO pet_description(pet_id, description_id) VALUES (1030, 2002); -- Masamune
+INSERT INTO pet_description(pet_id, description_id) VALUES (1030, 2004); -- Masamune
+INSERT INTO pet_description(pet_id, description_id) VALUES (1030, 2006); -- Masamune
+INSERT INTO pet_description(pet_id, description_id) VALUES (1030, 2012); -- Masamune
+
+-- Poochini (Pet ID 1031)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1031, 2020); -- Poochini
+INSERT INTO pet_description(pet_id, description_id) VALUES (1031, 2005); -- Poochini
+INSERT INTO pet_description(pet_id, description_id) VALUES (1031, 2008); -- Poochini
+INSERT INTO pet_description(pet_id, description_id) VALUES (1031, 2010); -- Poochini
+INSERT INTO pet_description(pet_id, description_id) VALUES (1031, 2017); -- Poochini
+
+-- Tempe (Pet ID 1032)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1032, 2022); -- Tempe
+INSERT INTO pet_description(pet_id, description_id) VALUES (1032, 2001); -- Tempe
+INSERT INTO pet_description(pet_id, description_id) VALUES (1032, 2013); -- Tempe
+INSERT INTO pet_description(pet_id, description_id) VALUES (1032, 2016); -- Tempe
+INSERT INTO pet_description(pet_id, description_id) VALUES (1032, 2018); -- Tempe
+
+-- Stump (Pet ID 1033)
+INSERT INTO pet_description(pet_id, description_id) VALUES (1033, 2021); -- Stump
+INSERT INTO pet_description(pet_id, description_id) VALUES (1033, 2009); -- Stump
+INSERT INTO pet_description(pet_id, description_id) VALUES (1033, 2011); -- Stump
+INSERT INTO pet_description(pet_id, description_id) VALUES (1033, 2015); -- Stump
+INSERT INTO pet_description(pet_id, description_id) VALUES (1033, 2022); -- Stump
 
 COMMIT TRANSACTION;
