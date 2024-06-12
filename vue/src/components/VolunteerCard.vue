@@ -68,4 +68,8 @@ export default {
 
 <style> 
 
+.column-header, #volunteer-body td {
+  padding: 15px; 
+  text-align: center; 
+}
 </style>
