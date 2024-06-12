@@ -1,39 +1,25 @@
 <template>
-  <div id="apply" class="apply-container">
-    <form v-on:submit.prevent="apply">
-      <h1>Apply To Become a Volunteer!</h1>
-      <div class="input-box">
-        <div class="form-input-group">
+  <div class="apply-container">
+    <h1 class="apply-header">Apply To Become a Volunteer!</h1>
+    <form class="apply-form" v-on:submit.prevent="apply">
+      <div class="apply-data-box">
           <label for="firstName">First Name</label>
           <input type="text" id="firstName" v-model="volunteer.firstName"
             required autofocus />
-        </div>
-        <div class="form-input-group">
           <label for="lastName">Last Name</label>
           <input type="text" id="lastName" v-model="volunteer.lastName"
             required/>
-        </div>
-        <div class="form-input-group">
           <label for="email">Email</label>
           <input type="email" id="email" v-model="volunteer.email"
             required/>
-        </div>
-        <div class="form-input-group">
           <label for="phoneNumber">Phone Number</label>
           <input type="tel" id="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" v-model="volunteer.phoneNumber"
             required/>
-        </div>
-        <div class="form-input-group">
           <label for="zipCode">Zip Code</label>
           <input type="text" id="zipCode" v-model="volunteer.zipCode"
             required/>
-        </div>
-        <div class="form-input-group reason_why">
           <label for="reason_why">Tell us more about why you want to be a volunteer!</label>
-        </div>
-        <div class="form-input-group">
           <textarea id="reason_why" name="reason_why" rows="4" cols="50"></textarea>
-        </div>
       </div>
       <button type="submit">Submit</button>
     </form>
@@ -67,43 +53,20 @@ export default {
           'Accept' : 'application/json'
         }
       }
-      console.log("in apply() method...");//////
+      // console.log("in apply() method...");//////
 
       volunteerService
         .postVolunteer(this.volunteer, options)
         .then((response) => { 
 
-          console.log("POSTed, in .then(), response status is: " + response.status);//////
-
-          // JM - changed this from `if (response.status == 200)` because the actual response I was seeing was 201
-          if (response.status >= 200 && response.status < 300) {
-
-            // JM - response.data.token and response.data.user below are coming up in the console as undefined.
-            // Here's the response.data object I was getting back from the server:
-            // data:
-                // approvalStatus: ""
-                // email: "jeremy.j.mckeever@gmail.com"
-                // firstName: "Joe the Volunteer"
-                // lastName: "Test"
-                // phoneNumber: "111-111-1111"
-                // userId: 22
-                // volunteerId: 3018
-                // zipCode: "11111"
-            // ... so at this point we could store userId but there is no token since adding a volunteer
-            //  was done without authentication.
-
-            // commented these out because they were causing issues -- storing an undefined token in local storage
-            // this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            // this.$store.commit("SET_USER", response.data.user); 
-            
-            console.log("should redirect now... response: ", response);//////
-
+           // console.log("POSTed, in .then(), response status is: " + response.status);//////
+           if (response.status >= 200 && response.status < 300) {
+            // console.log("should redirect now... response: ", response);//////
             this.$router.push({ name: "home" });
           }
         })
         .catch((error) => {
           const response = error.response;
-
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
@@ -114,29 +77,86 @@ export default {
 </script>
 
 <style scoped>
-
 .apply-container {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 100%;
 }
-.form-input-group {
-  margin-bottom: 0.25rem;
-}
-
-label {
-  margin-right: 0.25rem;
-  color: rgb(43, 98, 134);
-}
-
-#login {
-  color: rgb(43, 98, 134);
-}
-
-h1 {
+.apply-header {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 0.25rem;
+  margin-top: auto;
+  margin-bottom: 100px;
   color: rgb(43, 98, 134);
 }
+.apply-form {
+  display: block;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+  color: rgb(43, 98, 134);
+}
+
+.apply-data-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+  align-items: center;
+  justify-items: left;
+  margin: 0 auto;
+  color: rgb(43, 98, 134);
+}
+.apply-data-box > label {
+  display: inline;
+  justify-items: right;
+  margin: 0 30px 0 auto;
+  font-size: 1.25rem;
+  color: rgb(43, 98, 134);
+}
+.apply-data-box > input {
+  display: inline;
+  justify-items: inherit;
+  margin: 0 auto;
+  color: black;
+
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin: 0.25rem;
+  border: 1px solid rgb(43, 98, 134);
+}
+.apply-data-box > textarea {
+  display: inline;
+  justify-items: left;
+  margin: 0 auto;
+  color: black;
+
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin: 0.25rem;
+  border: 1px solid rgb(43, 98, 134);
+}
+.apply-form > button {
+  display: inline;
+  justify-items: right;
+  align-items: right;
+  margin: 0 0 auto 0;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgb(43, 98, 134);
+}
+
+.form-input-group {
+  display: contents;
+  margin-bottom: 0.25rem;
+  margin-right: 0.25rem;
+  font-size: 1.25rem;
+  color: rgb(43, 98, 134);
+}
+
+
 
 button {
   background-color: rgb(41, 98, 134);
@@ -165,26 +185,6 @@ button:active {
   border-width: 2px;
   border-color: rgb(31, 78, 107);
   border-style: solid;
-}
-
-div {
-  display: flex;
-  padding: 10px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 17rem;
-}
-
-input {
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  margin: 0.25rem;
-  border: 1px solid rgb(43, 98, 134);
 }
 
 .login-container {
@@ -226,22 +226,28 @@ input {
   flex-direction: column;
   align-items: center;
 }
-label {
-  font-size: 1.25rem;
-}
 
 .reason_why {
   margin-bottom: 0rem;
+  display: inline;
+  justify-items: left;
+  margin: 0 auto;
+  color: black;
+
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin: 0.25rem;
+  border: 1px solid rgb(43, 98, 134);
 }
 
-textarea {
+/* textarea {
   width: 750px;
   height: 150px;
   border: 1px solid rgb(43, 98, 134);
   border-radius: 0.25rem;
-}
+} */
 
-.form-input-group {
+/* .form-input-group {
   display: flex;
   align-items: baseline;
   margin-bottom: 10px;
@@ -253,6 +259,6 @@ textarea {
   flex: 1;
   text-align: right;
   padding-right: 10px;
-}
+} */
 
 </style>
