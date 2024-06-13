@@ -75,7 +75,7 @@
     <div class="footer">
 
       <div class="footer-left-side"> 
-        <div id="footer-title"> Sheltered Furry Friends </div>
+        <div id="footer-title"><router-link id="footer-title-name" v-bind:to="{ name: 'home' }"> Sheltered Furry Friends </router-link></div>
         <a class="icon" href="#" id="facebook"><i class="fa fa-facebook"></i></a>  
         <a class="icon" href="#" id="twitter"><i class="fa fa-twitter"></i></a> 
         <a class="icon" href="#" id="youtube"><i class="fa fa-youtube"></i></a> 
@@ -83,7 +83,7 @@
       </div>
 
       <div class="footer-right-side">
-        <div id="terms-of-service"> Terms of Service </div>
+        <div id="terms-of-service"><router-link id="terms" v-bind:to="{name: 'terms-of-service'}"> Terms of Service </router-link></div>
         <div id="privacy-policy"><router-link id="privacy" v-bind:to="{name: 'privacy-policy'}"> Privacy Policy </router-link></div>
       </div>
 

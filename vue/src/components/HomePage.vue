@@ -8,7 +8,7 @@
         </button>
     </div>
 
-      <v-container >
+      <v-container class="hero-images">
         <v-responsive
           class='align-centerfill-height mx-auto'
           max-width='900'
@@ -125,8 +125,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
- 
+  margin-top: 30px; 
 }
 
 #splash-signup-button {

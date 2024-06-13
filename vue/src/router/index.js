@@ -15,6 +15,7 @@ import VolunteerListView from '../views/VolunteerListView.vue';
 import UpdatePasswordView from '../views/UpdatePasswordView.vue';
 import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 import UpdatePetView from '../views/UpdatePetView.vue'
+import TermsOfServiceView from '../views/TermsOfServiceView.vue'
 
 // for testing:
 import Carousel from '../components/Carousel.vue'; //
@@ -142,6 +143,14 @@ const routes = [
       requiresAuth: true
     }
   },
+  {
+    path: "/terms-of-service",
+    name: "terms-of-service",
+    component: TermsOfServiceView,
+    meta: {
+      requiresAuth: false
+    }
+  }
 ];
 
 // Create the router

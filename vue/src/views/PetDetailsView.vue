@@ -63,7 +63,7 @@ h1 {
   color: rgb(43, 98, 134);
 }
 .home {
-  background-cover: cover;
+  /* background-cover: cover; */
   background-color: aliceblue
 }
 </style>

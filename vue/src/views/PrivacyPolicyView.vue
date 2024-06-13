@@ -70,7 +70,7 @@
         <br>
 
         <div class="subject-title"> Types of information </div>
-        <ul>
+        <ul class="bullet-points">
             <li> Identifying information such as your name, addresses, 
                 telephone numbers or email addresses when you register for an account with us 
             </li>
@@ -90,7 +90,7 @@
 
         <div class="subject-title"> What do we use it for? </div>
         <p> Generally, we use the information we collect through this Site: </p>
-        <ul>
+        <ul class="bullet-points">
             <li>to provide the information, products and services you request; </li>
             <li>to provide you with effective customer service; </li>
             <li>to provide you with a personalized experience when you use this Site; </li>
@@ -125,8 +125,6 @@
 </script>
 
 <style scoped>
-
-
 .subject-title {
     font-weight: 500;
     font-size: large;
@@ -147,4 +145,7 @@ h1 {
     margin-bottom: 50px;
 }
 
+.bullet-points {
+    margin-left: 17px;
+}
 </style>
