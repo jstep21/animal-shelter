@@ -227,6 +227,9 @@ a, a:visited {
   }
 }
 @media (max-width: 800px) {
+  .links-card {
+    align-items: start;
+ }
   .links-box {
     display: grid;
     gap: 2rem;
