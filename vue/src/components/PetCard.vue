@@ -4,9 +4,9 @@
         <img :src="imageData[0]" alt="Pet image" class="pet-image">
         <div class="info-box">
           <ul>
-            <li>Name: {{ pet.name }}</li>
-            <li>Gender: {{ pet.gender }}</li>
-            <li>Age: {{ pet.age }}</li>
+            <li>{{ pet.name }}</li>
+            <span class="pet-details">{{ pet.gender }}</span>
+            <span class="pet-details">{{ pet.age }} yrs</span>
           </ul>
         </div>
       </div>
@@ -95,8 +95,17 @@ export default {
   text-align: center;
 }
 .info-box li {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 12px;
+  font-family:'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
 }
-
+.pet-details {
+  
+  margin-right: 1rem;
+  font-family:'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
+} 
 </style>
