@@ -182,6 +182,7 @@ export default {
   border-radius: 25px;
   padding: 10px;
   background-color: black;
+  font-size: small;
 }
 
 #header-title-name {
