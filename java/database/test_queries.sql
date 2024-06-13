@@ -17,6 +17,10 @@ SELECT * FROM pets;
 SELECT name, breed, image_url FROM pets p
 JOIN images i ON p.pet_id = i.pet_id;
 
+SELECT name, breed, image_data, p.pet_id FROM pets p 
+JOIN images i ON p.pet_id = i.pet_id
+order by p.pet_id;
+
 ---- GET path="/pets/{id}" ---- Pet getPet(int petId) ---- Pet IDs are from 1001-2000
 SELECT * FROM pets WHERE pet_id = 1001;
 SELECT * FROM pets WHERE pet_id = 1002;

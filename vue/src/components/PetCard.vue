@@ -104,7 +104,7 @@ export default {
 }
 .info-box li {
   font-family:'Lato', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   font-style: normal;
 }
@@ -112,7 +112,7 @@ export default {
   
   margin-right: 1rem;
   font-family:'Lato', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   font-style: normal;
 } 

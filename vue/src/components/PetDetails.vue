@@ -31,7 +31,7 @@
               {{ pet.gender == 'Female' ? 'Spayed' : 'Neutered' }} :
               {{ pet.spayedNeutered ? "Yes" : "No" }}
             </li>
-            <li>Descriptions: {{ pet.petDescriptions.join(", ") }}</li>
+            <li>{{ pet.petDescriptions.join(", ") }}</li>
           </ul>
         </div>
       </div>

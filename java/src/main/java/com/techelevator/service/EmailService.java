@@ -28,7 +28,7 @@ public class EmailService {
             "Your application is under review for approval, and we'll " +
             "let you know soon!\n\n" +
             "Applicant Details Below\n\n";
-    private final String LINK_TO_CHANGE_PASSWORD = "localhost:5173/update-password";
+    private final String LINK_TO_CHANGE_PASSWORD = "http://localhost:5173/update-password";
     private final String LOGIN_INSTRUCTIONS_SUBJECT = "Congratulations! You've Been Approved!";
     private final String LOGIN_INSTRUCTIONS_TEXT = "<p>We have wonderful news!</p>" +
             "<p>Your application has been approved! You can now change your password " +
@@ -91,7 +91,7 @@ public class EmailService {
         message.setFrom(APP_EMAIL);
         message.setTo(volunteer.getEmail());
         message.setSubject(UNDER_REVIEW_SUBJECT);
-        message.setText(DECLINED_TEXT + volunteer.toString());
+        message.setText(UNDER_REVIEW_TEXT + volunteer.toString());
         mailSender.send(message);
     }
 

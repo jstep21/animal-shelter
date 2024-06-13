@@ -109,7 +109,6 @@ export default {
 
            console.log("POSTed, in .then(), response status is: " + response.status);//////
            if (response.status >= 200 && response.status < 300) {
-            alert("Application sent succesfully!")
             // console.log("should redirect now... response: ", response);//////
             alert("You successfully applied to become a volunteer!");  
             this.$router.push({ name: "home" });

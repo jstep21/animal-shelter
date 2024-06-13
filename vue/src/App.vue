@@ -65,13 +65,27 @@
 
   
     <router-view />
+
+   
       <div v-if="isAdmin" class="admin-and-volunteer-section">
+
+        <v-btn id="volunteer-list-button">
+          <router-link id="footer-volunteer-list-link" :to="{ name: 'volunteer-list' }">
+            Volunteer Directory
+          </router-link>
+        </v-btn>
+
         <v-btn id="review-volunteers-button">
           <router-link id="footer-approve-link" :to="{ name: 'approve' }">
             Review Volunteer Applications
           </router-link>
         </v-btn>
+     
+        
+
       </div>
+
+
     <div class="footer">
 
       <div class="footer-left-side"> 
@@ -262,19 +276,41 @@ export default {
   margin-top: 100px;
   font-size: large;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: space-between;
   /* border-top: solid 2px; */
   border-color: gray;
 }
+
+.admin-and-volunteer-section > #volunteer-list-button {
+  /* justify-items: right; */
+}
+#volunteer-list-button {
+  border-radius: 10px;
+  color: black;
+  padding: 5px 10px 5px 10px;
+  background-color: lightgray;
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+#volunteer-list-button:hover {
+  border-style: solid;
+  border-width: 1px;
+  border-color: darkgray;
+  box-shadow: 3px 3px darkgray;
+}
+
 .admin-and-volunteer-section > #review-volunteers-button {
-  justify-items: right;
+  /* justify-items: right; */
 }
 #review-volunteers-button {
   border-radius: 10px;
   color: black;
   padding: 5px 10px 5px 10px;
   background-color: lightgray;
-  margin-left: auto;
+  margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -286,6 +322,9 @@ export default {
   border-color: darkgray;
   box-shadow: 3px 3px darkgray;
 }
+
+
+
 a,
 a:visited {
   text-decoration: none;
