@@ -50,7 +50,15 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            if (this.user.password === "password") {
+              // passing the username to the update-password route with a query parameter
+              this.$router.push({
+                path: "/update-password",
+                query: { username: this.user.username }
+              });
+            } else {
+              this.$router.push("/");
+            }
           }
         })
         .catch(error => {

@@ -3,15 +3,6 @@
       <h1>Update Password</h1>
       <form @submit.prevent="updatePassword">
         <div class="form-group">
-          <label for="username">Email/Username</label>
-          <input
-            type="username"
-            id="username"
-            v-model="user.username"
-            required      
-          />
-        </div>
-        <div class="form-group">
           <label for="new-password">New Password</label>
           <input
             type="password"
@@ -50,6 +41,12 @@ export default {
       }
     };
   },
+
+  created () {
+    // assigning query parameter to the user object in this view
+    this.user.username = this.$route.query.username;
+  },
+
   methods: {
     updatePassword() {
       if (this.newPassword !== this.confirmPassword) {
