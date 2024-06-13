@@ -28,6 +28,9 @@
           <th id="header-about-link">About</th>
           <th id="header-contact-link">Contact Us</th>
 
+          <th id="header-contact-link-short">Contact</th>
+
+
           <th 
             id="header-add-pet" 
             v-if="$store.state.token != '' "
@@ -35,6 +38,16 @@
             <router-link
               to="/add-pet"
               >Add a New Pet
+            </router-link> 
+          </th>
+
+          <th 
+            id="header-add-pet-short" 
+            v-if="$store.state.token != '' "
+            >
+            <router-link
+              to="/add-pet"
+              >Add Pet
             </router-link> 
           </th>
 
@@ -153,6 +166,51 @@ export default {
 .header {
   width: 100%;
   font-size: large;
+}
+
+#header-add-pet-short {
+  display: none;
+}
+
+#header-contact-link-short {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  #home-left {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .header {
+    font-size: 14px;
+  }
+  #header-add-pet {
+    display: none;
+  }
+  #header-add-pet-short {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+
+  #header-contact-link {
+    display: none;
+  }
+  #header-contact-link-short {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+  tr #header-about-link {
+    margin-right: 30px;
+  }
+  tr #home-right {
+    margin-right: 30px;
+  }
+
 }
 
 #home-left {

@@ -91,18 +91,20 @@ export default {
     };
   },
   methods: {
-    apply() {
+    async apply() {
       const options = {
         headers: {
           'Content-Type': 'application/json',
           'Accept' : 'application/json'
         }
       }
+
       // console.log("in apply() method...");//////
 
       // this.volunteer.approvalStatus = 'Pending';
 
-      // console.log("VOLUNTEER: " + this.volunteer);
+      // console.log("VOLUNTEER: " + this.volunteer)
+
       volunteerService
         .postVolunteer(this.volunteer, options)
         .then((response) => { 

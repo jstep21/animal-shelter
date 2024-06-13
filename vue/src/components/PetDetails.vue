@@ -35,11 +35,11 @@
           </ul>
         </div>
       </div>
-      <div id="update-button">
+      <!-- <div id="update-button">
       <button id="update" v-if="$store.state.token != ''">
             <router-link id="update-pet" v-bind:to="{name: 'update-pet'}"> Update Pet Info </router-link>
       </button>
-    </div>
+    </div> -->
     </div>
 
 </template>
@@ -58,17 +58,16 @@ export default {
     }
   },
 
-  created() {
-    this.fetchPetImages(this.pet.petId)
-  },
+  // created() {
+  //   this.fetchPetImages(this.pet.petId)
+  // },
 
   mounted() {
-    this.adjustContainerHeight();
-    window.addEventListener('resize', this.adjustContainerHeight);
+    this.fetchPetImages(this.pet.petId)
   },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.adjustContainerHeight)
-  },
+  // beforeUnmount() {
+  //   window.removeEventListener('resize', this.adjustContainerHeight)
+  // },
 
   methods: {
     fetchPetImages(petId) {
