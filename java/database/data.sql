@@ -1,13 +1,13 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$10$S.pnNiD7oQYkjxvdHKtPHOGeyHhYx7hnHPcKduxPDqgAl8fOi15G2','ROLE_USER'); -- password is: 123456
+INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$10$S.pnNiD7oQYkjxvdHKtPHOGeyHhYx7hnHPcKduxPDqgAl8fOi15G2','ROLE_ADMIN');
 -- The password for this test user is just 'password'
 INSERT INTO users (username, password_hash, role) VALUES ('jake-test', '$2a$10$fPgME8wUQW1P1UYGiK2K.OIMK7bUBcbkEyuw81OIFPY94Drlomqxu', 'ROLE_USER');
-INSERT INTO users (username, password_hash, role) VALUES ('jeremy-test', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER'); -- password is: password
-INSERT INTO users (username, password_hash, role) VALUES ('koi-test', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER'); -- password is: password
-INSERT INTO users (username, password_hash, role) VALUES ('maria-test', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER'); -- password is: password
-INSERT INTO users (username, password_hash, role) VALUES ('jeremy-test-admin', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_ADMIN'); -- password is: password
+INSERT INTO users (username, password_hash, role) VALUES ('jeremy-test', '$2a$10$S.pnNiD7oQYkjxvdHKtPHOGeyHhYx7hnHPcKduxPDqgAl8fOi15G2', 'ROLE_USER'); -- password is: 123456
+INSERT INTO users (username, password_hash, role) VALUES ('koi-test', '$2a$10$S.pnNiD7oQYkjxvdHKtPHOGeyHhYx7hnHPcKduxPDqgAl8fOi15G2', 'ROLE_USER'); -- password is: 123456
+INSERT INTO users (username, password_hash, role) VALUES ('maria-test', '$2a$10$S.pnNiD7oQYkjxvdHKtPHOGeyHhYx7hnHPcKduxPDqgAl8fOi15G2', 'ROLE_USER'); -- password is: 123456
+INSERT INTO users (username, password_hash, role) VALUES ('jeremy-test-admin', '$2a$10$S.pnNiD7oQYkjxvdHKtPHOGeyHhYx7hnHPcKduxPDqgAl8fOi15G2', 'ROLE_ADMIN'); -- password is: 123456
 
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Queso', 'Cat', 'Maine Coon', '15', 'Female', '5', true); -- Pet ID: 1001
 INSERT INTO pets (name, species, breed, weight, gender, age, spayed_neutered) VALUES ('Winston Fetchill', 'Dog', 'Great Dane', '160', 'Male', '2', true);
