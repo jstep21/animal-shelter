@@ -24,10 +24,17 @@ export default {
       imageData: []
     }
   },
-
-  created() {
-    this.fetchPetImages(this.pet.petId)
+  watch: {
+    pet: {
+      immediate: true,
+      handler(newPet) {
+        if (newPet && newPet.petId) {
+          this.fetchPetImages(newPet.petId)
+        }
+      }
+    }
   },
+
 
   methods: {
     fetchPetImages(petId) {
@@ -37,6 +44,7 @@ export default {
           'Accept' : 'application/json'
         }
       }
+      console.log(petId);
 
       ImageService.retrieveImages(petId, headers).then(
         (response) => {

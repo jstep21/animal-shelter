@@ -1,15 +1,22 @@
 <template>
     <div class="pet-details-card">
       <div id="pet-details-image" ref='petDetailsImage'>
-        <v-carousel v-model='activeIndex' show-arrows='hover'>
+        <v-carousel v-model='activeIndex' show-arrows='hover' >
           <v-carousel-item 
             v-for="(image, index) in imageData" :key="index" 
             :style="{ height: containerHeight + 'px' }"
             :src="image"
+            class='pet-image'
           >
-            <!-- <img :src="image" alt="Pet Image" class="pet-image" @load='adjustContainerHeight' /> -->
           </v-carousel-item>
         </v-carousel>
+        <!-- <div v-else class='single-image'>
+          <img 
+            :src="imageData[0]"
+            :style="{ height: containerHeight + 'px' }"
+            alt="Pet Image" class="pet-image" @load='adjustContainerHeight' />
+        </div> -->
+
       </div>
       <div id="pet-details">
         <div class="pet-details-info-box" v-if="pet">
@@ -150,10 +157,11 @@ export default {
   background-color: white;
 }
 
+
 .pet-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
 .info-box {
@@ -177,6 +185,12 @@ export default {
   padding: 0;
   margin: 0;
   text-align: center;
+}
+
+.single-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .info-box li {
