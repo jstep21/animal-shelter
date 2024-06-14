@@ -1,6 +1,8 @@
 <template>
     <div class="pet-details-card">
       <div id="pet-details-image" ref='petDetailsImage'>
+        <v-container>
+        <v-responsive mx-auto>
         <v-carousel v-model='activeIndex' show-arrows='hover' >
           <v-carousel-item 
             v-for="(image, index) in imageData" :key="index" 
@@ -10,6 +12,8 @@
           >
           </v-carousel-item>
         </v-carousel>
+      </v-responsive>
+    </v-container>
         <!-- <div v-else class='single-image'>
           <img 
             :src="imageData[0]"

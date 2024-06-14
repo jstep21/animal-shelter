@@ -36,9 +36,9 @@
         
         <!-- :items="petDescriptions"
           v-model='newPetDescriptions.descriptions' -->
-        <v-combobox
+        <v-textarea
           label="Why do you want to volunteer?"
-        ></v-combobox>
+        ></v-textarea>
 
         <v-btn color="rgb(43, 98, 134)" class="mt-2" type="submit" block>Submit</v-btn>
       </v-form>

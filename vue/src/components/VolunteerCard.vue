@@ -15,7 +15,7 @@
 </v-container>
 </template> -->
 
-<template>
+  <template>
     <div class="volunteer-card">
       <table id="volunteer-info">
         <thead id="volunteer-head">

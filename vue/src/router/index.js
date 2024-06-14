@@ -17,8 +17,6 @@ import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 import UpdatePetView from '../views/UpdatePetView.vue'
 import TermsOfServiceView from '../views/TermsOfServiceView.vue'
 
-// for testing:
-import Carousel from '../components/Carousel.vue'; //
 // import PetTableTest from '../components/PetTableTest.vue'; //
 // import PetDetails from '../components/PetDetails.vue'; //
 
@@ -99,14 +97,6 @@ const routes = [
     path: "/approve",
     name: "approve",
     component: ApproveView,
-    meta: {
-      requiresAuth: false
-    }
-  },
-  {
-    path: "/test",
-    name: "test",
-    component: Carousel,
     meta: {
       requiresAuth: false
     }
