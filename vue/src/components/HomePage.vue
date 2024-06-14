@@ -150,7 +150,7 @@ export default {
 }
 
 #secondary-title {
-  font-size: xx-large;
+  font-size: x-large;
   margin-top: 50px;
 }
 
