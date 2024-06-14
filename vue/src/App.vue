@@ -25,7 +25,13 @@
             </router-link>
           </th>
 
-          <th id="header-about-link">About</th>
+          <th id="about-right">
+            <router-link 
+              id="header-about-link"
+              v-bind:to="{ name: 'about' }">About 
+            </router-link>
+          </th>
+
           <th id="header-contact-link">Contact Us</th>
 
           <th id="header-contact-link-short">Contact</th>
@@ -234,7 +240,7 @@ export default {
   text-decoration: none;
 }
 
-#header-about-link {
+#about-right {
   margin-top: 10px;
   margin-right: 50px;
 }

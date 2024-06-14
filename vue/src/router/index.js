@@ -16,6 +16,7 @@ import UpdatePasswordView from '../views/UpdatePasswordView.vue';
 import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
 import UpdatePetView from '../views/UpdatePetView.vue'
 import TermsOfServiceView from '../views/TermsOfServiceView.vue'
+import AboutView from '../views/AboutView.vue'
 
 // import PetTableTest from '../components/PetTableTest.vue'; //
 // import PetDetails from '../components/PetDetails.vue'; //
@@ -137,6 +138,14 @@ const routes = [
     path: "/terms-of-service",
     name: "terms-of-service",
     component: TermsOfServiceView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: AboutView,
     meta: {
       requiresAuth: false
     }
