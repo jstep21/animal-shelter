@@ -63,6 +63,7 @@
                 engineer, with a keen eye for detail in both frontend and backend disciplines.
 
             </p>            
+            <br>
             <a href="https://www.linkedin.com/in/jacobstephenss/"> LinkedIn: Jacob Stephens</a>
         </div>
 
@@ -90,6 +91,10 @@ img {
 
 .name {
     font-weight: 700;
+}
+
+a {
+    color: darkred;
 }
 
 </style>
