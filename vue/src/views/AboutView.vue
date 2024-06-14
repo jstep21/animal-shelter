@@ -61,6 +61,8 @@
             <p class="description"> 
                 Jake leaves a career in medical billing to level up as a talented full stack 
                 engineer, with a keen eye for detail in both frontend and backend disciplines.
+                You can find him hiking, surfing, and gaming in his spare time, as well as 
+                playing guitar with the same deft skill he uses to whisper to code. 
 
             </p>            
             <br>
