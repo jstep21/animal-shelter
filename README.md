@@ -1,6 +1,6 @@
 # Animal Shelter Website
 
-### Introduction
+## Introduction
 
 This website is for a made up animal shelter that was created by me and 3 other developers. A normal user is able to browse all of the pets in our database as well as sign up to become a volunteer for the shelter.
 
